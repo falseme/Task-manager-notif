@@ -1,6 +1,10 @@
 package ui;
 
+import java.util.List;
+
 import javax.swing.JPanel;
+
+import task.*;
 
 import ui.layout.WeekListLayout;
 
@@ -20,8 +24,22 @@ public class WeekPanel extends JPanel {
   weekList = new TaskList[7];
   for (int i = 0; i < weekList.length; i++) {
 
-   weekList[i] = new TaskList(days[i], bs[i]);
+   weekList[i] = new TaskList(days[i], bs[i], i);
    add(weekList[i]);
+
+  }
+
+ }
+
+ public void updateTasks(int dayOfWeek) {
+
+  List<Task> tasks = TaskManager.getTaskList(dayOfWeek);
+  // int n = tasks.size() - weekList[dayOfWeek].getListLength();
+  int n = weekList[dayOfWeek].getListLength();
+
+  for(int i=n; i<tasks.size(); i++){
+
+   weekList[dayOfWeek].addTask(tasks.get(i));
 
   }
 

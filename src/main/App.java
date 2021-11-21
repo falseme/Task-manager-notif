@@ -1,6 +1,7 @@
 package main;
 
 import ui.Window;
+import task.TaskManager;
 
 public class App {
 
@@ -10,6 +11,8 @@ public class App {
 
   window = new Window();
   window.setVisible(true);
+
+  TaskManager.init(window);
 
  }
 

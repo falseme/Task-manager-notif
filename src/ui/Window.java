@@ -2,15 +2,19 @@ package ui;
 
 import javax.swing.JFrame;
 
+import task.TaskManager;
+
 public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
+
+ private WeekPanel weekPanel;
 
  public Window() {
 
   setInitParams();
 
-  WeekPanel panel = new WeekPanel();
-  add(panel);
+  weekPanel = new WeekPanel();
+  add(weekPanel);
 
  }
 
@@ -22,6 +26,12 @@ public class Window extends JFrame {
   // setResizable(false);
 
   setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+ }
+
+ public void updateTasks(int dayOfWeek) {
+
+  weekPanel.updateTasks(dayOfWeek);
 
  }
 
