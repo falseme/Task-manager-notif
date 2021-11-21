@@ -46,6 +46,7 @@ public class TaskList extends JComponent {
   add(task);
   listLength++;
   getLayout().layoutContainer(this);
+  task.getLayout().layoutContainer(task);
 
  }
 

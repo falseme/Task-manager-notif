@@ -1,10 +1,13 @@
 package task;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Calendar;
-import java.awt.Color;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+
+import ui.layout.TaskLayout;
 
 /**
  * Task
@@ -24,13 +27,22 @@ public class Task extends JComponent {
   this.notifWsp = notifWsp;
   this.notifMail = notifMail;
 
+  setLayout(new TaskLayout());
+
+  add(new JLabel("  " + title, JLabel.LEFT));
+  add(new JLabel(date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE) + "  ", JLabel.RIGHT));
+
  }
 
  public void paintComponent(Graphics g) {
 
-  g.setColor(Color.CYAN);
   int arc = 10;
-  g.drawRoundRect(0, 0, getWidth(), getHeight(), arc, arc);
+
+  g.setColor(Color.GRAY);
+  g.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
+
+  g.setColor(Color.CYAN);
+  g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
 
  }
 
