@@ -3,6 +3,8 @@ package task;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import list.TaskComparator;
+
 import ui.Window;
 
 /**
@@ -50,6 +52,10 @@ public class TaskManager {
   window.updateTasks(dayToInt.get(dayName));
 
   System.out.println(task.toString());
+
+  taskList.get(dayName).sort(new TaskComparator<Task>());
+
+  System.out.println(taskList.get(dayName));
 
  }
 
