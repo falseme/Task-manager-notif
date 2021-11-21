@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 import javax.swing.JLabel;
 
-import task.*;
+import task.TaskCreator;
 
 public class Label extends JLabel {
  private static final long serialVersionUID = 42l;
@@ -21,8 +21,7 @@ public class Label extends JLabel {
 
    public void mouseClicked(MouseEvent e) {
 
-    Task task = new Task("Tarea", Calendar.getInstance(), false, false);
-    TaskManager.addTask(task, TaskManager.dayList[order]);
+    new TaskCreator(text, order);
 
    }
 

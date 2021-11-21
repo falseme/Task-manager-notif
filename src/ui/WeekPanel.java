@@ -16,7 +16,7 @@ public class WeekPanel extends JPanel {
 
  public WeekPanel() {
 
-  days = new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+  days = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
   setLayout(new WeekListLayout());
 

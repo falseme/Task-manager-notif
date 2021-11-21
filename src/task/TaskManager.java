@@ -21,7 +21,7 @@ public class TaskManager {
 
   window = userWindow;
 
-  dayList = new String[] { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" };
+  dayList = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
   dayToInt = new HashMap<String, Integer>();
   dayToInt.put(dayList[0], 0);
@@ -48,6 +48,8 @@ public class TaskManager {
   taskList.get(dayName).add(task);
 
   window.updateTasks(dayToInt.get(dayName));
+
+  System.out.println(task.toString());
 
  }
 
