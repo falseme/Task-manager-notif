@@ -48,13 +48,16 @@ public class TaskList extends JComponent {
 
   // long init = System.nanoTime();
 
-  add(task);
-  listLength++;
+  if (task != null) {
+   add(task);
+   listLength++;
+  }
 
   layout.sort(this);
-
   layout.layoutContainer(this);
-  task.getLayout().layoutContainer(task);
+
+  if (task != null)
+   task.getLayout().layoutContainer(task);
 
   // long end = System.nanoTime();
   // double delta = end - init;

@@ -3,6 +3,7 @@ package ui;
 import javax.swing.JFrame;
 
 import task.TaskManager;
+import task.Task;
 
 public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
@@ -32,6 +33,12 @@ public class Window extends JFrame {
  public void updateTasks(int dayOfWeek) {
 
   weekPanel.updateTasks(dayOfWeek);
+
+ }
+
+ public void updateTask(int dayOfWeek, Task task) {
+
+  weekPanel.updateTask(dayOfWeek, task);
 
  }
 

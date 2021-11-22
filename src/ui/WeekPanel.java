@@ -37,11 +37,24 @@ public class WeekPanel extends JPanel {
   // int n = tasks.size() - weekList[dayOfWeek].getListLength();
   int n = weekList[dayOfWeek].getListLength();
 
-  for(int i=n; i<tasks.size(); i++){
+  if (n >= tasks.size()) {
+
+   weekList[dayOfWeek].addTask(null);
+   return;
+
+  }
+
+  for (int i = n; i < tasks.size(); i++) {
 
    weekList[dayOfWeek].addTask(tasks.get(i));
 
   }
+
+ }
+
+ public void updateTask(int dayOfWeek, Task task) {
+
+  weekList[dayOfWeek].removeTask(task);
 
  }
 
