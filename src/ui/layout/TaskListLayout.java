@@ -1,6 +1,11 @@
 package ui.layout;
 
 import java.awt.Container;
+import java.util.LinkedList;
+
+import list.TaskComparator;
+
+import task.Task;
 
 public class TaskListLayout extends LayoutAdapter {
 
@@ -20,6 +25,33 @@ public class TaskListLayout extends LayoutAdapter {
 
    c.getComponent(i).setBounds(x, y, w, size);
    y += size + gap;
+
+  }
+
+ }
+
+ public void sort(Container c) {
+
+  LinkedList<Task> tasks = new LinkedList<Task>();
+
+  for (int i = 1; i < c.getComponentCount(); i++) {
+
+   Task task = (Task) c.getComponent(i);
+   tasks.add(task);
+
+  }
+
+  for (int i=0; i<c.getComponentCount(); i++) {
+
+   c.remove(c.getComponent(1));
+
+  }
+
+  tasks.sort(new TaskComparator<Task>());
+
+  while (!tasks.isEmpty()) {
+
+   c.add(tasks.poll());
 
   }
 

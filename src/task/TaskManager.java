@@ -51,11 +51,7 @@ public class TaskManager {
 
   window.updateTasks(dayToInt.get(dayName));
 
-  System.out.println(task.toString());
-
   taskList.get(dayName).sort(new TaskComparator<Task>());
-
-  System.out.println(taskList.get(dayName));
 
  }
 

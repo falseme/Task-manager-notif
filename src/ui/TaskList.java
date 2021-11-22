@@ -18,9 +18,12 @@ public class TaskList extends JComponent {
 
  private int listLength = 0;
 
+ private TaskListLayout layout;
+
  public TaskList(String dayName, boolean drawBorder, int order) {
 
-  setLayout(new TaskListLayout());
+  layout = new TaskListLayout();
+  setLayout(layout);
 
   dayLabel = new Label(dayName, Label.CENTER, order);
   add(dayLabel);
@@ -45,7 +48,10 @@ public class TaskList extends JComponent {
 
   add(task);
   listLength++;
-  getLayout().layoutContainer(this);
+
+  layout.sort(this);
+
+  layout.layoutContainer(this);
   task.getLayout().layoutContainer(task);
 
  }
@@ -54,7 +60,7 @@ public class TaskList extends JComponent {
 
   remove(task);
   listLength--;
-  getLayout().layoutContainer(this);
+  layout.layoutContainer(this);
 
  }
 
