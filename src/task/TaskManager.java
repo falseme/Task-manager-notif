@@ -54,7 +54,7 @@ public class TaskManager {
 
    public void run() {
 
-    Timer timer = new Timer(10000, new ActionListener() {
+    Timer timer = new Timer(5000, new ActionListener() {
 
      public void actionPerformed(ActionEvent e) {
 

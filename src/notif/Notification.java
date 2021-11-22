@@ -1,5 +1,7 @@
 package notif;
 
+import java.util.ArrayList;
+
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
@@ -10,6 +12,10 @@ import task.Task;
  */
 public class Notification extends JDialog implements Runnable {
  private static final long serialVersionUID = 42l;
+
+ private static int YPOS = 0;
+
+ private static ArrayList<Notification> notifList = new ArrayList<Notification>();
 
  public Notification(Task task) {
 
@@ -41,7 +47,7 @@ public class Notification extends JDialog implements Runnable {
 
   // moving downwards
 
-  while (getLocation().y < 0) {
+  while (getLocation().y < YPOS) {
 
    setLocation(0, getLocation().y + 1);
 
@@ -52,6 +58,9 @@ public class Notification extends JDialog implements Runnable {
    }
 
   }
+
+  YPOS += getHeight();
+  notifList.add(this);
 
   // waiting and letting the user read
 
@@ -65,7 +74,13 @@ public class Notification extends JDialog implements Runnable {
 
   while (getLocation().y > -getHeight()) {
 
-   setLocation(0, getLocation().y - 1);
+   for (int i = 0; i < notifList.size(); i++) {
+
+    notifList.get(i).setLocation(0, notifList.get(i).getLocation().y - 1);
+
+   }
+
+   YPOS--;
 
    try {
     Thread.sleep(10);
