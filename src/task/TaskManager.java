@@ -10,6 +10,8 @@ import javax.swing.Timer;
 
 import list.TaskComparator;
 
+import notif.Notification;
+
 import ui.Window;
 
 /**
@@ -77,6 +79,8 @@ public class TaskManager {
         userWindow.updateTask(calendar.get(Calendar.DAY_OF_WEEK) - 1, task);
 
        }
+
+       new Notification(task);
 
       }
 

@@ -53,7 +53,6 @@ public class Task extends JComponent {
  public void passWeek() {
 
   date.add(Calendar.DAY_OF_MONTH, 7);
-  System.out.println(date);
 
  }
 
