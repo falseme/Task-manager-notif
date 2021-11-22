@@ -18,9 +18,12 @@ public class TaskList extends JComponent {
 
  private int listLength = 0;
 
+ private TaskListLayout layout;
+
  public TaskList(String dayName, boolean drawBorder, int order) {
 
-  setLayout(new TaskListLayout());
+  layout = new TaskListLayout();
+  setLayout(layout);
 
   dayLabel = new Label(dayName, Label.CENTER, order);
   add(dayLabel);
@@ -43,10 +46,23 @@ public class TaskList extends JComponent {
 
  public void addTask(Task task) {
 
-  add(task);
-  listLength++;
-  getLayout().layoutContainer(this);
-  task.getLayout().layoutContainer(task);
+  // long init = System.nanoTime();
+
+  if (task != null) {
+   add(task);
+   listLength++;
+  }
+
+  layout.sort(this);
+  layout.layoutContainer(this);
+
+  if (task != null)
+   task.getLayout().layoutContainer(task);
+
+  // long end = System.nanoTime();
+  // double delta = end - init;
+  // delta /= 1000000000;
+  // System.out.println("1. segs:" + delta);
 
  }
 
@@ -54,7 +70,7 @@ public class TaskList extends JComponent {
 
   remove(task);
   listLength--;
-  getLayout().layoutContainer(this);
+  layout.layoutContainer(this);
 
  }
 

@@ -1,7 +1,16 @@
 package task;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import javax.swing.Timer;
+
+import list.TaskComparator;
+
+import notif.Notification;
 
 import ui.Window;
 
@@ -41,21 +50,80 @@ public class TaskManager {
   taskList.put(dayList[5], new LinkedList<Task>());
   taskList.put(dayList[6], new LinkedList<Task>());
 
+  Thread thread = new Thread(new Runnable() {
+
+   public void run() {
+
+    Timer timer = new Timer(5000, new ActionListener() {
+
+     public void actionPerformed(ActionEvent e) {
+
+      Calendar calendar = Calendar.getInstance();
+      String today = dayList[calendar.get(Calendar.DAY_OF_WEEK) - 1];
+
+      if (taskList.get(today).isEmpty())
+       return;
+
+      Task task = taskList.get(today).peek();
+      if (task.getDate().before(calendar)) {
+
+       if (task.repeat()) {
+
+        taskList.get(today).peek().passWeek();
+        sort(today);
+        userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1);
+
+       } else {
+
+        taskList.get(today).poll();
+        userWindow.updateTask(calendar.get(Calendar.DAY_OF_WEEK) - 1, task);
+
+       }
+
+       new Notification(task);
+
+      }
+
+     }
+
+    });
+
+    timer.start();
+
+   }
+
+  }, "Task Management");
+
+  thread.start();
+
  }
 
  public static void addTask(Task task, String dayName) {
+
+  // long init = System.nanoTime();
 
   taskList.get(dayName).add(task);
 
   window.updateTasks(dayToInt.get(dayName));
 
-  System.out.println(task.toString());
+  sort(dayName);
+
+  // long end = System.nanoTime();
+  // double delta = end - init;
+  // delta /= 1000000000;
+  // System.out.println("2. segs:" + delta);
 
  }
 
  public static LinkedList<Task> getTaskList(int dayOfWeek) {
 
   return taskList.get(dayList[dayOfWeek]);
+
+ }
+
+ private static void sort(String dayName) {
+
+  taskList.get(dayName).sort(new TaskComparator<Task>());
 
  }
 

@@ -20,12 +20,16 @@ public class Task extends JComponent {
  private boolean notifWsp;
  private boolean notifMail;
 
- public Task(String title, Calendar date, boolean notifWsp, boolean notifMail) {
+ private boolean repeat;
+
+ public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat) {
 
   this.title = title;
   this.date = date;
   this.notifWsp = notifWsp;
   this.notifMail = notifMail;
+
+  this.repeat = repeat;
 
   setLayout(new TaskLayout());
 
@@ -46,6 +50,12 @@ public class Task extends JComponent {
 
  }
 
+ public void passWeek() {
+
+  date.add(Calendar.DAY_OF_MONTH, 7);
+
+ }
+
  public String getTitle() {
   return title;
  }
@@ -60,6 +70,10 @@ public class Task extends JComponent {
 
  public boolean notifMail() {
   return notifMail;
+ }
+
+ public boolean repeat() {
+  return repeat;
  }
 
  public String toString() {

@@ -21,7 +21,7 @@ public class TaskCreator extends JDialog {
  private JComboBox<String> days;
  private JComboBox<Integer> hours, minutes;
  private JTextField title;
- private JCheckBox wspCheck, mailCheck;
+ private JCheckBox wspCheck, mailCheck, repeatCheck;
 
  public TaskCreator(String day, int order) {
 
@@ -118,10 +118,14 @@ public class TaskCreator extends JDialog {
   mailCheck.setBounds(x, 270, w, 20);
   add(mailCheck);
 
+  repeatCheck = new JCheckBox("Repeat", true);
+  repeatCheck.setBounds(x, 290, w, 20);
+  add(repeatCheck);
+
   // sumbit
 
   JButton submit = new JButton("Create");
-  submit.setBounds(x, 310, w, 30);
+  submit.setBounds(x, 340, w, 30);
   add(submit);
   submit.addActionListener(submitListener(order));
 
@@ -146,9 +150,11 @@ public class TaskCreator extends JDialog {
     }
 
     calendar.set(Calendar.HOUR_OF_DAY, (int) hours.getSelectedItem());
-    calendar.set(Calendar.MINUTE, (int) hours.getSelectedItem());
+    calendar.set(Calendar.MINUTE, (int) minutes.getSelectedItem());
+    calendar.set(Calendar.SECOND, 0);
 
-    Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected());
+    Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(),
+      repeatCheck.isSelected());
     TaskManager.addTask(task, (String) days.getSelectedItem());
 
     // System.out.println(days.getSelectedItem());
