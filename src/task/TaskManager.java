@@ -47,11 +47,18 @@ public class TaskManager {
 
  public static void addTask(Task task, String dayName) {
 
+  // long init = System.nanoTime();
+
   taskList.get(dayName).add(task);
 
   window.updateTasks(dayToInt.get(dayName));
 
   taskList.get(dayName).sort(new TaskComparator<Task>());
+
+  // long end = System.nanoTime();
+  // double delta = end - init;
+  // delta /= 1000000000;
+  // System.out.println("2. segs:" + delta);
 
  }
 

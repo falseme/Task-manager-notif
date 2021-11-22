@@ -46,6 +46,8 @@ public class TaskList extends JComponent {
 
  public void addTask(Task task) {
 
+  // long init = System.nanoTime();
+
   add(task);
   listLength++;
 
@@ -53,6 +55,11 @@ public class TaskList extends JComponent {
 
   layout.layoutContainer(this);
   task.getLayout().layoutContainer(task);
+
+  // long end = System.nanoTime();
+  // double delta = end - init;
+  // delta /= 1000000000;
+  // System.out.println("1. segs:" + delta);
 
  }
 
