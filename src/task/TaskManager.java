@@ -8,6 +8,8 @@ import java.util.LinkedList;
 
 import javax.swing.Timer;
 
+import lang.Dictionary;
+
 import list.TaskComparator;
 
 import notif.Notification;
@@ -30,7 +32,9 @@ public class TaskManager {
 
   window = userWindow;
 
-  dayList = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+  dayList = new String[] { Dictionary.get(Dictionary.day1), Dictionary.get(Dictionary.day2),
+    Dictionary.get(Dictionary.day3), Dictionary.get(Dictionary.day4), Dictionary.get(Dictionary.day5),
+    Dictionary.get(Dictionary.day6), Dictionary.get(Dictionary.day7) };
 
   dayToInt = new HashMap<String, Integer>();
   dayToInt.put(dayList[0], 0);

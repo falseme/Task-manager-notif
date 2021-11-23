@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import lang.Dictionary;
+
 import task.*;
 
 import ui.layout.WeekListLayout;
@@ -16,7 +18,9 @@ public class WeekPanel extends JPanel {
 
  public WeekPanel() {
 
-  days = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+  days = new String[] { Dictionary.get(Dictionary.day1), Dictionary.get(Dictionary.day2),
+    Dictionary.get(Dictionary.day3), Dictionary.get(Dictionary.day4), Dictionary.get(Dictionary.day5),
+    Dictionary.get(Dictionary.day6), Dictionary.get(Dictionary.day7) };
 
   setLayout(new WeekListLayout());
 
