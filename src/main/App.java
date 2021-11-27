@@ -1,7 +1,10 @@
 package main;
 
-import ui.Window;
+import lang.Dictionary;
+
 import task.TaskManager;
+
+import ui.Window;
 
 public class App {
 
@@ -9,11 +12,17 @@ public class App {
 
  public static void main(String[] args) {
 
+  Dictionary.init();
+
   window = new Window();
   window.setVisible(true);
 
   TaskManager.init(window);
 
+ }
+
+ public static Window getUserWindow(){
+  return window;
  }
 
 }

@@ -11,6 +11,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import lang.Dictionary;
+
 /**
  * TaskCreator
  */
@@ -28,6 +30,7 @@ public class TaskCreator extends JDialog {
   setSize(300, 400);
   setLocationRelativeTo(null);
   setAlwaysOnTop(true);
+  setResizable(false);
 
   setLayout(null);
 
@@ -55,13 +58,13 @@ public class TaskCreator extends JDialog {
 
   days = new JComboBox<String>();
   days.addItem("-- Select a day --");
-  days.addItem("Sunday");
-  days.addItem("Monday");
-  days.addItem("Tuesday");
-  days.addItem("Wednesday");
-  days.addItem("Thursday");
-  days.addItem("Friday");
-  days.addItem("Saturday");
+  days.addItem(Dictionary.get(Dictionary.day1));
+  days.addItem(Dictionary.get(Dictionary.day2));
+  days.addItem(Dictionary.get(Dictionary.day3));
+  days.addItem(Dictionary.get(Dictionary.day4));
+  days.addItem(Dictionary.get(Dictionary.day5));
+  days.addItem(Dictionary.get(Dictionary.day6));
+  days.addItem(Dictionary.get(Dictionary.day7));
   days.setBounds(x, 80, w, 25);
   if (day != null && !day.isEmpty())
    days.setSelectedItem(day);
@@ -125,7 +128,7 @@ public class TaskCreator extends JDialog {
   // sumbit
 
   JButton submit = new JButton("Create");
-  submit.setBounds(x, 340, w, 30);
+  submit.setBounds(x, 320, w, 30);
   add(submit);
   submit.addActionListener(submitListener(order));
 
