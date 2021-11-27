@@ -4,3 +4,5 @@
 /tasks/
 .git
 plan.png
+*.dat
+*.data
