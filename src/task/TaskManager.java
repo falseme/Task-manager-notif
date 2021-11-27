@@ -12,6 +12,9 @@ import lang.Dictionary;
 
 import list.TaskComparator;
 
+import load.LoadWindow;
+import load.TaskReader;
+
 import notif.Notification;
 
 import ui.Window;
@@ -53,6 +56,14 @@ public class TaskManager {
   taskList.put(dayList[4], new LinkedList<Task>());
   taskList.put(dayList[5], new LinkedList<Task>());
   taskList.put(dayList[6], new LinkedList<Task>());
+
+  // Loading tasks files
+  LoadWindow loadWindow = new LoadWindow("LOADING...");
+  for (int i = 0; i <= 6; i++) {
+   addTasks(TaskReader.read(i), dayList[i]);
+  }
+  loadWindow.dispose();
+  window.repaint();
 
   Thread thread = new Thread(new Runnable() {
 
@@ -96,7 +107,7 @@ public class TaskManager {
 
    }
 
-  }, "Task Management");
+  }, "Task Date Management");
 
   thread.start();
 
@@ -115,7 +126,28 @@ public class TaskManager {
   // long end = System.nanoTime();
   // double delta = end - init;
   // delta /= 1000000000;
-  // System.out.println("2. segs:" + delta);
+  // System.out.println("TaskManager.addTask. segs:" + delta);
+
+ }
+
+ public static void addTasks(Task[] list, String dayName) {
+
+  if (list == null)
+   return;
+
+  // long init = System.nanoTime();
+
+  for (int i = 0; i < list.length; i++) {
+   taskList.get(dayName).add(list[i]);
+  }
+
+  sort(dayName);
+  window.updateTasks(dayToInt.get(dayName));
+
+  // long end2 = System.nanoTime();
+  // double delta = end2 - init;
+  // delta /= 1000000000;
+  // System.out.println("TaskManager.addTasks. segs:" + delta);
 
  }
 
@@ -125,7 +157,28 @@ public class TaskManager {
 
  }
 
+ public static void saveTasks() {
+
+  // long init = System.nanoTime();
+
+  new LoadWindow("SAVING...");
+
+  for (int i = 0; i <= 6; i++)
+   TaskReader.save(getTaskList(i), i);
+
+   // long end3 = System.nanoTime();
+   // double delta = end3 - init;
+   // delta /= 1000000000;
+   // System.out.println("TaskManager.saveTasks. segs:" + delta);
+
+  System.exit(0);
+
+ }
+
  private static void sort(String dayName) {
+
+  if (taskList.get(dayName).isEmpty())
+   return;
 
   taskList.get(dayName).sort(new TaskComparator<Task>());
 

@@ -2,8 +2,6 @@ package main;
 
 import lang.Dictionary;
 
-import task.TaskManager;
-
 import ui.Window;
 
 public class App {

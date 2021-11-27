@@ -1,11 +1,13 @@
 package ui.layout;
 
 import java.awt.Container;
+import java.io.Serializable;
 
 /**
  * TaskLayout
  */
-public class TaskLayout extends LayoutAdapter {
+public class TaskLayout extends LayoutAdapter implements Serializable {
+ private static final long serialVersionUID = 42l;
 
  public void layoutContainer(Container c) {
 

@@ -1,9 +1,11 @@
 package ui;
 
+import event.UserWindowEvent;
+
 import javax.swing.JFrame;
 
-import task.TaskManager;
 import task.Task;
+import task.TaskManager;
 
 public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
@@ -16,6 +18,8 @@ public class Window extends JFrame {
 
   weekPanel = new WeekPanel();
   add(weekPanel);
+
+  addWindowListener(new UserWindowEvent());
 
  }
 
