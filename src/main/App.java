@@ -4,6 +4,8 @@ import lang.Dictionary;
 
 import ui.Window;
 
+import task.TaskManager;
+
 public class App {
 
  private static Window window;
