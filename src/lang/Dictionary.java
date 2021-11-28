@@ -57,8 +57,12 @@ public class Dictionary {
 
  }
 
- public void changeLang(int newlang) {
+ public static void changeLang(int newlang) {
 
+  if (newlang < 0 && newlang > 1)
+   return;
+
+  System.out.println("lang changed");
   selectedLang = newlang;
 
  }
