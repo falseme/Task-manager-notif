@@ -13,21 +13,11 @@ public class UIConfig {
  public static final Font defaultFont = new Font("Dialog", Font.PLAIN, 12);
 
  private static int theme;
- private static Font font;
 
- public static void init(int initTheme, Font initFont) {
+ public static void init(int initTheme) {
 
   theme = initTheme;
-  font = initFont;
 
- }
-
- public static void setFont(Font newFont) {
-  font = newFont;
- }
-
- public static Font getFont() {
-  return font;
  }
 
  public static void setTheme(int newTheme) {

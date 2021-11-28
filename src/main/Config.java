@@ -22,29 +22,26 @@ public class Config implements Serializable {
 
  private int langSelected;
  private int themeSelected;
- private Font fontSelected;
 
  public Config(int lang, int theme, Font font) {
 
   langSelected = lang;
   themeSelected = theme;
-  fontSelected = font;
 
  }
 
  public void setConfiguration() {
 
   Dictionary.changeLang(langSelected);
-  UIConfig.init(themeSelected, fontSelected);
+  UIConfig.init(themeSelected);
 
  }
 
  public void serialize() {
 
-  System.out.println("SERIALIZE");
+  System.out.println("SERIALIZE Config.java");
 
   themeSelected = UIConfig.getTheme();
-  fontSelected = UIConfig.getFont();
 
   try {
 
