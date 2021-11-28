@@ -5,6 +5,8 @@ import java.awt.event.WindowEvent;
 
 import task.TaskManager;
 
+import main.App;
+
 /**
  * UserWindowEvent
  */
@@ -12,7 +14,9 @@ public class UserWindowEvent extends WindowAdapter {
 
  public void windowClosing(WindowEvent e) {
 
-  TaskManager.saveTasks();
+  App.getConfig().serialize();
+
+  TaskManager.saveTasks(); // this method calls 'System.exit(0);'
 
  }
 

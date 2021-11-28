@@ -37,6 +37,8 @@ public class TaskList extends JComponent {
   if (!drawBorder)
    return;
 
+  System.out.println(UIConfig.getTheme());
+
   int gap = 10;
 
   g.setColor(Color.GRAY);

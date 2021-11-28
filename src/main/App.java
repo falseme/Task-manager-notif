@@ -2,9 +2,10 @@ package main;
 
 import lang.Dictionary;
 
-import ui.Window;
-
 import task.TaskManager;
+
+import ui.UIConfig;
+import ui.Window;
 
 public class App {
 
@@ -16,10 +17,8 @@ public class App {
   Dictionary.init();
 
   config = Config.readConfig();
-  if (config == null) {
-   config = new Config(Dictionary.spanishLang);
-   config.serialize();
-  }
+  if (config == null)
+   config = new Config(Dictionary.spanishLang, UIConfig.whiteTheme, UIConfig.defaultFont);
   config.setConfiguration();
 
   window = new Window();
