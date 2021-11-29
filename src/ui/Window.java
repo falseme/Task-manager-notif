@@ -2,6 +2,7 @@ package ui;
 
 import event.UserWindowEvent;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,8 @@ import javax.swing.JMenuItem;
 import task.Task;
 import task.TaskManager;
 
+import ui.layout.WindowLayout;
+
 public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
 
@@ -21,6 +24,8 @@ public class Window extends JFrame {
  public Window() {
 
   setInitParams();
+
+  // add(new WindowBorder(this));
 
   weekPanel = new WeekPanel();
   add(weekPanel);
@@ -37,6 +42,9 @@ public class Window extends JFrame {
   setSize(800, 600);
   setLocationRelativeTo(null);
   // setResizable(false);
+  // setUndecorated(true);
+
+  // setLayout(new WindowLayout());
 
   setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -54,14 +62,25 @@ public class Window extends JFrame {
 
  }
 
+ public void repaintTheme() {
+
+  getJMenuBar().setBackground(UIConfig.getThemeColor("window-border"));
+  getJMenuBar().repaint();
+  weekPanel.repaintTheme();
+
+ }
+
  private JMenuBar createJMenuBar() {
 
   JMenuBar bar = new JMenuBar();
 
   JMenu options = new JMenu("Options");
+  options.setFont(UIConfig.defaultFont);
+  options.setForeground(UIConfig.getThemeColor("week-title"));
   bar.add(options);
 
   JMenu themes = new JMenu("Theme");
+  options.setFont(UIConfig.defaultFont);
   options.add(themes);
 
   JMenuItem whiteTheme = new JMenuItem("White Theme");
@@ -72,6 +91,7 @@ public class Window extends JFrame {
 
    }
   });
+  whiteTheme.setFont(UIConfig.defaultFont);
   themes.add(whiteTheme);
 
   JMenuItem darkTheme = new JMenuItem("Dark Theme");
@@ -82,7 +102,11 @@ public class Window extends JFrame {
 
    }
   });
+  darkTheme.setFont(UIConfig.defaultFont);
   themes.add(darkTheme);
+
+  bar.setBackground(UIConfig.getThemeColor("window-border"));
+  bar.setBorder(null);
 
   return bar;
 

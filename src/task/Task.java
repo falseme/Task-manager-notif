@@ -1,5 +1,7 @@
 package task;
 
+import event.ComponentBackgroundMouseEvent;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Calendar;
@@ -7,6 +9,7 @@ import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
+import ui.UIConfig;
 import ui.layout.TaskLayout;
 
 /**
@@ -33,19 +36,31 @@ public class Task extends JComponent {
 
   setLayout(new TaskLayout());
 
-  add(new JLabel("  " + title, JLabel.LEFT));
-  add(new JLabel(date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE) + "  ", JLabel.RIGHT));
+  JLabel titleLabel = new JLabel("  " + title, JLabel.LEFT);
+  titleLabel.setForeground(UIConfig.getThemeColor("week-title"));
+  add(titleLabel);
+  JLabel dateLabel = new JLabel(date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE) + "  ", JLabel.RIGHT);
+  dateLabel.setForeground(UIConfig.getThemeColor("week-title"));
+  add(dateLabel);
+
+  addMouseListener(new ComponentBackgroundMouseEvent(this));
+
+ }
+
+ public Task(Task otherTask) {
+
+  this(otherTask.title, otherTask.date, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat);
 
  }
 
  public void paintComponent(Graphics g) {
 
-  int arc = 10;
+  int arc = 20;
 
-  g.setColor(Color.GRAY);
+  g.setColor(getBackground());
   g.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
 
-  g.setColor(Color.CYAN);
+  g.setColor(UIConfig.getThemeColor("task-border"));
   g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
 
  }

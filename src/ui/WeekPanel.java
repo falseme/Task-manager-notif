@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Color;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -18,17 +19,18 @@ public class WeekPanel extends JPanel {
 
  public WeekPanel() {
 
+  setBackground(UIConfig.getThemeColor("table-bg"));
+
   days = new String[] { Dictionary.get(Dictionary.day1), Dictionary.get(Dictionary.day2),
     Dictionary.get(Dictionary.day3), Dictionary.get(Dictionary.day4), Dictionary.get(Dictionary.day5),
     Dictionary.get(Dictionary.day6), Dictionary.get(Dictionary.day7) };
 
   setLayout(new WeekListLayout());
 
-  boolean[] bs = new boolean[] { false, true, true, true, true, true, true };
   weekList = new TaskList[7];
   for (int i = 0; i < weekList.length; i++) {
 
-   weekList[i] = new TaskList(days[i], bs[i], i);
+   weekList[i] = new TaskList(days[i], i);
    add(weekList[i]);
 
   }
@@ -59,6 +61,17 @@ public class WeekPanel extends JPanel {
  public void updateTask(int dayOfWeek, Task task) {
 
   weekList[dayOfWeek].removeTask(task);
+
+ }
+
+ public void repaintTheme() {
+
+  setBackground(UIConfig.getThemeColor("table-bg"));
+  repaint();
+
+  for (int i = 0; i < weekList.length; i++) {
+   weekList[i].repaintTheme();
+  }
 
  }
 

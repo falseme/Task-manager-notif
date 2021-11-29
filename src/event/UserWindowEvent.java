@@ -20,4 +20,8 @@ public class UserWindowEvent extends WindowAdapter {
 
  }
 
+ public void windowClosed(WindowEvent e) {
+  windowClosing(e);
+ }
+
 }

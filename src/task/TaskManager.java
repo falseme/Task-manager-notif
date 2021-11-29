@@ -138,7 +138,8 @@ public class TaskManager {
   // long init = System.nanoTime();
 
   for (int i = 0; i < list.length; i++) {
-   taskList.get(dayName).add(list[i]);
+   Task t = new Task(list[i]);
+   taskList.get(dayName).add(t);
   }
 
   sort(dayName);
@@ -166,10 +167,10 @@ public class TaskManager {
   for (int i = 0; i <= 6; i++)
    TaskReader.save(getTaskList(i), i);
 
-   // long end3 = System.nanoTime();
-   // double delta = end3 - init;
-   // delta /= 1000000000;
-   // System.out.println("TaskManager.saveTasks. segs:" + delta);
+  // long end3 = System.nanoTime();
+  // double delta = end3 - init;
+  // delta /= 1000000000;
+  // System.out.println("TaskManager.saveTasks. segs:" + delta);
 
   System.exit(0);
 
