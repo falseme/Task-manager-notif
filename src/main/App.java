@@ -1,5 +1,7 @@
 package main;
 
+import gui.Assets;
+
 import lang.Dictionary;
 
 import task.TaskManager;
@@ -14,6 +16,7 @@ public class App {
 
  public static void main(String[] args) {
 
+  Assets.init();
   Dictionary.init();
 
   config = Config.readConfig();

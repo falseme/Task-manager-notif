@@ -3,6 +3,7 @@ package ui;
 import event.UserWindowEvent;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,19 +21,19 @@ public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
 
  private WeekPanel weekPanel;
+ private WindowBorder border;
+ private MenuBar menubar;
 
  public Window() {
 
   setInitParams();
-
-  // add(new WindowBorder(this));
 
   weekPanel = new WeekPanel();
   add(weekPanel);
 
   addWindowListener(new UserWindowEvent());
 
-  setJMenuBar(createJMenuBar());
+  // setJMenuBar(createJMenuBar());
 
  }
 
@@ -42,9 +43,15 @@ public class Window extends JFrame {
   setSize(800, 600);
   setLocationRelativeTo(null);
   // setResizable(false);
-  // setUndecorated(true);
+  setUndecorated(true);
 
-  // setLayout(new WindowLayout());
+  setLayout(new WindowLayout());
+
+  border = new WindowBorder(this);
+  add(border);
+
+  menubar = new MenuBar();
+  add(menubar);
 
   setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -64,51 +71,85 @@ public class Window extends JFrame {
 
  public void repaintTheme() {
 
-  getJMenuBar().setBackground(UIConfig.getThemeColor("window-border"));
-  getJMenuBar().repaint();
+  menubar.repaintTheme();
   weekPanel.repaintTheme();
+  border.repaintTheme();
 
  }
 
- private JMenuBar createJMenuBar() {
+ private class MenuBar extends JMenuBar {
+  private static final long serialVersionUID = 42l;
 
-  JMenuBar bar = new JMenuBar();
+  private JMenu options;
+  private JMenu themes;
+  private JMenuItem whiteTheme;
+  private JMenuItem darkTheme;
 
-  JMenu options = new JMenu("Options");
-  options.setFont(UIConfig.defaultFont);
-  options.setForeground(UIConfig.getThemeColor("week-title"));
-  bar.add(options);
+  public MenuBar() {
 
-  JMenu themes = new JMenu("Theme");
-  options.setFont(UIConfig.defaultFont);
-  options.add(themes);
+   options = new JMenu("Options");
+   options.setFont(UIConfig.defaultFont);
+   options.setBorder(null);
+   add(options);
 
-  JMenuItem whiteTheme = new JMenuItem("White Theme");
-  whiteTheme.addActionListener(new ActionListener() {
-   public void actionPerformed(ActionEvent e) {
+   themes = new JMenu("Theme");
+   themes.setFont(UIConfig.defaultFont);
+   themes.setBorder(null);
+   options.add(themes);
 
-    UIConfig.setTheme(UIConfig.whiteTheme);
+   whiteTheme = new JMenuItem("White Theme");
+   whiteTheme.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
 
-   }
-  });
-  whiteTheme.setFont(UIConfig.defaultFont);
-  themes.add(whiteTheme);
+     UIConfig.setTheme(UIConfig.whiteTheme);
 
-  JMenuItem darkTheme = new JMenuItem("Dark Theme");
-  darkTheme.addActionListener(new ActionListener() {
-   public void actionPerformed(ActionEvent e) {
+    }
+   });
+   whiteTheme.setFont(UIConfig.defaultFont);
+   whiteTheme.setBorder(null);
+   themes.add(whiteTheme);
 
-    UIConfig.setTheme(UIConfig.darkTheme);
+   darkTheme = new JMenuItem("Dark Theme");
+   darkTheme.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
 
-   }
-  });
-  darkTheme.setFont(UIConfig.defaultFont);
-  themes.add(darkTheme);
+     UIConfig.setTheme(UIConfig.darkTheme);
 
-  bar.setBackground(UIConfig.getThemeColor("window-border"));
-  bar.setBorder(null);
+    }
+   });
+   darkTheme.setFont(UIConfig.defaultFont);
+   darkTheme.setBorder(null);
+   themes.add(darkTheme);
 
-  return bar;
+   setBorder(null);
+
+   repaintTheme();
+
+  }
+
+  public void repaintTheme() {
+
+   options.setForeground(UIConfig.getThemeColor("week-title"));
+   options.setBackground(UIConfig.getThemeColor("window-border"));
+   themes.setForeground(UIConfig.getThemeColor("week-title"));
+   themes.setBackground(UIConfig.getThemeColor("window-border"));
+   whiteTheme.setForeground(UIConfig.getThemeColor("week-title"));
+   whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
+   darkTheme.setForeground(UIConfig.getThemeColor("week-title"));
+   darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
+
+   setForeground(UIConfig.getThemeColor("week-title"));
+   setBackground(UIConfig.getThemeColor("window-border"));
+
+  }
+
+  public void paintComponent(Graphics g) {
+   super.paintComponent(g);
+
+   g.setColor(UIConfig.getThemeColor("task-border"));
+   g.fillRect(0, 0, getWidth(), 2);
+
+  }
 
  }
 

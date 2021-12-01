@@ -1,11 +1,16 @@
 package ui;
 
+import event.WindowBorderEvent;
+
+import gui.Assets;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 /**
  * WindowBorder
@@ -13,10 +18,10 @@ import javax.swing.JComponent;
 public class WindowBorder extends JComponent {
  private static final long serialVersionUID = 42l;
 
- public final Color darkThemeColor = new Color(42, 42, 42);
+ private static final Color exitColor = new Color(1f, 0f, 0f, 0.5f);
+ private static final Color minColor = new Color(0f, 0.5f, 1f, 0.5f);
 
- private static final Color exitColor = Color.RED;
- private static final Color minColor = Color.BLUE;
+ private JLabel title;
 
  private Button exitBtn;
  private Button minBtn;
@@ -27,17 +32,28 @@ public class WindowBorder extends JComponent {
 
   parent = window;
 
+  title = new JLabel(window.getTitle(), JLabel.LEFT);
+
   exitBtn = new Button(Button.EXIT);
   minBtn = new Button(Button.MIN);
 
+  add(title);
   add(exitBtn);
   add(minBtn);
+
+  WindowBorderEvent listener = new WindowBorderEvent(window);
+  addMouseListener(listener);
+  addMouseMotionListener(listener);
+
+  repaintTheme();
 
  }
 
  public void setBounds(int x, int y, int w, int h) {
   super.setBounds(x, y, w, h);
 
+  title.setLocation(10, 0);
+  title.setSize(title.getPreferredSize().width, h);
   exitBtn.setBounds(w - h, 0, h, h);
   minBtn.setBounds(w - h * 2, 0, h, h);
 
@@ -45,8 +61,16 @@ public class WindowBorder extends JComponent {
 
  public void paintComponent(Graphics g) {
 
-  g.setColor(darkThemeColor);
+  g.setColor(UIConfig.getThemeColor("window-border"));
   g.fillRect(0, 0, getWidth(), getHeight());
+
+ }
+
+ public void repaintTheme(){
+
+  title.setForeground(UIConfig.getThemeColor("week-title"));
+
+  repaint();
 
  }
 
@@ -62,6 +86,8 @@ public class WindowBorder extends JComponent {
 
    this.type = type;
 
+   setBackground(new Color(0, 0, 0, 0));
+
    addMouseListener(new MouseListener() {
 
     public void mouseClicked(MouseEvent e) {
@@ -69,15 +95,28 @@ public class WindowBorder extends JComponent {
      if (type == EXIT) {
       parent.dispose();
      } else {
-      parent.setState(0);
+      parent.setState(1);
      }
 
     }
 
     public void mouseEntered(MouseEvent e) {
+
+     if (type == EXIT) {
+      setBackground(exitColor);
+     } else {
+      setBackground(minColor);
+     }
+
+     repaint();
+
     }
 
     public void mouseExited(MouseEvent e) {
+
+     setBackground(new Color(0, 0, 0, 0));
+     repaint();
+
     }
 
     public void mousePressed(MouseEvent e) {
@@ -92,8 +131,13 @@ public class WindowBorder extends JComponent {
 
   protected void paintComponent(Graphics g) {
 
-   g.setColor(type == EXIT ? exitColor : minColor);
+   g.setColor(getBackground());
    g.fillRect(0, 0, getWidth(), getHeight());
+
+   if (type == EXIT)
+    g.drawImage(Assets.ui_close, 0, 0, getWidth(), getHeight(), null);
+   else
+    g.drawImage(Assets.ui_min, 0, 0, getWidth(), getHeight(), null);
 
   }
 
