@@ -42,6 +42,7 @@ public class Config implements Serializable {
   System.out.println("SERIALIZE Config.java");
 
   themeSelected = UIConfig.getTheme();
+  langSelected = Dictionary.getLangSelected();
 
   try {
 

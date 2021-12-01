@@ -87,12 +87,18 @@ public class Window extends JFrame {
   private JMenuItem whiteTheme;
   private JMenuItem darkTheme;
 
+  private JMenu langs;
+  private JMenuItem enlang;
+  private JMenuItem eslang;
+
   public MenuBar() {
 
    options = new JMenu(Dictionary.get(Dictionary.options));
    options.setFont(UIConfig.defaultFont);
    options.setBorder(null);
    add(options);
+
+   // THEME
 
    themes = new JMenu(Dictionary.get(Dictionary.theme));
    themes.setFont(UIConfig.defaultFont);
@@ -123,6 +129,37 @@ public class Window extends JFrame {
    darkTheme.setBorder(null);
    themes.add(darkTheme);
 
+   // LANG
+
+   langs = new JMenu(Dictionary.get(Dictionary.languaje));
+   langs.setFont(UIConfig.defaultFont);
+   langs.setBorder(null);
+   options.add(langs);
+
+   eslang = new JMenuItem(Dictionary.get(Dictionary.spanish));
+   eslang.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+
+     Dictionary.changeLang(Dictionary.spanishLang);
+
+    }
+   });
+   eslang.setFont(UIConfig.defaultFont);
+   eslang.setBorder(null);
+   langs.add(eslang);
+
+   enlang = new JMenuItem(Dictionary.get(Dictionary.english));
+   enlang.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+
+     Dictionary.changeLang(Dictionary.englishLang);
+
+    }
+   });
+   enlang.setFont(UIConfig.defaultFont);
+   enlang.setBorder(null);
+   langs.add(enlang);
+
    setBorder(null);
 
    repaintTheme();
@@ -133,12 +170,21 @@ public class Window extends JFrame {
 
    options.setForeground(UIConfig.getThemeColor("week-title"));
    options.setBackground(UIConfig.getThemeColor("window-border"));
+
    themes.setForeground(UIConfig.getThemeColor("week-title"));
    themes.setBackground(UIConfig.getThemeColor("window-border"));
    whiteTheme.setForeground(UIConfig.getThemeColor("week-title"));
    whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
    darkTheme.setForeground(UIConfig.getThemeColor("week-title"));
    darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
+
+   langs.setForeground(UIConfig.getThemeColor("week-title"));
+   langs.setBackground(UIConfig.getThemeColor("window-border"));
+   eslang.setForeground(UIConfig.getThemeColor("week-title"));
+   eslang.setBackground(UIConfig.getThemeColor("window-border"));
+   enlang.setForeground(UIConfig.getThemeColor("week-title"));
+   enlang.setBackground(UIConfig.getThemeColor("window-border"));
+
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));
