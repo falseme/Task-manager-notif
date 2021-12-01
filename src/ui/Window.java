@@ -12,6 +12,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import lang.Dictionary;
+
 import task.Task;
 import task.TaskManager;
 
@@ -39,7 +41,7 @@ public class Window extends JFrame {
 
  private void setInitParams() {
 
-  setTitle("TaskManager");
+  setTitle(Dictionary.get(Dictionary.title));
   setSize(800, 600);
   setLocationRelativeTo(null);
   // setResizable(false);
@@ -87,17 +89,17 @@ public class Window extends JFrame {
 
   public MenuBar() {
 
-   options = new JMenu("Options");
+   options = new JMenu(Dictionary.get(Dictionary.options));
    options.setFont(UIConfig.defaultFont);
    options.setBorder(null);
    add(options);
 
-   themes = new JMenu("Theme");
+   themes = new JMenu(Dictionary.get(Dictionary.theme));
    themes.setFont(UIConfig.defaultFont);
    themes.setBorder(null);
    options.add(themes);
 
-   whiteTheme = new JMenuItem("White Theme");
+   whiteTheme = new JMenuItem(Dictionary.get(Dictionary.whiteTheme));
    whiteTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -109,7 +111,7 @@ public class Window extends JFrame {
    whiteTheme.setBorder(null);
    themes.add(whiteTheme);
 
-   darkTheme = new JMenuItem("Dark Theme");
+   darkTheme = new JMenuItem(Dictionary.get(Dictionary.darkTheme));
    darkTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 

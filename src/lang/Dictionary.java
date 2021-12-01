@@ -21,6 +21,11 @@ public class Dictionary {
  public static final int day5 = 4;
  public static final int day6 = 5;
  public static final int day7 = 6;
+ public static final int options = 7;
+ public static final int theme = 8;
+ public static final int darkTheme = 9;
+ public static final int whiteTheme = 10;
+ public static final int title = 11;
 
  public static void init() {
 
@@ -38,6 +43,11 @@ public class Dictionary {
   lang.get(spanishLang).put(day5, "Jueves");
   lang.get(spanishLang).put(day6, "Viernes");
   lang.get(spanishLang).put(day7, "Sabado");
+  lang.get(spanishLang).put(options, "Opciones");
+  lang.get(spanishLang).put(theme, "Tema");
+  lang.get(spanishLang).put(whiteTheme, "Tema Claro");
+  lang.get(spanishLang).put(darkTheme, "Tema Oscuro");
+  lang.get(spanishLang).put(title, "Organizador de Tareas");
 
   // English
 
@@ -48,6 +58,11 @@ public class Dictionary {
   lang.get(englishLang).put(day5, "Thursday");
   lang.get(englishLang).put(day6, "Friday");
   lang.get(englishLang).put(day7, "Saturday");
+  lang.get(englishLang).put(options, "Options");
+  lang.get(englishLang).put(theme, "Theme");
+  lang.get(englishLang).put(darkTheme, "Dark Theme");
+  lang.get(englishLang).put(whiteTheme, "White Theme");
+  lang.get(englishLang).put(title, "Tasks Manager");
 
  }
 
