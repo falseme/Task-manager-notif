@@ -2,6 +2,8 @@ package ui;
 
 import event.UserWindowEvent;
 
+import gui.Assets;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -94,14 +96,14 @@ public class Window extends JFrame {
   public MenuBar() {
 
    options = new JMenu(Dictionary.get(Dictionary.options));
-   options.setFont(UIConfig.defaultFont);
+   options.setFont(Assets.notoFont);
    options.setBorder(null);
    add(options);
 
    // THEME
 
    themes = new JMenu(Dictionary.get(Dictionary.theme));
-   themes.setFont(UIConfig.defaultFont);
+   themes.setFont(Assets.notoFont);
    themes.setBorder(null);
    options.add(themes);
 
@@ -113,7 +115,7 @@ public class Window extends JFrame {
 
     }
    });
-   whiteTheme.setFont(UIConfig.defaultFont);
+   whiteTheme.setFont(Assets.notoFont);
    whiteTheme.setBorder(null);
    themes.add(whiteTheme);
 
@@ -125,14 +127,14 @@ public class Window extends JFrame {
 
     }
    });
-   darkTheme.setFont(UIConfig.defaultFont);
+   darkTheme.setFont(Assets.notoFont);
    darkTheme.setBorder(null);
    themes.add(darkTheme);
 
    // LANG
 
    langs = new JMenu(Dictionary.get(Dictionary.languaje));
-   langs.setFont(UIConfig.defaultFont);
+   langs.setFont(Assets.notoFont);
    langs.setBorder(null);
    options.add(langs);
 
@@ -144,7 +146,7 @@ public class Window extends JFrame {
 
     }
    });
-   eslang.setFont(UIConfig.defaultFont);
+   eslang.setFont(Assets.notoFont);
    eslang.setBorder(null);
    langs.add(eslang);
 
@@ -156,7 +158,7 @@ public class Window extends JFrame {
 
     }
    });
-   enlang.setFont(UIConfig.defaultFont);
+   enlang.setFont(Assets.notoFont);
    enlang.setBorder(null);
    langs.add(enlang);
 
@@ -184,7 +186,6 @@ public class Window extends JFrame {
    eslang.setBackground(UIConfig.getThemeColor("window-border"));
    enlang.setForeground(UIConfig.getThemeColor("week-title"));
    enlang.setBackground(UIConfig.getThemeColor("window-border"));
-
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));

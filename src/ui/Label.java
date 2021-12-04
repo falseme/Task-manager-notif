@@ -2,6 +2,8 @@ package ui;
 
 import event.ComponentBackgroundMouseEvent;
 
+import gui.Assets;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -21,7 +23,7 @@ public class Label extends JLabel {
  public Label(String text, int align, int order) {
   super(text, align);
 
-  setFont(UIConfig.defaultFont);
+  setFont(Assets.notoFont);
   setForeground(UIConfig.getThemeColor("week-title"));
 
   addMouseListener(new MouseAdapter() {

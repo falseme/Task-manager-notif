@@ -42,10 +42,10 @@ public class Dictionary {
   lang.get(spanishLang).put(day1, "Domingo");
   lang.get(spanishLang).put(day2, "Lunes");
   lang.get(spanishLang).put(day3, "Martes");
-  lang.get(spanishLang).put(day4, "Miercoles");
+  lang.get(spanishLang).put(day4, "Miércoles");
   lang.get(spanishLang).put(day5, "Jueves");
   lang.get(spanishLang).put(day6, "Viernes");
-  lang.get(spanishLang).put(day7, "Sabado");
+  lang.get(spanishLang).put(day7, "Sábado");
   lang.get(spanishLang).put(options, "Opciones");
   lang.get(spanishLang).put(theme, "Tema");
   lang.get(spanishLang).put(whiteTheme, "Tema Claro");

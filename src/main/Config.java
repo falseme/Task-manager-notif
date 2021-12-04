@@ -23,7 +23,7 @@ public class Config implements Serializable {
  private int langSelected;
  private int themeSelected;
 
- public Config(int lang, int theme, Font font) {
+ public Config(int lang, int theme) {
 
   langSelected = lang;
   themeSelected = theme;

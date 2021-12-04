@@ -21,7 +21,7 @@ public class App {
 
   config = Config.readConfig();
   if (config == null)
-   config = new Config(Dictionary.spanishLang, UIConfig.whiteTheme, UIConfig.defaultFont);
+   config = new Config(Dictionary.spanishLang, UIConfig.whiteTheme);
   config.setConfiguration();
 
   window = new Window();

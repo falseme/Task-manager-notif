@@ -1,7 +1,6 @@
 package ui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.util.HashMap;
 
 import main.App;
@@ -15,8 +14,6 @@ public class UIConfig {
  public static final int darkTheme = 1;
 
  public static HashMap<Integer, HashMap<String, Color>> themeColors;
-
- public static final Font defaultFont = new Font("Console", Font.BOLD, 12);
 
  private static int theme;
 

@@ -2,7 +2,8 @@ package task;
 
 import event.ComponentBackgroundMouseEvent;
 
-import java.awt.Color;
+import gui.Assets;
+
 import java.awt.Graphics;
 import java.util.Calendar;
 
@@ -37,9 +38,20 @@ public class Task extends JComponent {
   setLayout(new TaskLayout());
 
   JLabel titleLabel = new JLabel("  " + title, JLabel.LEFT);
+  titleLabel.setFont(Assets.notoFont_Task);
   titleLabel.setForeground(UIConfig.getThemeColor("week-title"));
   add(titleLabel);
-  JLabel dateLabel = new JLabel(date.get(Calendar.HOUR_OF_DAY) + ":" + date.get(Calendar.MINUTE) + "  ", JLabel.RIGHT);
+
+  String hour = "" + date.get(Calendar.HOUR_OF_DAY);
+  if (hour.length() <= 1)
+   hour = "0" + hour;
+
+  String mins = "" + date.get(Calendar.MINUTE);
+  if (mins.length() <= 1)
+   mins = "0" + mins;
+
+  JLabel dateLabel = new JLabel(hour + ":" + mins + "  ", JLabel.RIGHT);
+  dateLabel.setFont(Assets.notoFont_Task);
   dateLabel.setForeground(UIConfig.getThemeColor("week-title"));
   add(dateLabel);
 

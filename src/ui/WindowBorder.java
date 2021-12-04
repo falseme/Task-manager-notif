@@ -33,6 +33,7 @@ public class WindowBorder extends JComponent {
   parent = window;
 
   title = new JLabel(window.getTitle(), JLabel.LEFT);
+  title.setFont(Assets.oswaldFont);
 
   exitBtn = new Button(Button.EXIT);
   minBtn = new Button(Button.MIN);
