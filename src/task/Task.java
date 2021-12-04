@@ -95,7 +95,6 @@ public class Task extends JComponent {
 
    }
   });
-  pop.add(remove);
 
   JMenuItem modify = new JMenuItem("Modify Task");
   modify.addActionListener(new ActionListener() {
@@ -106,7 +105,9 @@ public class Task extends JComponent {
 
    }
   });
+
   pop.add(modify);
+  pop.add(remove);
 
   return pop;
 

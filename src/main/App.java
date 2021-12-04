@@ -4,6 +4,8 @@ import gui.Assets;
 
 import lang.Dictionary;
 
+import notif.MailNotification;
+
 import task.TaskManager;
 
 import ui.UIConfig;
@@ -23,6 +25,8 @@ public class App {
   if (config == null)
    config = new Config(Dictionary.spanishLang, UIConfig.whiteTheme);
   config.setConfiguration();
+
+  MailNotification.init();
 
   window = new Window();
   window.setVisible(true);

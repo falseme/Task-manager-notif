@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 
 import lang.Dictionary;
 
+import main.App;
+
 /**
  * TaskCreator
  */
@@ -137,6 +139,8 @@ public class TaskCreator extends JDialog {
   mailCheck = new JCheckBox("Mail", false);
   mailCheck.setBounds(x, 270, w, 20);
   add(mailCheck);
+  if (App.getConfig().getUserMail() == null || App.getConfig().getUserMail().isEmpty())
+   mailCheck.setEnabled(false);
 
   repeatCheck = new JCheckBox("Repeat", true);
   repeatCheck.setBounds(x, 290, w, 20);
@@ -185,7 +189,7 @@ public class TaskCreator extends JDialog {
     // System.out.println(hours.getSelectedItem());
     // System.out.println(minutes.getSelectedItem());
 
-    setVisible(false);
+    dispose();
 
    }
 

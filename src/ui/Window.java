@@ -13,8 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import lang.Dictionary;
+
+import main.App;
 
 import task.Task;
 import task.TaskManager;
@@ -102,6 +105,7 @@ public class Window extends JFrame {
  private class MenuBar extends JMenuBar {
   private static final long serialVersionUID = 42l;
 
+  // options
   private JMenu options;
   private JMenu themes;
   private JMenuItem whiteTheme;
@@ -110,6 +114,10 @@ public class Window extends JFrame {
   private JMenu langs;
   private JMenuItem enlang;
   private JMenuItem eslang;
+
+  // notifications
+  JMenu user;
+  JMenuItem mail;
 
   public MenuBar() {
 
@@ -184,6 +192,32 @@ public class Window extends JFrame {
    enlang.setBorder(null);
    langs.add(enlang);
 
+   // ----------------
+   // NOTIFICATIONS
+
+   user = new JMenu("User");
+   user.setFont(Assets.notoFont);
+   user.setBorder(null);
+   add(user);
+
+   mail = new JMenuItem("Mail Settings");
+   mail.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+
+     String user = JOptionPane.showInputDialog(null, "Introduzca su dirección de correo", "Mail Settings",
+       JOptionPane.QUESTION_MESSAGE);
+
+     if (user == null || user.isEmpty() || !user.contains("@"))
+      App.getConfig().setUserMail(null);
+     else
+      App.getConfig().setUserMail(user);
+
+    }
+   });
+   mail.setFont(Assets.notoFont);
+   mail.setBorder(null);
+   user.add(mail);
+
    setBorder(null);
 
    repaintTheme();
@@ -220,6 +254,11 @@ public class Window extends JFrame {
    eslang.setBackground(UIConfig.getThemeColor("window-border"));
    enlang.setForeground(UIConfig.getThemeColor("week-title"));
    enlang.setBackground(UIConfig.getThemeColor("window-border"));
+
+   user.setForeground(UIConfig.getThemeColor("week-title"));
+   user.setBackground(UIConfig.getThemeColor("window-border"));
+   mail.setForeground(UIConfig.getThemeColor("week-title"));
+   mail.setBackground(UIConfig.getThemeColor("window-border"));
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));

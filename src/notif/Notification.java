@@ -38,8 +38,15 @@ public class Notification extends JDialog implements Runnable {
 
   setVisible(true);
 
-  Thread thread = new Thread(this);
+  Thread thread = new Thread(this, "Notification UI");
   thread.start();
+
+  if(task.notifMail()){
+
+   MailNotification mail = new MailNotification("Task Manager Event", task.getTitle());
+   mail.send();
+
+  }
 
  }
 
