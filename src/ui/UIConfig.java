@@ -53,8 +53,6 @@ public class UIConfig {
 
   theme = newTheme;
 
-  App.getUserWindow().repaintTheme();
-
  }
 
  public static boolean isWhiteTheme() {

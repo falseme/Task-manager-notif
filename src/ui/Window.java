@@ -124,6 +124,7 @@ public class Window extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
      UIConfig.setTheme(UIConfig.whiteTheme);
+     Window.this.repaintTheme();
 
     }
    });
@@ -136,6 +137,7 @@ public class Window extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
      UIConfig.setTheme(UIConfig.darkTheme);
+     Window.this.repaintTheme();
 
     }
    });
