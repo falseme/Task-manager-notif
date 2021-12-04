@@ -45,6 +45,7 @@ public class Window extends JFrame {
 
   setTitle(Dictionary.get(Dictionary.title));
   setSize(800, 600);
+  setPreferredSize(getSize());
   setLocationRelativeTo(null);
   // setResizable(false);
   setUndecorated(true);
@@ -67,11 +68,15 @@ public class Window extends JFrame {
 
  }
 
- //update tasks layout and delete the input task
+ // update tasks layout and delete the input task
  public void updateTasks(int dayOfWeek, Task task) {
 
   weekPanel.updateTask(dayOfWeek, task);
 
+ }
+
+ public WindowBorder getWindowBorder() {
+  return border;
  }
 
  public void repaintTheme() {
