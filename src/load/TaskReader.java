@@ -35,8 +35,14 @@ public class TaskReader {
    folder.mkdir();
    file = new File(folder.getPath() + File.separator + code);
 
-   if (tasks.isEmpty())
+   if (tasks.isEmpty()) {
+
+    if (file.exists())
+     file.delete();
+
     return;
+
+   }
 
    file.createNewFile();
 

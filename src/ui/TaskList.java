@@ -66,6 +66,7 @@ public class TaskList extends JComponent {
   remove(task);
   listLength--;
   layout.layoutContainer(this);
+  repaint();
 
  }
 

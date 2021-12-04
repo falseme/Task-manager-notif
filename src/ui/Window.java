@@ -67,7 +67,8 @@ public class Window extends JFrame {
 
  }
 
- public void updateTask(int dayOfWeek, Task task) {
+ //update tasks layout and delete the input task
+ public void updateTasks(int dayOfWeek, Task task) {
 
   weekPanel.updateTask(dayOfWeek, task);
 

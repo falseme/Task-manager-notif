@@ -91,7 +91,7 @@ public class TaskManager {
        } else {
 
         taskList.get(today).poll();
-        userWindow.updateTask(calendar.get(Calendar.DAY_OF_WEEK) - 1, task);
+        userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1, task);
 
        }
 
@@ -149,6 +149,13 @@ public class TaskManager {
   // double delta = end2 - init;
   // delta /= 1000000000;
   // System.out.println("TaskManager.addTasks. segs:" + delta);
+
+ }
+
+ public static void removeTask(Task task, int dayOfWeek) {
+
+  getTaskList(dayOfWeek).remove(task);
+  window.updateTasks(dayOfWeek, task);
 
  }
 

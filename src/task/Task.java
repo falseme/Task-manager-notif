@@ -5,10 +5,14 @@ import event.ComponentBackgroundMouseEvent;
 import gui.Assets;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 
 import ui.UIConfig;
 import ui.layout.TaskLayout;
@@ -57,6 +61,8 @@ public class Task extends JComponent {
 
   addMouseListener(new ComponentBackgroundMouseEvent(this));
 
+  setComponentPopupMenu(createPopupMenu());
+
  }
 
  public Task(Task otherTask) {
@@ -74,6 +80,24 @@ public class Task extends JComponent {
 
   g.setColor(UIConfig.getThemeColor("task-border"));
   g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
+
+ }
+
+ private JPopupMenu createPopupMenu() {
+
+  JPopupMenu pop = new JPopupMenu();
+
+  JMenuItem remove = new JMenuItem("Remove Task");
+  remove.addActionListener(new ActionListener() {
+   public void actionPerformed(ActionEvent e) {
+
+    TaskManager.removeTask(Task.this, date.get(Calendar.DAY_OF_WEEK) - 1);
+
+   }
+  });
+  pop.add(remove);
+
+  return pop;
 
  }
 
