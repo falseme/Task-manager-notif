@@ -97,6 +97,17 @@ public class Task extends JComponent {
   });
   pop.add(remove);
 
+  JMenuItem modify = new JMenuItem("Modify Task");
+  modify.addActionListener(new ActionListener() {
+   public void actionPerformed(ActionEvent e) {
+
+    TaskCreator creator = new TaskCreator(Task.this);
+    creator.setVisible(true);
+
+   }
+  });
+  pop.add(modify);
+
   return pop;
 
  }

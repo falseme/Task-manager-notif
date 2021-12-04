@@ -25,6 +25,8 @@ public class TaskCreator extends JDialog {
  private JTextField title;
  private JCheckBox wspCheck, mailCheck, repeatCheck;
 
+ private Task modify = null;
+
  public TaskCreator(String day, int order) {
 
   setSize(300, 400);
@@ -36,7 +38,23 @@ public class TaskCreator extends JDialog {
 
   addComponents(day, order);
 
-  setVisible(true);
+ }
+
+ public TaskCreator(Task task) {
+
+  // int day = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
+  // this(Dictionary.get(day), day);
+  this(Dictionary.get(task.getDate().get(Calendar.DAY_OF_WEEK) - 1), task.getDate().get(Calendar.DAY_OF_WEEK) - 1);
+
+  title.setText(task.getTitle());
+  wspCheck.setSelected(task.notifWsp() ? true : false);
+  mailCheck.setSelected(task.notifMail() ? true : false);
+  repeatCheck.setSelected(task.repeat() ? true : false);
+
+  hours.setSelectedItem(task.getDate().get(Calendar.HOUR_OF_DAY));
+  minutes.setSelectedItem(task.getDate().get(Calendar.MINUTE));
+
+  modify = task;
 
  }
 
@@ -129,11 +147,11 @@ public class TaskCreator extends JDialog {
   JButton submit = new JButton("Create");
   submit.setBounds(x, 320, w, 30);
   add(submit);
-  submit.addActionListener(submitListener(order));
+  submit.addActionListener(submitListener());
 
  }
 
- private ActionListener submitListener(int order) {
+ private ActionListener submitListener() {
 
   ActionListener listener = new ActionListener() {
 
@@ -141,7 +159,7 @@ public class TaskCreator extends JDialog {
 
     Calendar calendar = Calendar.getInstance();
 
-    int dayOrder = order + 1;
+    int dayOrder = days.getSelectedIndex() + 1;
     int dayOfWeekOrder = calendar.get(Calendar.DAY_OF_WEEK);
 
     while (dayOfWeekOrder != dayOrder) {
@@ -158,6 +176,9 @@ public class TaskCreator extends JDialog {
     Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(),
       repeatCheck.isSelected());
     TaskManager.addTask(task, (String) days.getSelectedItem());
+
+    if (modify != null)
+     TaskManager.removeTask(modify, modify.getDate().get(Calendar.DAY_OF_WEEK) - 1);
 
     // System.out.println(days.getSelectedItem());
     // System.out.println(title.getText());
