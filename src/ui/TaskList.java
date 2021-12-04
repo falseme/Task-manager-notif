@@ -69,6 +69,12 @@ public class TaskList extends JComponent {
 
  }
 
+ public void resetLang(String text) {
+
+  dayLabel.setText(text);
+
+ }
+
  public void repaintTheme() {
 
   for (int i = 0; i < getComponentCount(); i++) {

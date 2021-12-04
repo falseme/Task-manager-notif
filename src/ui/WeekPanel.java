@@ -64,6 +64,20 @@ public class WeekPanel extends JPanel {
 
  }
 
+ public void resetLang() {
+
+  days = new String[] { Dictionary.get(Dictionary.day1), Dictionary.get(Dictionary.day2),
+    Dictionary.get(Dictionary.day3), Dictionary.get(Dictionary.day4), Dictionary.get(Dictionary.day5),
+    Dictionary.get(Dictionary.day6), Dictionary.get(Dictionary.day7) };
+
+  for (int i = 0; i < weekList.length; i++) {
+
+   weekList[i].resetLang(days[i]);
+
+  }
+
+ }
+
  public void repaintTheme() {
 
   setBackground(UIConfig.getThemeColor("table-bg"));

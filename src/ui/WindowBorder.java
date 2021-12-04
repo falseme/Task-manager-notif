@@ -12,6 +12,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
+import lang.Dictionary;
+
 /**
  * WindowBorder
  */
@@ -67,7 +69,13 @@ public class WindowBorder extends JComponent {
 
  }
 
- public void repaintTheme(){
+ public void resetLang() {
+
+  title.setText(parent.getTitle());
+
+ }
+
+ public void repaintTheme() {
 
   title.setForeground(UIConfig.getThemeColor("week-title"));
 

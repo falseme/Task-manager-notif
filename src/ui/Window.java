@@ -81,6 +81,18 @@ public class Window extends JFrame {
 
  }
 
+ public void resetLang() {
+
+  setTitle(Dictionary.get(Dictionary.title));
+
+  menubar.resetLang();
+  // menubar.repaint();
+  border.resetLang();
+  // border.repaint();
+  weekPanel.resetLang();
+
+ }
+
  private class MenuBar extends JMenuBar {
   private static final long serialVersionUID = 42l;
 
@@ -143,6 +155,7 @@ public class Window extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
      Dictionary.changeLang(Dictionary.spanishLang);
+     Window.this.resetLang();
 
     }
    });
@@ -155,6 +168,7 @@ public class Window extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
      Dictionary.changeLang(Dictionary.englishLang);
+     Window.this.resetLang();
 
     }
    });
@@ -165,6 +179,18 @@ public class Window extends JFrame {
    setBorder(null);
 
    repaintTheme();
+
+  }
+
+  public void resetLang() {
+
+   options.setText(Dictionary.get(Dictionary.options));
+   themes.setText(Dictionary.get(Dictionary.theme));
+   whiteTheme.setText(Dictionary.get(Dictionary.whiteTheme));
+   darkTheme.setText(Dictionary.get(Dictionary.darkTheme));
+   langs.setText(Dictionary.get(Dictionary.languaje));
+   eslang.setText(Dictionary.get(Dictionary.spanish));
+   enlang.setText(Dictionary.get(Dictionary.english));
 
   }
 

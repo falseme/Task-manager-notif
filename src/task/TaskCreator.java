@@ -57,7 +57,6 @@ public class TaskCreator extends JDialog {
   add(dayLabel);
 
   days = new JComboBox<String>();
-  days.addItem("-- Select a day --");
   days.addItem(Dictionary.get(Dictionary.day1));
   days.addItem(Dictionary.get(Dictionary.day2));
   days.addItem(Dictionary.get(Dictionary.day3));
