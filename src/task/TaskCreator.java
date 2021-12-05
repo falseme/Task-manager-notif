@@ -1,5 +1,7 @@
 package task;
 
+import gui.Assets;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -9,17 +11,22 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import lang.Dictionary;
 
 import main.App;
 
+import ui.UIConfig;
+
 /**
  * TaskCreator
  */
 public class TaskCreator extends JDialog {
  private static final long serialVersionUID = 42l;
+
+ private JPanel panel;
 
  private JLabel windowTitle, dayLabel, titleLabel, timeLabel, timeLabel2, notifLabel;
  private JComboBox<String> days;
@@ -36,7 +43,9 @@ public class TaskCreator extends JDialog {
   setAlwaysOnTop(true);
   setResizable(false);
 
-  setLayout(null);
+  panel = new JPanel(null);
+  add(panel);
+  panel.setBackground(UIConfig.getThemeColor("table-bg"));
 
   addComponents(day, order);
 
@@ -62,19 +71,24 @@ public class TaskCreator extends JDialog {
 
  private void addComponents(String day, int order) {
 
-  int w = (int) (getWidth() * 0.8);
-  int x = getWidth() / 2 - w / 2;
+  int W = getWidth();
+  int w = (int) (W * 0.8);
+  int x = W / 2 - w / 2;
   // int h = getHeight();
 
   windowTitle = new JLabel("New Task", JLabel.CENTER);
-  windowTitle.setBounds(0, 0, w, 50);
-  add(windowTitle);
+  windowTitle.setBounds(x, 0, w, 50);
+  panel.add(windowTitle);
+  windowTitle.setFont(Assets.oswaldFont);
+  windowTitle.setForeground(UIConfig.getThemeColor("week-title"));
 
   // day selection
 
   dayLabel = new JLabel("Day select");
   dayLabel.setBounds(x, 60, w, 20);
-  add(dayLabel);
+  panel.add(dayLabel);
+  dayLabel.setFont(Assets.notoFont_Task);
+  dayLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
   days = new JComboBox<String>();
   days.addItem(Dictionary.get(Dictionary.day1));
@@ -87,23 +101,33 @@ public class TaskCreator extends JDialog {
   days.setBounds(x, 80, w, 25);
   if (day != null && !day.isEmpty())
    days.setSelectedItem(day);
-  add(days);
+  panel.add(days);
+  days.setFont(Assets.notoFont);
+  days.setForeground(UIConfig.getThemeColor("week-title"));
+  days.setBackground(UIConfig.getThemeColor("comp-bg-in"));
 
   // title selection
 
   titleLabel = new JLabel("Title:");
   titleLabel.setBounds(x, 110, w, 20);
-  add(titleLabel);
+  panel.add(titleLabel);
+  titleLabel.setFont(Assets.notoFont_Task);
+  titleLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
   title = new JTextField();
   title.setBounds(x, 130, w, 30);
-  add(title);
+  panel.add(title);
+  title.setFont(Assets.notoFont);
+  title.setForeground(UIConfig.getThemeColor("week-title"));
+  title.setBackground(UIConfig.getThemeColor("comp.bg-in"));
 
   // time selection
 
   timeLabel = new JLabel("Time:");
   timeLabel.setBounds(x, 170, w, 20);
-  add(timeLabel);
+  panel.add(timeLabel);
+  timeLabel.setFont(Assets.notoFont_Task);
+  timeLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
   // hours
   hours = new JComboBox<Integer>();
@@ -111,12 +135,17 @@ public class TaskCreator extends JDialog {
    hours.addItem(i);
   }
   hours.setBounds(x, 190, w / 3, 25);
-  add(hours);
+  panel.add(hours);
+  hours.setFont(Assets.notoFont);
+  hours.setForeground(UIConfig.getThemeColor("week-title"));
+  hours.setBackground(UIConfig.getThemeColor("comp.bg-in"));
 
   // mid-label
   timeLabel2 = new JLabel(" : ", JLabel.CENTER);
   timeLabel2.setBounds(x + w / 3, 190, w / 3, 25);
-  add(timeLabel2);
+  panel.add(timeLabel2);
+  timeLabel2.setFont(Assets.notoFont_Task);
+  timeLabel2.setForeground(UIConfig.getThemeColor("week-title"));
 
   // minutes
   minutes = new JComboBox<Integer>();
@@ -124,35 +153,50 @@ public class TaskCreator extends JDialog {
    minutes.addItem(i);
   }
   minutes.setBounds(x + w / 3 * 2, 190, w / 3, 25);
-  add(minutes);
+  panel.add(minutes);
+  minutes.setFont(Assets.notoFont);
+  minutes.setForeground(UIConfig.getThemeColor("week-title"));
+  minutes.setBackground(UIConfig.getThemeColor("comp.bg-in"));
 
   // notifications selection
 
   notifLabel = new JLabel("Notifications");
   notifLabel.setBounds(x, 230, w, 20);
-  add(notifLabel);
+  panel.add(notifLabel);
+  notifLabel.setFont(Assets.notoFont_Task);
+  notifLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
   wspCheck = new JCheckBox("Whats App", false);
   wspCheck.setBounds(x, 250, w, 20);
-  add(wspCheck);
+  panel.add(wspCheck);
   wspCheck.setEnabled(false);
+  wspCheck.setFont(Assets.notoFont);
+  wspCheck.setForeground(UIConfig.getThemeColor("week-title"));
+  wspCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   mailCheck = new JCheckBox("Mail", false);
   mailCheck.setBounds(x, 270, w, 20);
-  add(mailCheck);
+  panel.add(mailCheck);
   if (App.getConfig().getUserMail() == null || App.getConfig().getUserMail().isEmpty())
    mailCheck.setEnabled(false);
+  mailCheck.setFont(Assets.notoFont);
+  mailCheck.setForeground(UIConfig.getThemeColor("week-title"));
+  mailCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   repeatCheck = new JCheckBox("Repeat", true);
   repeatCheck.setBounds(x, 290, w, 20);
-  add(repeatCheck);
+  panel.add(repeatCheck);
+  repeatCheck.setFont(Assets.notoFont);
+  repeatCheck.setForeground(UIConfig.getThemeColor("week-title"));
+  repeatCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   // sumbit
 
   JButton submit = new JButton("Create");
   submit.setBounds(x, 320, w, 30);
-  add(submit);
+  panel.add(submit);
   submit.addActionListener(submitListener());
+  submit.setFont(Assets.notoFont);
 
  }
 
@@ -161,6 +205,11 @@ public class TaskCreator extends JDialog {
   ActionListener listener = new ActionListener() {
 
    public void actionPerformed(ActionEvent e) {
+
+    if (title.getText().trim().isEmpty()) {
+     titleLabel.setForeground(UIConfig.getThemeColor("fg-error"));
+     return;
+    }
 
     Calendar calendar = Calendar.getInstance();
 
