@@ -10,6 +10,7 @@ public class Assets {
 
  public static BufferedImage ui_close;
  public static BufferedImage ui_min;
+ public static BufferedImage gmail;
 
  public static Font notoFont;
  public static Font oswaldFont;
@@ -19,6 +20,7 @@ public class Assets {
 
   ui_close = Loader.loadPng("/gui/cerrar.png");
   ui_min = Loader.loadPng("/gui/min.png");
+  gmail = Loader.loadPng("/gui/gmail.png");
 
   notoFont = Loader.loadFont("/fonts/NotoSans-Regular.ttf", Font.PLAIN, 13);
   oswaldFont = Loader.loadFont("/fonts/Oswald-Regular.ttf", Font.PLAIN, 20);

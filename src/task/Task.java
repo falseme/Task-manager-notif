@@ -30,6 +30,8 @@ public class Task extends JComponent {
 
  private boolean repeat;
 
+ private JLabel dateLabel, titleLabel;
+
  public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat) {
 
   this.title = title;
@@ -41,7 +43,7 @@ public class Task extends JComponent {
 
   setLayout(new TaskLayout());
 
-  JLabel titleLabel = new JLabel("  " + title, JLabel.LEFT);
+  titleLabel = new JLabel("  " + title, JLabel.LEFT);
   titleLabel.setFont(Assets.notoFont_Task);
   titleLabel.setForeground(UIConfig.getThemeColor("week-title"));
   add(titleLabel);
@@ -54,7 +56,7 @@ public class Task extends JComponent {
   if (mins.length() <= 1)
    mins = "0" + mins;
 
-  JLabel dateLabel = new JLabel(hour + ":" + mins + "  ", JLabel.RIGHT);
+  dateLabel = new JLabel(hour + ":" + mins + "  ", JLabel.RIGHT);
   dateLabel.setFont(Assets.notoFont_Task);
   dateLabel.setForeground(UIConfig.getThemeColor("week-title"));
   add(dateLabel);
@@ -80,6 +82,13 @@ public class Task extends JComponent {
 
   g.setColor(UIConfig.getThemeColor("task-border"));
   g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
+
+  if (notifMail) {
+   int h = dateLabel.getHeight() / 3 * 2;
+   int x = 10;
+   int y = dateLabel.getY() + h / 2;
+   g.drawImage(Assets.gmail, x, y, h, h, null);
+  }
 
  }
 

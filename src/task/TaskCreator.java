@@ -135,6 +135,7 @@ public class TaskCreator extends JDialog {
   wspCheck = new JCheckBox("Whats App", false);
   wspCheck.setBounds(x, 250, w, 20);
   add(wspCheck);
+  wspCheck.setEnabled(false);
 
   mailCheck = new JCheckBox("Mail", false);
   mailCheck.setBounds(x, 270, w, 20);
