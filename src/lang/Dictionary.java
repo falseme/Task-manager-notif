@@ -62,8 +62,8 @@ public class Dictionary {
   lang.get(spanishLang).put(spanish, "Español");
   lang.get(spanishLang).put(english, "Inglés");
   lang.get(spanishLang).put(user, "Usuario");
-  lang.get(spanishLang).put(mailsettings, "Establecer Dirección de Correo");
-  lang.get(spanishLang).put(wspsettings, "Establecer Número de Celular");
+  lang.get(spanishLang).put(mailsettings, "Establecer dirección de correo");
+  lang.get(spanishLang).put(wspsettings, "Establecer número de celular");
   lang.get(spanishLang).put(notiftitle, "Notificación Tarea Semanal");
   lang.get(spanishLang).put(mail_settings_title, "Establecer Correo");
   lang.get(spanishLang).put(mail_settings_desc, "Introduzca su dirección de correo electrónico");
@@ -81,16 +81,16 @@ public class Dictionary {
   lang.get(englishLang).put(theme, "Theme");
   lang.get(englishLang).put(darkTheme, "Dark Theme");
   lang.get(englishLang).put(whiteTheme, "White Theme");
-  lang.get(englishLang).put(title, "Tasks Manager");
+  lang.get(englishLang).put(title, "Task Manager");
   lang.get(englishLang).put(languaje, "Languaje");
   lang.get(englishLang).put(spanish, "Spanish");
   lang.get(englishLang).put(english, "English");
   lang.get(englishLang).put(user, "User");
-  lang.get(englishLang).put(mailsettings, "Set Mail Account");
-  lang.get(englishLang).put(wspsettings, "Set Whats App Number");
+  lang.get(englishLang).put(mailsettings, "Set email address");
+  lang.get(englishLang).put(wspsettings, "Set WhatsApp number");
   lang.get(englishLang).put(notiftitle, "Weekly Task Notification");
   lang.get(englishLang).put(mail_settings_title, "Mail Settings");
-  lang.get(englishLang).put(mail_settings_desc, "Enter your mail account");
+  lang.get(englishLang).put(mail_settings_desc, "Enter your email address");
 
  }
 
