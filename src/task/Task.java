@@ -1,6 +1,7 @@
 package task;
 
 import event.ComponentBackgroundMouseEvent;
+import event.TaskPopupTextEvent;
 
 import gui.Assets;
 
@@ -62,6 +63,9 @@ public class Task extends JComponent {
   add(dateLabel);
 
   addMouseListener(new ComponentBackgroundMouseEvent(this));
+  TaskPopupTextEvent ev = new TaskPopupTextEvent(title);
+  addMouseListener(ev);
+  addMouseMotionListener(ev);
 
   setComponentPopupMenu(createPopupMenu());
 
