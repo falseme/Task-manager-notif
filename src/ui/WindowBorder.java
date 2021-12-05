@@ -12,8 +12,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import lang.Dictionary;
-
 /**
  * WindowBorder
  */

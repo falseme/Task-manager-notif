@@ -4,7 +4,6 @@ import event.UserWindowEvent;
 
 import gui.Assets;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +19,6 @@ import lang.Dictionary;
 import main.App;
 
 import task.Task;
-import task.TaskManager;
 
 import ui.layout.WindowLayout;
 

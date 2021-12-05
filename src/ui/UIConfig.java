@@ -3,8 +3,6 @@ package ui;
 import java.awt.Color;
 import java.util.HashMap;
 
-import main.App;
-
 /**
  * UIConfig
  */

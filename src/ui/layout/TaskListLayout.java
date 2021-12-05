@@ -88,8 +88,12 @@ public class TaskListLayout extends LayoutAdapter {
 
   if (c.getComponent(1).getY() > size)
    layoutContainer(c);
-  else if (c.getComponent(c.getComponentCount() - 1).getY() < endY)
-   layoutUpsideDown(c);
+  else if (c.getComponent(c.getComponentCount() - 1).getY() < endY) {
+   if ((c.getComponentCount() - 1) * (size + gap) >= c.getHeight())
+    layoutUpsideDown(c);
+   else
+    layoutContainer(c);
+  }
 
  }
 

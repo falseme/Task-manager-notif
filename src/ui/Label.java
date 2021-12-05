@@ -4,7 +4,6 @@ import event.ComponentBackgroundMouseEvent;
 
 import gui.Assets;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
