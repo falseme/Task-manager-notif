@@ -1,12 +1,15 @@
 package ui;
 
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+
 import javax.swing.JComponent;
 
 import task.Task;
 
 import ui.layout.TaskListLayout;
 
-public class TaskList extends JComponent {
+public class TaskList extends JComponent implements MouseWheelListener {
  private static final long serialVersionUID = 42l;
 
  private Label dayLabel;
@@ -22,6 +25,8 @@ public class TaskList extends JComponent {
 
   dayLabel = new Label(dayName, Label.CENTER, order);
   add(dayLabel);
+
+  addMouseWheelListener(this);
 
  }
 
@@ -89,6 +94,12 @@ public class TaskList extends JComponent {
 
  public int getListLength() {
   return listLength;
+ }
+
+ public void mouseWheelMoved(MouseWheelEvent e) {
+
+  layout.scrollTasks(this, e.getUnitsToScroll() * 2);
+
  }
 
 }

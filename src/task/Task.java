@@ -63,7 +63,7 @@ public class Task extends JComponent {
   add(dateLabel);
 
   addMouseListener(new ComponentBackgroundMouseEvent(this));
-  TaskPopupTextEvent ev = new TaskPopupTextEvent(title);
+  TaskPopupTextEvent ev = new TaskPopupTextEvent(this);
   addMouseListener(ev);
   addMouseMotionListener(ev);
 
