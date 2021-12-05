@@ -195,17 +195,17 @@ public class Window extends JFrame {
    // ----------------
    // NOTIFICATIONS
 
-   user = new JMenu("User");
+   user = new JMenu(Dictionary.get(Dictionary.user));
    user.setFont(Assets.notoFont);
    user.setBorder(null);
    add(user);
 
-   mail = new JMenuItem("Mail Settings");
+   mail = new JMenuItem(Dictionary.get(Dictionary.mailsettings));
    mail.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
-     String user = JOptionPane.showInputDialog(null, "Introduzca su dirección de correo", "Mail Settings",
-       JOptionPane.QUESTION_MESSAGE);
+     String user = JOptionPane.showInputDialog(null, Dictionary.get(Dictionary.mail_settings_desc),
+       Dictionary.get(Dictionary.mail_settings_title), JOptionPane.QUESTION_MESSAGE);
 
      if (user == null || user.isEmpty() || !user.contains("@"))
       App.getConfig().setUserMail(null);
@@ -233,6 +233,9 @@ public class Window extends JFrame {
    langs.setText(Dictionary.get(Dictionary.languaje));
    eslang.setText(Dictionary.get(Dictionary.spanish));
    enlang.setText(Dictionary.get(Dictionary.english));
+
+   user.setText(Dictionary.get(Dictionary.user));
+   mail.setText(Dictionary.get(Dictionary.mailsettings));
 
   }
 

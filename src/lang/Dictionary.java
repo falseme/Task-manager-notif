@@ -29,6 +29,13 @@ public class Dictionary {
  public static final int languaje = 12;
  public static final int spanish = 13;
  public static final int english = 14;
+ public static final int user = 15;
+ public static final int mailsettings = 16;
+ public static final int wspsettings = 17;
+ public static final int notiftitle = 18;
+
+ public static final int mail_settings_title = 19;
+ public static final int mail_settings_desc = 20;
 
  public static void init() {
 
@@ -54,6 +61,12 @@ public class Dictionary {
   lang.get(spanishLang).put(languaje, "Lenguaje");
   lang.get(spanishLang).put(spanish, "Español");
   lang.get(spanishLang).put(english, "Inglés");
+  lang.get(spanishLang).put(user, "Usuario");
+  lang.get(spanishLang).put(mailsettings, "Establecer Dirección de Correo");
+  lang.get(spanishLang).put(wspsettings, "Establecer Número de Celular");
+  lang.get(spanishLang).put(notiftitle, "Notificación Tarea Semanal");
+  lang.get(spanishLang).put(mail_settings_title, "Establecer Correo");
+  lang.get(spanishLang).put(mail_settings_desc, "Introduzca su dirección de correo electrónico");
 
   // English
 
@@ -72,6 +85,12 @@ public class Dictionary {
   lang.get(englishLang).put(languaje, "Languaje");
   lang.get(englishLang).put(spanish, "Spanish");
   lang.get(englishLang).put(english, "English");
+  lang.get(englishLang).put(user, "User");
+  lang.get(englishLang).put(mailsettings, "Set Mail Account");
+  lang.get(englishLang).put(wspsettings, "Set Whats App Number");
+  lang.get(englishLang).put(notiftitle, "Weekly Task Notification");
+  lang.get(englishLang).put(mail_settings_title, "Mail Settings");
+  lang.get(englishLang).put(mail_settings_desc, "Enter your mail account");
 
  }
 

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
+import lang.Dictionary;
+
 import task.Task;
 
 /**
@@ -41,9 +43,9 @@ public class Notification extends JDialog implements Runnable {
   Thread thread = new Thread(this, "Notification UI");
   thread.start();
 
-  if(task.notifMail()){
+  if (task.notifMail()) {
 
-   MailNotification mail = new MailNotification("Task Manager Event", task.getTitle());
+   MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle), task.getTitle());
    mail.send();
 
   }
