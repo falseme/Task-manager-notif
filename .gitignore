@@ -1,10 +1,9 @@
 /bin/
-/doc/
-/res/
 /tasks/
 .git
 plan.png
 *.dat
 *.data
-*.jar
 *.txt
+.classpath
+.project
