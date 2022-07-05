@@ -4,6 +4,7 @@ import event.UserWindowEvent;
 
 import gui.Assets;
 
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -120,6 +121,7 @@ public class Window extends JFrame {
   public MenuBar() {
 
    options = new JMenu(Dictionary.get(Dictionary.options));
+   options.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    options.setFont(Assets.notoFont);
    options.setBorder(null);
    add(options);
@@ -127,11 +129,13 @@ public class Window extends JFrame {
    // THEME
 
    themes = new JMenu(Dictionary.get(Dictionary.theme));
+   themes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    themes.setFont(Assets.notoFont);
    themes.setBorder(null);
    options.add(themes);
 
    whiteTheme = new JMenuItem(Dictionary.get(Dictionary.whiteTheme));
+   whiteTheme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    whiteTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -145,6 +149,7 @@ public class Window extends JFrame {
    themes.add(whiteTheme);
 
    darkTheme = new JMenuItem(Dictionary.get(Dictionary.darkTheme));
+   darkTheme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    darkTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -160,11 +165,13 @@ public class Window extends JFrame {
    // LANG
 
    langs = new JMenu(Dictionary.get(Dictionary.languaje));
+   langs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    langs.setFont(Assets.notoFont);
    langs.setBorder(null);
    options.add(langs);
 
    eslang = new JMenuItem(Dictionary.get(Dictionary.spanish));
+   eslang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    eslang.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -178,6 +185,7 @@ public class Window extends JFrame {
    langs.add(eslang);
 
    enlang = new JMenuItem(Dictionary.get(Dictionary.english));
+   enlang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    enlang.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -194,11 +202,13 @@ public class Window extends JFrame {
    // NOTIFICATIONS
 
    user = new JMenu(Dictionary.get(Dictionary.user));
+   user.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    user.setFont(Assets.notoFont);
    user.setBorder(null);
    add(user);
 
    mail = new JMenuItem(Dictionary.get(Dictionary.mailsettings));
+   mail.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    mail.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 

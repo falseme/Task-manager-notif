@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Cursor;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
@@ -24,6 +25,7 @@ public class TaskList extends JComponent implements MouseWheelListener {
   setLayout(layout);
 
   dayLabel = new Label(dayName, Label.CENTER, order);
+  dayLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
   add(dayLabel);
 
   addMouseWheelListener(this);
