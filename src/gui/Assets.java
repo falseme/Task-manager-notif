@@ -20,7 +20,7 @@ public class Assets {
 
   ui_close = Loader.loadPng("/gui/cerrar.png");
   ui_min = Loader.loadPng("/gui/min.png");
-  gmail = Loader.loadPng("/gui/gmail.png");
+  gmail = Loader.loadPng("/gui/gmail16.png");
 
   notoFont = Loader.loadFont("/fonts/NotoSans-Regular.ttf", Font.PLAIN, 13);
   oswaldFont = Loader.loadFont("/fonts/Oswald-Regular.ttf", Font.PLAIN, 20);

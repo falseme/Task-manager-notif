@@ -1,23 +1,23 @@
 package task;
 
-import gui.Assets;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.JButton;
+import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import event.MovableComponentListener;
+import gui.Assets;
 import lang.Dictionary;
-
 import main.App;
-
+import ui.Button;
 import ui.UIConfig;
 
 /**
@@ -42,11 +42,17 @@ public class TaskCreator extends JDialog {
   setLocationRelativeTo(null);
   setAlwaysOnTop(true);
   setResizable(false);
+  setUndecorated(true);
 
   panel = new JPanel(null);
   add(panel);
   panel.setBackground(UIConfig.getThemeColor("table-bg"));
+  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("week-title"), 2, true));
 
+  MovableComponentListener moveListener = new MovableComponentListener(this);
+  addMouseListener(moveListener);
+  addMouseMotionListener(moveListener);
+  
   addComponents(day, order);
 
  }
@@ -69,11 +75,17 @@ public class TaskCreator extends JDialog {
 
  }
 
+ @Override
+ public void setVisible(boolean b) {
+	 super.setVisible(b);
+	 title.grabFocus();
+ }
+ 
  private void addComponents(String day, int order) {
 
   int W = getWidth();
   int w = (int) (W * 0.8);
-  int x = W / 2 - w / 2;
+  int x = (W-w)/2;
   // int h = getHeight();
 
   windowTitle = new JLabel("New Task", JLabel.CENTER);
@@ -116,10 +128,17 @@ public class TaskCreator extends JDialog {
 
   title = new JTextField();
   title.setBounds(x, 130, w, 30);
+  title.setBorder(null);
   panel.add(title);
   title.setFont(Assets.notoFont);
   title.setForeground(UIConfig.getThemeColor("week-title"));
   title.setBackground(UIConfig.getThemeColor("comp.bg-in"));
+  
+  JSeparator separator = new JSeparator();
+  separator.setBounds(x, 160, w, 161);
+  separator.setBackground(UIConfig.getThemeColor("week-title"));
+  separator.setForeground(UIConfig.getThemeColor("week-title"));
+  panel.add(separator);
 
   // time selection
 
@@ -167,36 +186,49 @@ public class TaskCreator extends JDialog {
   notifLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
   wspCheck = new JCheckBox("Whats App", false);
-  wspCheck.setBounds(x, 250, w, 20);
+  wspCheck.setFont(Assets.notoFont);
+  wspCheck.setBounds(x, 250, wspCheck.getPreferredSize().width, 20);
   panel.add(wspCheck);
   wspCheck.setEnabled(false);
-  wspCheck.setFont(Assets.notoFont);
   wspCheck.setForeground(UIConfig.getThemeColor("week-title"));
   wspCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   mailCheck = new JCheckBox("Mail", false);
-  mailCheck.setBounds(x, 270, w, 20);
+  mailCheck.setFont(Assets.notoFont);
+  mailCheck.setBounds(x, 270, mailCheck.getPreferredSize().width, 20);
   panel.add(mailCheck);
   if (App.getConfig().getUserMail() == null || App.getConfig().getUserMail().isEmpty())
    mailCheck.setEnabled(false);
-  mailCheck.setFont(Assets.notoFont);
   mailCheck.setForeground(UIConfig.getThemeColor("week-title"));
   mailCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   repeatCheck = new JCheckBox("Repeat", true);
-  repeatCheck.setBounds(x, 290, w, 20);
-  panel.add(repeatCheck);
   repeatCheck.setFont(Assets.notoFont);
+  repeatCheck.setBounds(x, 290, repeatCheck.getPreferredSize().width, 20);
+  panel.add(repeatCheck);
   repeatCheck.setForeground(UIConfig.getThemeColor("week-title"));
   repeatCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
   // sumbit
 
-  JButton submit = new JButton("Create");
+//  JButton submit = new JButton("Create");
+//  submit.setBounds(x, 320, w, 30);
+//  submit.setBackground(UIConfig.getThemeColor("comp-bg"));
+//  panel.add(submit);
+//  submit.addActionListener(submitListener());
+//  submit.setFont(Assets.notoFont);
+  
+  Button submit = new Button("Create", submitListener());
   submit.setBounds(x, 320, w, 30);
   panel.add(submit);
-  submit.addActionListener(submitListener());
-  submit.setFont(Assets.notoFont);
+  
+  //cancel
+  
+  Button cancel = new Button("Cancel", event -> {
+	  setVisible(false);
+  });
+  cancel.setBounds(x, 360, w, 30);
+  panel.add(cancel);
 
  }
 
@@ -208,6 +240,7 @@ public class TaskCreator extends JDialog {
 
     if (title.getText().trim().isEmpty()) {
      titleLabel.setForeground(UIConfig.getThemeColor("fg-error"));
+     title.grabFocus();
      return;
     }
 
