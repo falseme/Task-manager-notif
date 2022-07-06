@@ -17,6 +17,7 @@ public class Assets {
 
  public static Font notoFont;
  public static Font oswaldFont;
+ public static Font oswaldFont_Underlined;
  public static Font notoFont_Task;
  public static Font notoFont_Underlined;
 
@@ -33,6 +34,7 @@ public class Assets {
   Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
   fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
   notoFont_Underlined = notoFont.deriveFont(fontAttributes);
+  oswaldFont_Underlined = oswaldFont.deriveFont(fontAttributes);
   
 
  }

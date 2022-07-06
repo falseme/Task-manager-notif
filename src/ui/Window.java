@@ -1,9 +1,5 @@
 package ui;
 
-import event.UserWindowEvent;
-
-import gui.Assets;
-
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -13,14 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
+import event.UserWindowEvent;
+import gui.Assets;
 import lang.Dictionary;
-
-import main.App;
-
+import notif.MailLoginPane;
 import task.Task;
-
 import ui.layout.WindowLayout;
 
 public class Window extends JFrame {
@@ -212,13 +206,7 @@ public class Window extends JFrame {
    mail.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
-     String user = JOptionPane.showInputDialog(null, Dictionary.get(Dictionary.mail_settings_desc),
-       Dictionary.get(Dictionary.mail_settings_title), JOptionPane.QUESTION_MESSAGE);
-
-     if (user == null || user.isEmpty() || !user.contains("@"))
-      App.getConfig().setUserMail(null);
-     else
-      App.getConfig().setUserMail(user);
+    	new MailLoginPane();
 
     }
    });

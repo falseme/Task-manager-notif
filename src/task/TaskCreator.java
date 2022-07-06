@@ -38,7 +38,7 @@ public class TaskCreator extends JDialog {
 
  public TaskCreator(String day, int order) {
 
-  setSize(300, 400);
+  setSize(300, 420);
   setLocationRelativeTo(null);
   setAlwaysOnTop(true);
   setResizable(false);
@@ -135,7 +135,7 @@ public class TaskCreator extends JDialog {
   title.setBackground(UIConfig.getThemeColor("comp.bg-in"));
   
   JSeparator separator = new JSeparator();
-  separator.setBounds(x, 160, w, 161);
+  separator.setBounds(x, 160, w, 2);
   separator.setBackground(UIConfig.getThemeColor("week-title"));
   separator.setForeground(UIConfig.getThemeColor("week-title"));
   panel.add(separator);
