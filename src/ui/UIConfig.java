@@ -28,9 +28,11 @@ public class UIConfig {
   themeColors.get(whiteTheme).put("week-title", new Color(100, 100, 100));
   themeColors.get(whiteTheme).put("task-border", new Color(165, 165, 165));
   themeColors.get(whiteTheme).put("comp-bg", new Color(185, 185, 185)); // comp => component
-  themeColors.get(whiteTheme).put("comp-bg-in", new Color(190, 190, 190));
-  themeColors.get(whiteTheme).put("comp-bg-click", new Color(175, 175, 175));
+  themeColors.get(whiteTheme).put("comp-bg-in", new Color(200, 200, 200));
+  themeColors.get(whiteTheme).put("comp-bg-click", new Color(170, 170, 170));
   themeColors.get(whiteTheme).put("fg-error", Color.RED);
+  themeColors.get(whiteTheme).put("fg-notif", Color.BLACK);
+  themeColors.get(whiteTheme).put("fg-opposite", Color.BLACK);
 
   themeColors.get(darkTheme).put("window-border", new Color(44, 44, 44));
   themeColors.get(darkTheme).put("table-bg", new Color(32, 32, 32));
@@ -40,6 +42,8 @@ public class UIConfig {
   themeColors.get(darkTheme).put("comp-bg-in", new Color(38, 38, 38));
   themeColors.get(darkTheme).put("comp-bg-click", new Color(30, 30, 30));
   themeColors.get(darkTheme).put("fg-error", Color.RED);
+  themeColors.get(darkTheme).put("fg-notif", Color.YELLOW);
+  themeColors.get(darkTheme).put("fg-opposite", Color.WHITE);
 
  }
 

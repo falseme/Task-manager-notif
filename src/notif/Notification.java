@@ -2,12 +2,15 @@ package notif;
 
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
+import gui.Assets;
 import lang.Dictionary;
-
 import task.Task;
+import ui.UIConfig;
 
 /**
  * Notification
@@ -28,15 +31,26 @@ public class Notification extends JDialog implements Runnable {
   setUndecorated(true);
   setAlwaysOnTop(true);
 
-  setLayout(null);
-
+//  setLayout(null);
+  
+  JPanel panel = new JPanel(null);
+  panel.setBackground(UIConfig.getThemeColor("table-bg"));
+  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, true));
+  add(panel);
+  
   JLabel notif = new JLabel("Notification:", JLabel.LEFT);
-  notif.setBounds(0, 0, 200, 20);
-  add(notif);
+  notif.setBounds(10, 0, 200, 20);
+  notif.setFont(Assets.notoFont_Underlined);
+  notif.setForeground(UIConfig.getThemeColor("fg-notif"));
+  panel.add(notif);
 
-  JLabel title = new JLabel(task.getTitle(), JLabel.CENTER);
+  JLabel title = new JLabel(" " + task.getTitle(), JLabel.CENTER);
   title.setBounds(0, 20, 200, 20);
-  add(title);
+  title.setFont(Assets.notoFont_Task);
+  title.setForeground(UIConfig.getThemeColor("fg-opposite"));
+  if(title.getPreferredSize().width > getWidth())
+	  title.setHorizontalAlignment(JLabel.LEFT);
+  panel.add(title);
 
   setVisible(true);
 
@@ -51,7 +65,7 @@ public class Notification extends JDialog implements Runnable {
   }
 
  }
-
+ 
  public void run() {
 
   // moving downwards
@@ -102,5 +116,5 @@ public class Notification extends JDialog implements Runnable {
   setVisible(false);
 
  }
-
+ 
 }

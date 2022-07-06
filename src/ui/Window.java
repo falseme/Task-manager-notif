@@ -1,9 +1,6 @@
 package ui;
 
-import event.UserWindowEvent;
-
-import gui.Assets;
-
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,14 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
+import event.UserWindowEvent;
+import gui.Assets;
 import lang.Dictionary;
-
-import main.App;
-
+import notif.MailLoginPane;
 import task.Task;
-
 import ui.layout.WindowLayout;
 
 public class Window extends JFrame {
@@ -120,6 +115,7 @@ public class Window extends JFrame {
   public MenuBar() {
 
    options = new JMenu(Dictionary.get(Dictionary.options));
+   options.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    options.setFont(Assets.notoFont);
    options.setBorder(null);
    add(options);
@@ -127,11 +123,13 @@ public class Window extends JFrame {
    // THEME
 
    themes = new JMenu(Dictionary.get(Dictionary.theme));
+   themes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    themes.setFont(Assets.notoFont);
    themes.setBorder(null);
    options.add(themes);
 
    whiteTheme = new JMenuItem(Dictionary.get(Dictionary.whiteTheme));
+   whiteTheme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    whiteTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -145,6 +143,7 @@ public class Window extends JFrame {
    themes.add(whiteTheme);
 
    darkTheme = new JMenuItem(Dictionary.get(Dictionary.darkTheme));
+   darkTheme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    darkTheme.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -160,11 +159,13 @@ public class Window extends JFrame {
    // LANG
 
    langs = new JMenu(Dictionary.get(Dictionary.languaje));
+   langs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    langs.setFont(Assets.notoFont);
    langs.setBorder(null);
    options.add(langs);
 
    eslang = new JMenuItem(Dictionary.get(Dictionary.spanish));
+   eslang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    eslang.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -178,6 +179,7 @@ public class Window extends JFrame {
    langs.add(eslang);
 
    enlang = new JMenuItem(Dictionary.get(Dictionary.english));
+   enlang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    enlang.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
@@ -194,21 +196,17 @@ public class Window extends JFrame {
    // NOTIFICATIONS
 
    user = new JMenu(Dictionary.get(Dictionary.user));
+   user.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    user.setFont(Assets.notoFont);
    user.setBorder(null);
    add(user);
 
    mail = new JMenuItem(Dictionary.get(Dictionary.mailsettings));
+   mail.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    mail.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
 
-     String user = JOptionPane.showInputDialog(null, Dictionary.get(Dictionary.mail_settings_desc),
-       Dictionary.get(Dictionary.mail_settings_title), JOptionPane.QUESTION_MESSAGE);
-
-     if (user == null || user.isEmpty() || !user.contains("@"))
-      App.getConfig().setUserMail(null);
-     else
-      App.getConfig().setUserMail(user);
+    	new MailLoginPane();
 
     }
    });
@@ -243,23 +241,23 @@ public class Window extends JFrame {
    options.setBackground(UIConfig.getThemeColor("window-border"));
 
    themes.setForeground(UIConfig.getThemeColor("week-title"));
-   themes.setBackground(UIConfig.getThemeColor("window-border"));
+//   themes.setBackground(UIConfig.getThemeColor("window-border"));
    whiteTheme.setForeground(UIConfig.getThemeColor("week-title"));
-   whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
+//   whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
    darkTheme.setForeground(UIConfig.getThemeColor("week-title"));
-   darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
+//   darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
 
    langs.setForeground(UIConfig.getThemeColor("week-title"));
-   langs.setBackground(UIConfig.getThemeColor("window-border"));
+//   langs.setBackground(UIConfig.getThemeColor("window-border"));
    eslang.setForeground(UIConfig.getThemeColor("week-title"));
-   eslang.setBackground(UIConfig.getThemeColor("window-border"));
+//   eslang.setBackground(UIConfig.getThemeColor("window-border"));
    enlang.setForeground(UIConfig.getThemeColor("week-title"));
-   enlang.setBackground(UIConfig.getThemeColor("window-border"));
+//   enlang.setBackground(UIConfig.getThemeColor("window-border"));
 
    user.setForeground(UIConfig.getThemeColor("week-title"));
-   user.setBackground(UIConfig.getThemeColor("window-border"));
+//   user.setBackground(UIConfig.getThemeColor("window-border"));
    mail.setForeground(UIConfig.getThemeColor("week-title"));
-   mail.setBackground(UIConfig.getThemeColor("window-border"));
+//   mail.setBackground(UIConfig.getThemeColor("window-border"));
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));

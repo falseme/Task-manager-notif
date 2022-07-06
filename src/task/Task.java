@@ -5,6 +5,7 @@ import event.TaskPopupTextEvent;
 
 import gui.Assets;
 
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,6 +69,8 @@ public class Task extends JComponent {
   addMouseMotionListener(ev);
 
   setComponentPopupMenu(createPopupMenu());
+  
+  setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
  }
 
@@ -101,6 +104,7 @@ public class Task extends JComponent {
   JPopupMenu pop = new JPopupMenu();
 
   JMenuItem remove = new JMenuItem("Remove Task");
+  remove.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
   remove.addActionListener(new ActionListener() {
    public void actionPerformed(ActionEvent e) {
 
@@ -110,6 +114,7 @@ public class Task extends JComponent {
   });
 
   JMenuItem modify = new JMenuItem("Modify Task");
+  modify.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
   modify.addActionListener(new ActionListener() {
    public void actionPerformed(ActionEvent e) {
 
