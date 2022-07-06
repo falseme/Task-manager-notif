@@ -253,23 +253,23 @@ public class Window extends JFrame {
    options.setBackground(UIConfig.getThemeColor("window-border"));
 
    themes.setForeground(UIConfig.getThemeColor("week-title"));
-   themes.setBackground(UIConfig.getThemeColor("window-border"));
+//   themes.setBackground(UIConfig.getThemeColor("window-border"));
    whiteTheme.setForeground(UIConfig.getThemeColor("week-title"));
-   whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
+//   whiteTheme.setBackground(UIConfig.getThemeColor("window-border"));
    darkTheme.setForeground(UIConfig.getThemeColor("week-title"));
-   darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
+//   darkTheme.setBackground(UIConfig.getThemeColor("window-border"));
 
    langs.setForeground(UIConfig.getThemeColor("week-title"));
-   langs.setBackground(UIConfig.getThemeColor("window-border"));
+//   langs.setBackground(UIConfig.getThemeColor("window-border"));
    eslang.setForeground(UIConfig.getThemeColor("week-title"));
-   eslang.setBackground(UIConfig.getThemeColor("window-border"));
+//   eslang.setBackground(UIConfig.getThemeColor("window-border"));
    enlang.setForeground(UIConfig.getThemeColor("week-title"));
-   enlang.setBackground(UIConfig.getThemeColor("window-border"));
+//   enlang.setBackground(UIConfig.getThemeColor("window-border"));
 
    user.setForeground(UIConfig.getThemeColor("week-title"));
-   user.setBackground(UIConfig.getThemeColor("window-border"));
+//   user.setBackground(UIConfig.getThemeColor("window-border"));
    mail.setForeground(UIConfig.getThemeColor("week-title"));
-   mail.setBackground(UIConfig.getThemeColor("window-border"));
+//   mail.setBackground(UIConfig.getThemeColor("window-border"));
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));

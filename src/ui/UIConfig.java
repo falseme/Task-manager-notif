@@ -28,8 +28,8 @@ public class UIConfig {
   themeColors.get(whiteTheme).put("week-title", new Color(100, 100, 100));
   themeColors.get(whiteTheme).put("task-border", new Color(165, 165, 165));
   themeColors.get(whiteTheme).put("comp-bg", new Color(185, 185, 185)); // comp => component
-  themeColors.get(whiteTheme).put("comp-bg-in", new Color(190, 190, 190));
-  themeColors.get(whiteTheme).put("comp-bg-click", new Color(175, 175, 175));
+  themeColors.get(whiteTheme).put("comp-bg-in", new Color(200, 200, 200));
+  themeColors.get(whiteTheme).put("comp-bg-click", new Color(170, 170, 170));
   themeColors.get(whiteTheme).put("fg-error", Color.RED);
   themeColors.get(whiteTheme).put("fg-notif", Color.BLACK);
   themeColors.get(whiteTheme).put("fg-opposite", Color.BLACK);
