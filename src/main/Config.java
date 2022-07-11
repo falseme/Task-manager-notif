@@ -20,6 +20,7 @@ public class Config implements Serializable {
  private static final String path = "config.dat";
 
  private String usermail;
+ private String userwspnumber;
 
  private int langSelected;
  private int themeSelected;
@@ -30,6 +31,7 @@ public class Config implements Serializable {
   themeSelected = theme;
 
   usermail = null;
+  userwspnumber = null;
 
  }
 
@@ -85,6 +87,14 @@ public class Config implements Serializable {
 
  public void setUserMail(String mail) {
   usermail = mail;
+ }
+
+ public String getUserwspnumber() {
+	return userwspnumber;
+ }
+
+ public void setUserwspnumber(String userwspnumber) {
+	this.userwspnumber = userwspnumber;
  }
 
 }

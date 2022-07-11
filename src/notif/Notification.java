@@ -63,6 +63,13 @@ public class Notification extends JDialog implements Runnable {
    mail.send();
 
   }
+  
+  if(task.notifWsp()) {
+	  
+	  WspNotification wsp = new WspNotification(Dictionary.get(Dictionary.notiftitle) + task.getTitle());
+	  wsp.send();
+	  
+  }
 
  }
  
