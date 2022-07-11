@@ -1,4 +1,4 @@
-package notif;
+package util;
 
 import java.awt.event.ActionListener;
 
@@ -56,14 +56,14 @@ public class MailLoginPane extends JDialog {
 
 		JTextField mail = new JTextField();
 		mail.setBorder(null);
-		mail.setBounds(x, 60, w, 20);
+		mail.setBounds(x, 70, w, 20);
 		mail.setFont(Assets.notoFont);
 		mail.setForeground(UIConfig.getThemeColor("week-title"));
 		mail.setBackground(panel.getBackground());
 		panel.add(mail);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(x, 80, w, 2);
+		separator.setBounds(x, 91, w, 2);
 		separator.setForeground(UIConfig.getThemeColor("week-title"));
 		separator.setBackground(UIConfig.getThemeColor("week-title"));
 		panel.add(separator);
@@ -73,11 +73,11 @@ public class MailLoginPane extends JDialog {
 		ActionListener submitListener = submitListener(mail, mailLabel);
 		
 		Button submit = new Button(Dictionary.get(Dictionary.accept), submitListener);
-		submit.setBounds(x, 100, w, 30);
+		submit.setBounds(x, 110, w, 30);
 		panel.add(submit);
 
 		Button cancel = new Button(Dictionary.get(Dictionary.cancel), submitListener);
-		cancel.setBounds(x, 140, w, 30);
+		cancel.setBounds(x, 150, w, 30);
 		panel.add(cancel);
 		
 		setVisible(true);
