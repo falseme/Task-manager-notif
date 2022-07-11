@@ -13,9 +13,10 @@ import javax.swing.JMenuItem;
 import event.UserWindowEvent;
 import gui.Assets;
 import lang.Dictionary;
-import notif.MailLoginPane;
 import task.Task;
 import ui.layout.WindowLayout;
+import util.MailLoginPane;
+import util.WspLoginPane;
 
 public class Window extends JFrame {
  private static final long serialVersionUID = 42l;
@@ -111,6 +112,7 @@ public class Window extends JFrame {
   // notifications
   JMenu user;
   JMenuItem mail;
+  JMenuItem wsp;
 
   public MenuBar() {
 
@@ -213,6 +215,17 @@ public class Window extends JFrame {
    mail.setFont(Assets.notoFont);
    mail.setBorder(null);
    user.add(mail);
+   
+   wsp = new JMenuItem("WSP");
+   wsp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+   wsp.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		new WspLoginPane();
+	}
+   });
+   wsp.setFont(Assets.notoFont);
+   wsp.setBorder(null);
+   user.add(wsp);
 
    setBorder(null);
 

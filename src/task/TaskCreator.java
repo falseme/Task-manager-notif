@@ -189,7 +189,8 @@ public class TaskCreator extends JDialog {
   wspCheck.setFont(Assets.notoFont);
   wspCheck.setBounds(x, 250, wspCheck.getPreferredSize().width, 20);
   panel.add(wspCheck);
-  wspCheck.setEnabled(false);
+  if(App.getConfig().getUserwspnumber() == null || App.getConfig().getUserwspnumber().isEmpty())
+	  wspCheck.setEnabled(false);
   wspCheck.setForeground(UIConfig.getThemeColor("week-title"));
   wspCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
