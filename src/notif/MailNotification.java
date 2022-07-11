@@ -3,10 +3,8 @@ package notif;
 import java.util.Properties;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -19,23 +17,20 @@ public class MailNotification implements Runnable {
 
  public static Session session;
 
- private static String noreply;
- private static String pass;
-
  private String user, subject, msg;
 
  public static void init() {
 
   Properties props = new Properties();
-  props.setProperty("mail.smtp.host", "smtp.gmail.com");
+  
+  props.put("mail.smtp.host", "smtp.office365.com");
   props.setProperty("mail.smtp.starttls.enable", "true");
+  props.put("mail.smtp.ssl.trust", "smtp.office365.com");
   props.setProperty("mail.smtp.port", "587");
+  props.setProperty("mail.smtp.user", api.Keys.NO_REPLY_USER);
   props.setProperty("mail.smtp.auth", "true");
 
   session = Session.getDefaultInstance(props);
-
-  noreply = App.getConfig().getNoreplyMail();
-  pass = App.getConfig().getNoreplyMailPass();
 
  }
 
@@ -60,27 +55,23 @@ public class MailNotification implements Runnable {
 
  public void run() {
 
-  MimeMessage mail = new MimeMessage(session);
-
   try {
 
-   mail.setFrom(new InternetAddress(noreply));
-   mail.setRecipient(Message.RecipientType.TO, new InternetAddress(user));
-   mail.setSubject(subject);
-   mail.setText(msg);
+   MimeMessage message = new MimeMessage(session);
+   message.setFrom(new InternetAddress(api.Keys.NO_REPLY_USER));
+   message.addRecipient(Message.RecipientType.TO, new InternetAddress(user));
+   message.setSubject(subject + msg);
+   message.setText(msg);
 
-   Transport transport = session.getTransport("smtp");
-   transport.connect(noreply, pass);
-   transport.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+   Transport t = session.getTransport("smtp");
+   t.connect(api.Keys.NO_REPLY_USER, api.Keys.NO_REPLY_PASS);
+   t.sendMessage(message, message.getAllRecipients());
+   t.close();
 
-   transport.close();
-
-  } catch (AddressException e) {
-   e.printStackTrace();
-  } catch (MessagingException e) {
+  } catch (Exception e) {
    e.printStackTrace();
   }
-
+   
  }
 
 }

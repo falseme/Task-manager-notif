@@ -36,6 +36,9 @@ public class Dictionary {
 
  public static final int mail_settings_title = 19;
  public static final int mail_settings_desc = 20;
+ 
+ public static final int cancel = 21;
+ public static final int accept = 22;
 
  public static void init() {
 
@@ -64,9 +67,11 @@ public class Dictionary {
   lang.get(spanishLang).put(user, "Usuario");
   lang.get(spanishLang).put(mailsettings, "Establecer dirección de correo");
   lang.get(spanishLang).put(wspsettings, "Establecer número de celular");
-  lang.get(spanishLang).put(notiftitle, "Notificación Tarea Semanal");
+  lang.get(spanishLang).put(notiftitle, "Notificación Tarea Semanal: ");
   lang.get(spanishLang).put(mail_settings_title, "Establecer Correo");
-  lang.get(spanishLang).put(mail_settings_desc, "Introduzca su dirección de correo electrónico");
+  lang.get(spanishLang).put(mail_settings_desc, "Introduzca su dirección de correo electrónico:");
+  lang.get(spanishLang).put(cancel, "Cancelar");
+  lang.get(spanishLang).put(accept, "Aceptar");
 
   // English
 
@@ -88,9 +93,11 @@ public class Dictionary {
   lang.get(englishLang).put(user, "User");
   lang.get(englishLang).put(mailsettings, "Set email address");
   lang.get(englishLang).put(wspsettings, "Set WhatsApp number");
-  lang.get(englishLang).put(notiftitle, "Weekly Task Notification");
+  lang.get(englishLang).put(notiftitle, "Weekly Task Notification: ");
   lang.get(englishLang).put(mail_settings_title, "Mail Settings");
-  lang.get(englishLang).put(mail_settings_desc, "Enter your email address");
+  lang.get(englishLang).put(mail_settings_desc, "Enter your email address:");
+  lang.get(englishLang).put(cancel, "Cancel");
+  lang.get(englishLang).put(accept, "Accept");
 
  }
 

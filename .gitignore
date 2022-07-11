@@ -1,5 +1,8 @@
 /bin/
 /tasks/
+
+/src/api/
+
 .git
 plan.png
 *.dat

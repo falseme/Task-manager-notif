@@ -20,8 +20,6 @@ public class Config implements Serializable {
  private static final String path = "config.dat";
 
  private String usermail;
- private String noreplymail;
- private String noreplymailpass;
 
  private int langSelected;
  private int themeSelected;
@@ -32,8 +30,6 @@ public class Config implements Serializable {
   themeSelected = theme;
 
   usermail = null;
-  noreplymail = "no.reply@gmail.com";
-  noreplymailpass = "pass";
 
  }
 
@@ -81,14 +77,6 @@ public class Config implements Serializable {
 
   }
 
- }
-
- public String getNoreplyMail() {
-  return noreplymail;
- }
-
- public String getNoreplyMailPass() {
-  return noreplymailpass;
  }
 
  public String getUserMail() {
