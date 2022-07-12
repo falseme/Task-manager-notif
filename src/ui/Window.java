@@ -216,7 +216,7 @@ public class Window extends JFrame {
    mail.setBorder(null);
    user.add(mail);
    
-   wsp = new JMenuItem("WSP");
+   wsp = new JMenuItem(Dictionary.get(Dictionary.wspsettings));
    wsp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
    wsp.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
@@ -245,6 +245,7 @@ public class Window extends JFrame {
 
    user.setText(Dictionary.get(Dictionary.user));
    mail.setText(Dictionary.get(Dictionary.mailsettings));
+   wsp.setText(Dictionary.get(Dictionary.wspsettings));
 
   }
 
@@ -271,6 +272,7 @@ public class Window extends JFrame {
 //   user.setBackground(UIConfig.getThemeColor("window-border"));
    mail.setForeground(UIConfig.getThemeColor("week-title"));
 //   mail.setBackground(UIConfig.getThemeColor("window-border"));
+   wsp.setForeground(UIConfig.getThemeColor("week-title"));
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));

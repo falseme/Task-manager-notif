@@ -42,7 +42,7 @@ public class WspLoginPane extends JDialog {
 		panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("task-border"), 2, true));
 		add(panel);
 
-		JLabel title = new JLabel("WhatsApp registration", JLabel.CENTER);
+		JLabel title = new JLabel(Dictionary.get(Dictionary.wsp_settings_title), JLabel.CENTER);
 		title.setFont(Assets.oswaldFont_Underlined);
 		title.setBounds(0, 10, W, 30);
 		title.setForeground(UIConfig.getThemeColor("week-title"));
@@ -50,7 +50,7 @@ public class WspLoginPane extends JDialog {
 
 		// number
 
-		JLabel wspLabel = new JLabel("enter number:", JLabel.LEFT);
+		JLabel wspLabel = new JLabel(Dictionary.get(Dictionary.wsp_settings_desc), JLabel.LEFT);
 		wspLabel.setFont(Assets.notoFont_Task);
 		wspLabel.setBounds(x, 40, w, 20);
 		wspLabel.setForeground(UIConfig.getThemeColor("week-title"));
