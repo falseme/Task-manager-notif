@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -46,6 +47,7 @@ public class Window extends JFrame {
   setPreferredSize(getSize());
   setLocationRelativeTo(null);
   // setResizable(false);
+  setIconImage(Assets.app_icon.getImage());
   setUndecorated(true);
 
   setLayout(new WindowLayout());

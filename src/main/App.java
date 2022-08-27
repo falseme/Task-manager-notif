@@ -24,14 +24,16 @@ public class App {
   try {
    init();
   }catch(Exception ex) {
-   File file = new File("error-log" + Calendar.getInstance().toString() + ".txt");
+   Calendar c = Calendar.getInstance();
+   String date = c.get(Calendar.DAY_OF_MONTH) +"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.YEAR);
+   File file = new File("error-log-" + date + ".txt");
    try {
 	file.createNewFile();
 	ex.printStackTrace(new PrintStream(file));
-   }catch (IOException e) {
-	e.printStackTrace();
+   }catch (IOException ex2) {
+	ex2.printStackTrace();
    }
-
+   System.exit(0);
   }
 
  }

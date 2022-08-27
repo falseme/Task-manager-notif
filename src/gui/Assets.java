@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
+
 /**
  * Assets
  */
@@ -21,6 +23,8 @@ public class Assets {
  public static Font oswaldFont_Underlined;
  public static Font notoFont_Task;
  public static Font notoFont_Underlined;
+ 
+ public static ImageIcon app_icon;
 
  public static void init() {
 
@@ -38,6 +42,7 @@ public class Assets {
   notoFont_Underlined = notoFont.deriveFont(fontAttributes);
   oswaldFont_Underlined = oswaldFont.deriveFont(fontAttributes);
   
+  app_icon = new ImageIcon("icon64.png");
 
  }
 
