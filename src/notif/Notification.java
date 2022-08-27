@@ -25,7 +25,7 @@ public class Notification extends JDialog implements Runnable {
 
  public Notification(Task task) {
 
-  setSize(200, 50);
+  setSize(250, 60);
   setLocationRelativeTo(null);
   setLocation(0, -getHeight());
 
@@ -46,7 +46,7 @@ public class Notification extends JDialog implements Runnable {
   panel.add(notif);
 
   JLabel title = new JLabel(" " + task.getTitle(), JLabel.CENTER);
-  title.setBounds(0, 20, 200, 20);
+  title.setBounds(0, 25, getWidth(), 20);
   title.setFont(Assets.notoFont_Task);
   title.setForeground(UIConfig.getThemeColor("fg-opposite"));
   if(title.getPreferredSize().width > getWidth())

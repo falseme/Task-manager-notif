@@ -62,6 +62,9 @@ public class WspLoginPane extends JDialog {
 		wsp.setFont(Assets.notoFont);
 		wsp.setForeground(UIConfig.getThemeColor("week-title"));
 		wsp.setBackground(panel.getBackground());
+		
+		if(App.getConfig().getUserwspnumber() != null && !App.getConfig().getUserwspnumber().isEmpty())
+			wsp.setText(App.getConfig().getUserwspnumber());
 		panel.add(wsp);
 
 		JSeparator separator = new JSeparator();
@@ -102,6 +105,7 @@ public class WspLoginPane extends JDialog {
 				} else {
 					App.getConfig().setUserwspnumber("whatsapp:"+number);
 					setVisible(false);
+					new MessagePane(Dictionary.get(Dictionary.wsp_changed_title), Dictionary.get(Dictionary.wsp_changed_desc) + number);
 				}
 				
 			}else {

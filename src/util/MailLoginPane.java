@@ -60,6 +60,9 @@ public class MailLoginPane extends JDialog {
 		mail.setFont(Assets.notoFont);
 		mail.setForeground(UIConfig.getThemeColor("week-title"));
 		mail.setBackground(panel.getBackground());
+		
+		if(App.getConfig().getUserMail() != null && !App.getConfig().getUserMail().isEmpty())
+			mail.setText(App.getConfig().getUserMail());
 		panel.add(mail);
 
 		JSeparator separator = new JSeparator();
@@ -100,6 +103,7 @@ public class MailLoginPane extends JDialog {
 				} else {
 					App.getConfig().setUserMail(user);
 					setVisible(false);
+					new MessagePane(Dictionary.get(Dictionary.mail_changed_title), Dictionary.get(Dictionary.mail_changed_desc) + user);
 				}
 
 			} else {

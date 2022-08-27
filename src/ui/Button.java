@@ -28,7 +28,11 @@ public class Button extends JLabel {
 	  addMouseListener(new ComponentBackgroundMouseEvent(this));
 	  addMouseListener(new MouseAdapter() {
 		@Override
-		public void mouseClicked(MouseEvent e) {
+		public void mouseReleased(MouseEvent e) {
+			if(e.getX() < 0 || e.getX() > getWidth())
+				return;
+			if(e.getY() < 0 || e.getY() > getHeight())
+				return;
 			listener.actionPerformed(new ActionEvent(Button.this, 0, label));
 		}
 	  });

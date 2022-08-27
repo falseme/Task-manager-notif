@@ -19,7 +19,7 @@ public class MessagePane extends JDialog {
 	
 	public MessagePane(String _title, String _desc) {
 		
-		setSize(400, 120);
+		setSize(400, 130);
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 
@@ -55,7 +55,7 @@ public class MessagePane extends JDialog {
 		panel.add(mailLabel);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(x, 61, w, 2);
+		separator.setBounds(x, 64, w, 2);
 		separator.setForeground(UIConfig.getThemeColor("week-title"));
 		separator.setBackground(UIConfig.getThemeColor("week-title"));
 		panel.add(separator);
@@ -65,7 +65,7 @@ public class MessagePane extends JDialog {
 		ActionListener submitListener = submitListener();
 		
 		Button submit = new Button(Dictionary.get(Dictionary.accept), submitListener);
-		submit.setBounds(x, 70, w, 30);
+		submit.setBounds(x, 82, w, 30);
 		panel.add(submit);
 		
 		setVisible(true);
