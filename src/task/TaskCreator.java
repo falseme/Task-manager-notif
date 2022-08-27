@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import api.Keys;
 import event.MovableComponentListener;
 import gui.Assets;
 import lang.Dictionary;
@@ -189,7 +190,7 @@ public class TaskCreator extends JDialog {
   wspCheck.setFont(Assets.notoFont);
   wspCheck.setBounds(x, 250, wspCheck.getPreferredSize().width, 20);
   panel.add(wspCheck);
-  if(App.getConfig().getUserwspnumber() == null || App.getConfig().getUserwspnumber().isEmpty())
+  if(App.getConfig().getUserwspnumber() == null || App.getConfig().getUserwspnumber().isEmpty() || !Keys.loaded)
 	  wspCheck.setEnabled(false);
   wspCheck.setForeground(UIConfig.getThemeColor("week-title"));
   wspCheck.setBackground(UIConfig.getThemeColor("table-bg"));
@@ -198,7 +199,7 @@ public class TaskCreator extends JDialog {
   mailCheck.setFont(Assets.notoFont);
   mailCheck.setBounds(x, 270, mailCheck.getPreferredSize().width, 20);
   panel.add(mailCheck);
-  if (App.getConfig().getUserMail() == null || App.getConfig().getUserMail().isEmpty())
+  if (App.getConfig().getUserMail() == null || App.getConfig().getUserMail().isEmpty() || !Keys.loaded)
    mailCheck.setEnabled(false);
   mailCheck.setForeground(UIConfig.getThemeColor("week-title"));
   mailCheck.setBackground(UIConfig.getThemeColor("table-bg"));

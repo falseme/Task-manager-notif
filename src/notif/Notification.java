@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import api.Keys;
 import gui.Assets;
 import lang.Dictionary;
 import task.Task;
@@ -57,14 +58,14 @@ public class Notification extends JDialog implements Runnable {
   Thread thread = new Thread(this, "Notification UI");
   thread.start();
 
-  if (task.notifMail()) {
+  if (task.notifMail() && Keys.loaded) {
 
    MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle), task.getTitle());
    mail.send();
 
   }
   
-  if(task.notifWsp()) {
+  if(task.notifWsp() && Keys.loaded) {
 	  
 	  WspNotification wsp = new WspNotification(Dictionary.get(Dictionary.notiftitle) + task.getTitle());
 	  wsp.send();

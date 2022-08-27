@@ -38,9 +38,13 @@ public class Dictionary {
  public static final int mail_settings_desc = 20;
  public static final int wsp_settings_title = 23;
  public static final int wsp_settings_desc = 24;
+ public static final int keys_load_title= 25;
+ public static final int keys_load_desc = 26;
  
  public static final int cancel = 21;
  public static final int accept = 22;
+ 
+ //last num = 26
 
  public static void init() {
 
@@ -76,6 +80,8 @@ public class Dictionary {
   lang.get(spanishLang).put(wsp_settings_desc, "Número de WhatsApp:");
   lang.get(spanishLang).put(cancel, "Cancelar");
   lang.get(spanishLang).put(accept, "Aceptar");
+  lang.get(spanishLang).put(keys_load_title, "VAR Error");
+  lang.get(spanishLang).put(keys_load_desc, "Error al cargar variables para mails y whatsapp");
 
   // English
 
@@ -104,6 +110,8 @@ public class Dictionary {
   lang.get(englishLang).put(wsp_settings_desc, "WhatsApp number:");
   lang.get(englishLang).put(cancel, "Cancel");
   lang.get(englishLang).put(accept, "Accept");
+  lang.get(englishLang).put(keys_load_title, "VAR Error");
+  lang.get(englishLang).put(keys_load_desc, "Could not load mail & whatsapp variables");
 
  }
 

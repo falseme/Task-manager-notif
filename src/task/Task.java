@@ -96,6 +96,13 @@ public class Task extends JComponent {
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.gmail, x, y, h, h, null);
   }
+  
+  if(notifWsp) {
+   int h = dateLabel.getHeight() / 3 * 2;
+   int x = notifMail ? 12 + h : 10;
+   int y = dateLabel.getY() + h / 2;
+   g.drawImage(Assets.wsp, x, y, h, h, null);
+  }
 
  }
 
@@ -126,7 +133,7 @@ public class Task extends JComponent {
 
   pop.add(modify);
   pop.add(remove);
-
+  
   return pop;
 
  }

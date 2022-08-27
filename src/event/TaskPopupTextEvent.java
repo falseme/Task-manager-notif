@@ -28,7 +28,7 @@ public class TaskPopupTextEvent extends MouseAdapter implements Runnable {
   pop = new JPopupMenu();
   pop.add(task.getTitle());
   pop.getComponent(0).setFont(Assets.notoFont_Task);
-  pop.getComponent(0).setEnabled(false);
+//  pop.getComponent(0).setEnabled(false);
   pop.setBorder(null);
 
   owner = task;
@@ -63,7 +63,7 @@ public class TaskPopupTextEvent extends MouseAdapter implements Runnable {
  public void run() {
 
   try {
-   Thread.sleep(1000);
+   Thread.sleep(800);
   } catch (Exception ex) {
    ex.printStackTrace();
   }
@@ -77,7 +77,7 @@ public class TaskPopupTextEvent extends MouseAdapter implements Runnable {
 
    pop.getComponent(0).setBackground(UIConfig.getThemeColor("comp-bg-click"));
    pop.getComponent(0).setForeground(UIConfig.getThemeColor("week-title"));
-   pop.setLocation(x, y);
+   pop.setLocation(x + 12, y);
    pop.setVisible(true);
 
   }

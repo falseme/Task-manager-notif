@@ -10,6 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import api.Keys;
 import event.UserWindowEvent;
 import gui.Assets;
 import lang.Dictionary;
@@ -215,6 +216,7 @@ public class Window extends JFrame {
    mail.setFont(Assets.notoFont);
    mail.setBorder(null);
    user.add(mail);
+   mail.setEnabled(Keys.loaded);
    
    wsp = new JMenuItem(Dictionary.get(Dictionary.wspsettings));
    wsp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -226,6 +228,7 @@ public class Window extends JFrame {
    wsp.setFont(Assets.notoFont);
    wsp.setBorder(null);
    user.add(wsp);
+   wsp.setEnabled(Keys.loaded);
 
    setBorder(null);
 
