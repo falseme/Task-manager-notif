@@ -106,7 +106,7 @@ public class WspLoginPane extends JDialog {
 				} else {
 					App.getConfig().setUserwspnumber(number);
 					setVisible(false);
-					new MessagePane(Dictionary.get(Dictionary.wsp_changed_title), Dictionary.get(Dictionary.wsp_changed_desc) + number);
+					new MessagePane(Dictionary.get(Dictionary.wsp_changed_title), Dictionary.get(Dictionary.wsp_changed_desc) + number, Dictionary.get(Dictionary.wsp_changed_desc_2));
 				}
 				
 			}else {

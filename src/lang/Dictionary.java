@@ -45,6 +45,7 @@ public class Dictionary {
  public static final int mail_changed_desc = 28;
  public static final int wsp_changed_title = 29;
  public static final int wsp_changed_desc = 30;
+ public static final int wsp_changed_desc_2 = 37;
  
  public static final int cancel = 21;
  public static final int accept = 22;
@@ -56,7 +57,7 @@ public class Dictionary {
  public static final int creator_time = 35;
  public static final int creator_notif = 36;
  
- //last num = 36
+ //last num = 37
 
  public static void init() {
 
@@ -100,6 +101,7 @@ public class Dictionary {
   lang.get(spanishLang).put(mail_changed_desc, "Su dirección de correo fue cambiada a: ");
   lang.get(spanishLang).put(wsp_changed_title, "Whatsapp actualizado");
   lang.get(spanishLang).put(wsp_changed_desc, "Su número de whatsapp fue cambiado a: ");
+  lang.get(spanishLang).put(wsp_changed_desc_2, "Envía \"join nearly-buffalo\" a +14155238886");
   lang.get(spanishLang).put(creator_select, "Día seleccionado");
   lang.get(spanishLang).put(creator_title, "Título:");
   lang.get(spanishLang).put(creator_time, "Hora: (HH:MM)");
@@ -140,6 +142,7 @@ public class Dictionary {
   lang.get(englishLang).put(mail_changed_desc, "Your email was changed to: ");
   lang.get(englishLang).put(wsp_changed_title, "Whatsapp updated");
   lang.get(englishLang).put(wsp_changed_desc, "Your whatsapp number was changed to: ");
+  lang.get(englishLang).put(wsp_changed_desc_2, "Send \"join nearly-buffalo\" to +14155238886");
   lang.get(englishLang).put(creator_select, "Day select");
   lang.get(englishLang).put(creator_title, "Title:");
   lang.get(englishLang).put(creator_time, "Time: (HH:MM)");

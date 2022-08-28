@@ -17,7 +17,7 @@ import ui.UIConfig;
 public class MessagePane extends JDialog {
 	private static final long serialVersionUID = 1l;
 	
-	public MessagePane(String _title, String _desc) {
+	public MessagePane(String _title, String... _desc) {
 		
 		setSize(400, 130);
 		setLocationRelativeTo(null);
@@ -48,14 +48,23 @@ public class MessagePane extends JDialog {
 
 		// dec
 
-		JLabel mailLabel = new JLabel(_desc, JLabel.LEFT);
-		mailLabel.setFont(Assets.notoFont_Task);
-		mailLabel.setBounds(x, 40, w, 20);
-		mailLabel.setForeground(UIConfig.getThemeColor("week-title"));
-		panel.add(mailLabel);
+		int y = 40;
+		int h = 20;
+		
+		for (String str : _desc) {
+			
+			JLabel mailLabel = new JLabel(str, JLabel.LEFT);
+			mailLabel.setFont(Assets.notoFont_Task);
+			mailLabel.setBounds(x, y, w, h);
+			mailLabel.setForeground(UIConfig.getThemeColor("week-title"));
+			panel.add(mailLabel);
+			
+			y+= h + 5;
+			
+		}
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(x, 64, w, 2);
+		separator.setBounds(x, y, w, 2);
 		separator.setForeground(UIConfig.getThemeColor("week-title"));
 		separator.setBackground(UIConfig.getThemeColor("week-title"));
 		panel.add(separator);
@@ -65,10 +74,12 @@ public class MessagePane extends JDialog {
 		ActionListener submitListener = submitListener();
 		
 		Button submit = new Button(Dictionary.get(Dictionary.accept), submitListener);
-		submit.setBounds(x, 82, w, 30);
+		submit.setBounds(x, y+=h, w, 30);
 		panel.add(submit);
 		
 		setVisible(true);
+		
+		setSize(getWidth(), y+50);
 		
 	}
 	
