@@ -43,7 +43,7 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 
 - *Receiving neither email nor whatsapp notifications?*
 
-**Well... Though the posibilities are low, i could always be possible that the server exploded. Or maybe you typed your address and number wrongly.**
+**Well... Though the posibilities are low, it could always be possible that the server exploded. Or maybe you typed your address and number wrongly.**
 
 -----------
 
