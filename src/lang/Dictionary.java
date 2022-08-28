@@ -41,15 +41,22 @@ public class Dictionary {
  public static final int keys_load_title= 25;
  public static final int keys_load_desc = 26;
  
- public static final int cancel = 21;
- public static final int accept = 22;
- 
  public static final int mail_changed_title = 27;
  public static final int mail_changed_desc = 28;
  public static final int wsp_changed_title = 29;
  public static final int wsp_changed_desc = 30;
  
- //last num = 30
+ public static final int cancel = 21;
+ public static final int accept = 22;
+ public static final int create = 31;
+ public static final int repeat = 32;
+
+ public static final int creator_select = 33;
+ public static final int creator_title = 34;
+ public static final int creator_time = 35;
+ public static final int creator_notif = 36;
+ 
+ //last num = 36
 
  public static void init() {
 
@@ -80,18 +87,24 @@ public class Dictionary {
   lang.get(spanishLang).put(wspsettings, "Establecer número de WhatsApp");
   lang.get(spanishLang).put(notiftitle, "Notificación Tarea Semanal: ");
   lang.get(spanishLang).put(mail_settings_title, "Registrar Correo");
-  lang.get(spanishLang).put(mail_settings_desc, "Correo electrónico:");
+  lang.get(spanishLang).put(mail_settings_desc, "Correo electrónico: (ej: nombre@ejemplo.com)");
   lang.get(spanishLang).put(wsp_settings_title, "Registrar número");
-  lang.get(spanishLang).put(wsp_settings_desc, "Número de WhatsApp:");
+  lang.get(spanishLang).put(wsp_settings_desc, "Número de WhatsApp: (ej: +123 1234 1234567)");
   lang.get(spanishLang).put(cancel, "Cancelar");
   lang.get(spanishLang).put(accept, "Aceptar");
+  lang.get(spanishLang).put(create, "Crear tarea");
+  lang.get(spanishLang).put(repeat, "Repetir");
   lang.get(spanishLang).put(keys_load_title, "VAR Error");
   lang.get(spanishLang).put(keys_load_desc, "Error al cargar variables para mails y whatsapp");
   lang.get(spanishLang).put(mail_changed_title, "Mail actualizado");
   lang.get(spanishLang).put(mail_changed_desc, "Su dirección de correo fue cambiada a: ");
   lang.get(spanishLang).put(wsp_changed_title, "Whatsapp actualizado");
   lang.get(spanishLang).put(wsp_changed_desc, "Su número de whatsapp fue cambiado a: ");
-
+  lang.get(spanishLang).put(creator_select, "Día seleccionado");
+  lang.get(spanishLang).put(creator_title, "Título:");
+  lang.get(spanishLang).put(creator_time, "Hora: (HH:MM)");
+  lang.get(spanishLang).put(creator_notif, "Notificaciones");
+  
   // English
 
   lang.get(englishLang).put(day1, "Sunday");
@@ -114,17 +127,23 @@ public class Dictionary {
   lang.get(englishLang).put(wspsettings, "Set WhatsApp number");
   lang.get(englishLang).put(notiftitle, "Weekly Task Notification: ");
   lang.get(englishLang).put(mail_settings_title, "Mail Registration");
-  lang.get(englishLang).put(mail_settings_desc, "Email address:");
+  lang.get(englishLang).put(mail_settings_desc, "Email address: (e.g., name@example.com)");
   lang.get(englishLang).put(wsp_settings_title, "Number registration");
-  lang.get(englishLang).put(wsp_settings_desc, "WhatsApp number:");
+  lang.get(englishLang).put(wsp_settings_desc, "WhatsApp number: (e.g., +123 1234 1234567)");
   lang.get(englishLang).put(cancel, "Cancel");
   lang.get(englishLang).put(accept, "Accept");
+  lang.get(englishLang).put(create, "New task");
+  lang.get(englishLang).put(repeat, "Repeat");
   lang.get(englishLang).put(keys_load_title, "VAR Error");
   lang.get(englishLang).put(keys_load_desc, "Could not load mail & whatsapp variables");
-  lang.get(spanishLang).put(mail_changed_title, "Email updated");
-  lang.get(spanishLang).put(mail_changed_desc, "Your email was changed to: ");
-  lang.get(spanishLang).put(wsp_changed_title, "Whatsapp updated");
-  lang.get(spanishLang).put(wsp_changed_desc, "Yout whatsapp number was changed to: ");
+  lang.get(englishLang).put(mail_changed_title, "Email updated");
+  lang.get(englishLang).put(mail_changed_desc, "Your email was changed to: ");
+  lang.get(englishLang).put(wsp_changed_title, "Whatsapp updated");
+  lang.get(englishLang).put(wsp_changed_desc, "Your whatsapp number was changed to: ");
+  lang.get(englishLang).put(creator_select, "Day select");
+  lang.get(englishLang).put(creator_title, "Title:");
+  lang.get(englishLang).put(creator_time, "Time: (HH:MM)");
+  lang.get(englishLang).put(creator_notif, "Notifications");
 
  }
 

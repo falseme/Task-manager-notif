@@ -96,6 +96,7 @@ public class WspLoginPane extends JDialog {
 			if(event.getActionCommand().equals(Dictionary.get(Dictionary.accept))) {
 				
 				String number = input.getText();
+				number = number.replace(" ","");
 
 				if (number == null || number.isEmpty() || !number.contains("+")) {
 					label.setForeground(UIConfig.getThemeColor("fg-error"));
@@ -103,7 +104,7 @@ public class WspLoginPane extends JDialog {
 						label.setText(label.getText() + " *");
 					input.grabFocus();
 				} else {
-					App.getConfig().setUserwspnumber("whatsapp:"+number);
+					App.getConfig().setUserwspnumber(number);
 					setVisible(false);
 					new MessagePane(Dictionary.get(Dictionary.wsp_changed_title), Dictionary.get(Dictionary.wsp_changed_desc) + number);
 				}

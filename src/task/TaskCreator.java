@@ -89,7 +89,7 @@ public class TaskCreator extends JDialog {
   int x = (W-w)/2;
   // int h = getHeight();
 
-  windowTitle = new JLabel("New Task", JLabel.CENTER);
+  windowTitle = new JLabel(Dictionary.get(Dictionary.create), JLabel.CENTER);
   windowTitle.setBounds(x, 0, w, 50);
   panel.add(windowTitle);
   windowTitle.setFont(Assets.oswaldFont);
@@ -97,7 +97,7 @@ public class TaskCreator extends JDialog {
 
   // day selection
 
-  dayLabel = new JLabel("Day select");
+  dayLabel = new JLabel(Dictionary.get(Dictionary.creator_select));
   dayLabel.setBounds(x, 60, w, 20);
   panel.add(dayLabel);
   dayLabel.setFont(Assets.notoFont_Task);
@@ -121,7 +121,7 @@ public class TaskCreator extends JDialog {
 
   // title selection
 
-  titleLabel = new JLabel("Title:");
+  titleLabel = new JLabel(Dictionary.get(Dictionary.creator_title));
   titleLabel.setBounds(x, 110, w, 20);
   panel.add(titleLabel);
   titleLabel.setFont(Assets.notoFont_Task);
@@ -143,7 +143,7 @@ public class TaskCreator extends JDialog {
 
   // time selection
 
-  timeLabel = new JLabel("Time:");
+  timeLabel = new JLabel(Dictionary.get(Dictionary.creator_time));
   timeLabel.setBounds(x, 170, w, 20);
   panel.add(timeLabel);
   timeLabel.setFont(Assets.notoFont_Task);
@@ -180,7 +180,7 @@ public class TaskCreator extends JDialog {
 
   // notifications selection
 
-  notifLabel = new JLabel("Notifications");
+  notifLabel = new JLabel(Dictionary.get(Dictionary.creator_notif));
   notifLabel.setBounds(x, 230, w, 20);
   panel.add(notifLabel);
   notifLabel.setFont(Assets.notoFont_Task);
@@ -204,7 +204,7 @@ public class TaskCreator extends JDialog {
   mailCheck.setForeground(UIConfig.getThemeColor("week-title"));
   mailCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
-  repeatCheck = new JCheckBox("Repeat", true);
+  repeatCheck = new JCheckBox(Dictionary.get(Dictionary.repeat), true);
   repeatCheck.setFont(Assets.notoFont);
   repeatCheck.setBounds(x, 290, repeatCheck.getPreferredSize().width, 20);
   panel.add(repeatCheck);
@@ -220,13 +220,13 @@ public class TaskCreator extends JDialog {
 //  submit.addActionListener(submitListener());
 //  submit.setFont(Assets.notoFont);
   
-  Button submit = new Button("Create", submitListener());
+  Button submit = new Button(Dictionary.get(Dictionary.create), submitListener());
   submit.setBounds(x, 320, w, 30);
   panel.add(submit);
   
   //cancel
   
-  Button cancel = new Button("Cancel", event -> {
+  Button cancel = new Button(Dictionary.get(Dictionary.cancel), event -> {
 	  setVisible(false);
   });
   cancel.setBounds(x, 360, w, 30);

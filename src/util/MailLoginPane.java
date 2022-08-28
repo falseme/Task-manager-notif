@@ -94,6 +94,7 @@ public class MailLoginPane extends JDialog {
 			if (event.getActionCommand().equals(Dictionary.get(Dictionary.accept))) {
 
 				String user = mail.getText();
+				user = user.replace(" ","");
 
 				if (user == null || user.isEmpty() || !user.contains("@")) {
 					mailL.setForeground(UIConfig.getThemeColor("fg-error"));

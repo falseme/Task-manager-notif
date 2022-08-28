@@ -15,7 +15,7 @@ public class WspNotification implements Runnable {
 		
 		this.msg = msg;
 		
-		phoneNumber = App.getConfig().getUserwspnumber();
+		phoneNumber = "whatsapp:"+App.getConfig().getUserwspnumber();
 		
 	}
 	
