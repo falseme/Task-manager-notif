@@ -261,6 +261,9 @@ public class TaskCreator extends JDialog {
     calendar.set(Calendar.HOUR_OF_DAY, (int) hours.getSelectedItem());
     calendar.set(Calendar.MINUTE, (int) minutes.getSelectedItem());
     calendar.set(Calendar.SECOND, 0);
+    
+    if(calendar.before(Calendar.getInstance()))
+    	calendar.add(Calendar.DAY_OF_YEAR, 7);
 
     Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(),
       repeatCheck.isSelected());
