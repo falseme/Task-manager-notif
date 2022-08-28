@@ -4,6 +4,8 @@
 ![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
 ![](https://img.shields.io/github/issues/Fabricio-Tomas/Task-manager-notif.svg)
 
+[[Español]](https://github.com/Fabricio-Tomas/Task-manager-notif/blob/main/README-ES.MD)
+
 *Week Task Manager* is a software that lets you organize every task in a simple and comfortable table. It also sends notifications at time on desktop or via email or even whatsapp if the options are chosen.
 
 Remember to organize your time and have a relaxed weekend, knowing that every task was completed.
