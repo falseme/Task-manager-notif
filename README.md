@@ -1,10 +1,10 @@
-# Weekly Tasks Manager
+# Week Task Manager
 
 ![](https://img.shields.io/github/tag/Fabricio-Tomas/Task-manager-notif.svg)
 ![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
 ![](https://img.shields.io/github/issues/Fabricio-Tomas/Task-manager-notif.svg)
 
-*Weekly Tasks Manager* is a software that lets you organize every task in a simple and comfortable table. It also sends notifications at time on desktop or via email if the options is chosen. (may be an update to receive notifications via WhatsApp)
+*Week Task Manager* is a software that lets you organize every task in a simple and comfortable table. It also sends notifications at time on desktop or via email or even whatsapp if the options are chosen.
 
 Remember to organize your time and have a relaxed weekend, knowing that every task was completed.
 
@@ -13,32 +13,37 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 ### Features
 - Organize your week in a seven-column table.
 - Diferent themes and languajes.
-     - White and Dark Theme.
-     - English and Spanish.
-- Receive notifications in desktop or email by entering an address.
+     - White & Dark Theme.
+     - English & Spanish.
+- Receive notifications in desktop.
+- Notifications via email by entering an address.
+- Notifications via whatsapp by entering a cellphone number.
 - Automaticaly sort tasks to show the most recent on top.
 - Store user's configurations in the `config.dat` file.
 - Store daily tasks in the `tasks` folder with seven files.
-- More features in the future
+- May be more features in the future
 
 ------------
 
 ### Download
 ![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
 
-- The download of the most recent release can be found [here](https://github.com/Fabricio-Tomas/Task-manager-notif/releases/tag/v1.0)
-- Also check the release [history](https://github.com/Fabricio-Tomas/Task-manager-notif/releases)
-
-- The source code can be compiled using the following commands: (keep in mind that the `res` folder and the `javax.mail.jar` library must be in the same directory where the src folder is stored)
-
-```
-javac -encoding utf8 -d bin -cp src;javax.mail.jar src\main\App.java
-```
-```
-java -cp bin;res;javax.mail.jar main.App
-```
+- The download of the most recent release can be found [here](https://github.com/Fabricio-Tomas/Task-manager-notif/releases/tag/v2.1)
+- Can also check the release [history](https://github.com/Fabricio-Tomas/Task-manager-notif/releases)
 
 ------------
+
+### FAQS
+
+- *Having problems with the whatsapp registration?*
+
+**Keep in mind that you will have to enter the whole phone number, including your country code. E.g., Argentina: +549.**
+
+- *Receiving neither email nor whatsapp notifications?*
+
+**Well... Though the posibilities are low, i could always be possible that the server exploded. Or maybe you typed your address and number wrongly.**
+
+-----------
 
 ### Licences
 
@@ -59,3 +64,9 @@ Some icons and fonts are not owned by Fabricio-Tomas. Links, names and licencies
 - javax.mail.jar
 	- Owned by Oracle
 	- [Download](https://www.oracle.com/java/technologies/javamail-api.html)
+
+- javax.activation.jar
+	- Owned by Oracle
+	
+- twilio.jar
+	- [Official site](https://www.twilio.com/)
