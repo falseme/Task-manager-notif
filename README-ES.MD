@@ -1,8 +1,8 @@
 # Week Task Manager
 
-![](https://img.shields.io/github/tag/Fabricio-Tomas/Task-manager-notif.svg)
-![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
-![](https://img.shields.io/github/issues/Fabricio-Tomas/Task-manager-notif.svg)
+![](https://img.shields.io/github/tag/falseme/Task-manager-notif.svg)
+![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
+![](https://img.shields.io/github/issues/falseme/Task-manager-notif.svg)
 
 *Week Task Manager* es un software que te permite organizar tus tareas semanales en una simple tabla. Además de recibir notificaciones en el escritorio, también puede notificarte por mail o whatsapp si así lo deseas.
 
@@ -26,10 +26,10 @@ Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que
 ------------
 
 ### Descarga
-![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
+![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
 
-- La descarga de la última versión se puede encontrar [aquí](https://github.com/Fabricio-Tomas/Task-manager-notif/releases/tag/v2.1)
-- También puedes revisar el [historial de versiones](https://github.com/Fabricio-Tomas/Task-manager-notif/releases)
+- La descarga de la última versión se puede encontrar [aquí](https://github.com/falseme/Task-manager-notif/releases/tag/v2.1)
+- También puedes revisar el [historial de versiones](https://github.com/falseme/Task-manager-notif/releases)
 
 ------------
 
@@ -49,7 +49,7 @@ Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que
 
 Este software está bajo la licencia `MIT` que puede ser encontrada en este repositorio.
 
-Algunos iconos y fuentes no son de mi propiedad (Fabricio-Tomas). Los links, nombres y licencias se encuentran debajo y alojadas en el repositorio.
+Algunos iconos y fuentes no son de mi propiedad (@falseme). Los links, nombres y licencias se encuentran debajo y alojadas en el repositorio.
 
 - Noto Sans Font
 	- *Diseñada por Google*
