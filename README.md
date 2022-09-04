@@ -1,10 +1,10 @@
 # Week Task Manager
 
-![](https://img.shields.io/github/tag/Fabricio-Tomas/Task-manager-notif.svg)
-![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
-![](https://img.shields.io/github/issues/Fabricio-Tomas/Task-manager-notif.svg)
+![](https://img.shields.io/github/tag/falseme/Task-manager-notif.svg)
+![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
+![](https://img.shields.io/github/issues/falseme/Task-manager-notif.svg)
 
-[[Español]](https://github.com/Fabricio-Tomas/Task-manager-notif/blob/main/README-ES.MD)
+[[Español]](https://github.com/falseme/Task-manager-notif/blob/main/README-ES.MD)
 
 *Week Task Manager* is a software that lets you organize every task in a simple and comfortable table. It also sends notifications at time on desktop or via email or even whatsapp if the options are chosen.
 
@@ -28,10 +28,10 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 ------------
 
 ### Download
-![](https://img.shields.io/github/release/Fabricio-Tomas/Task-manager-notif.svg)
+![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
 
-- The download of the most recent release can be found [here](https://github.com/Fabricio-Tomas/Task-manager-notif/releases/tag/v2.1)
-- Can also check the release [history](https://github.com/Fabricio-Tomas/Task-manager-notif/releases)
+- The download of the most recent release can be found [here](https://github.com/falseme/Task-manager-notif/releases/tag/v2.1)
+- Can also check the release [history](https://github.com/falseme/Task-manager-notif/releases)
 
 ------------
 
@@ -51,7 +51,7 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 
 This software is under `MIT LICENCE` which can be found in this repository.
 
-Some icons and fonts are not owned by Fabricio-Tomas. Links, names and licencies are stored in this repository and writed bellow.
+Some icons and fonts are not owned by me (@falseme). Links, names and licencies are stored in this repository and writed bellow.
 
 - Noto Sans Font
 	- *Designed by Google*
