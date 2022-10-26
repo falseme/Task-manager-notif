@@ -7,7 +7,6 @@ import java.awt.event.MouseWheelListener;
 import javax.swing.JComponent;
 
 import task.Task;
-
 import ui.layout.TaskListLayout;
 
 public class TaskList extends JComponent implements MouseWheelListener {

@@ -1,14 +1,12 @@
 package event;
 
-import gui.Assets;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPopupMenu;
 
+import gui.Assets;
 import task.Task;
-
 import ui.UIConfig;
 
 /**

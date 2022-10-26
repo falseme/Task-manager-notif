@@ -2,8 +2,6 @@ package list;
 
 import java.util.Comparator;
 
-import task.Task;
-
 /**
  * Comparator
  */

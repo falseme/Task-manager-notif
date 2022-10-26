@@ -1,15 +1,13 @@
 package ui;
 
-import event.ComponentBackgroundMouseEvent;
-
-import gui.Assets;
-
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 
+import event.ComponentBackgroundMouseEvent;
+import gui.Assets;
 import task.TaskCreator;
 
 public class Label extends JLabel {

@@ -9,12 +9,9 @@ import java.util.LinkedList;
 import javax.swing.Timer;
 
 import list.TaskComparator;
-
 import load.LoadWindow;
 import load.TaskReader;
-
 import notif.Notification;
-
 import ui.Window;
 
 /**

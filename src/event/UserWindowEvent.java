@@ -3,9 +3,8 @@ package event;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import task.TaskManager;
-
 import main.App;
+import task.TaskManager;
 
 /**
  * UserWindowEvent

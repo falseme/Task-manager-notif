@@ -5,9 +5,8 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import lang.Dictionary;
-
-import task.*;
-
+import task.Task;
+import task.TaskManager;
 import ui.layout.WeekListLayout;
 
 public class WeekPanel extends JPanel {

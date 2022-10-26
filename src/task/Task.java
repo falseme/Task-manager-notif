@@ -1,10 +1,5 @@
 package task;
 
-import event.ComponentBackgroundMouseEvent;
-import event.TaskPopupTextEvent;
-
-import gui.Assets;
-
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -16,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import event.ComponentBackgroundMouseEvent;
+import event.TaskPopupTextEvent;
+import gui.Assets;
 import ui.UIConfig;
 import ui.layout.TaskLayout;
 

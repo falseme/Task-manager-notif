@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.LinkedList;
 
 import list.TaskComparator;
-
 import task.Task;
 import ui.util.TaskSeparator;
 

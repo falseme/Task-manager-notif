@@ -1,9 +1,5 @@
 package ui;
 
-import event.WindowBorderEvent;
-
-import gui.Assets;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -11,6 +7,9 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+
+import event.WindowBorderEvent;
+import gui.Assets;
 
 /**
  * WindowBorder
