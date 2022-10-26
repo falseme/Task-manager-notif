@@ -64,7 +64,7 @@ public class TaskManager {
 
        if (task.repeat()) {
 
-        taskList.get(today).peek().passWeek();
+        taskList.get(today).peek().passTime();
         sort(today);
         userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1);
 

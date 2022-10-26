@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 /**
- * Dictionaty
+ * Dictionary
  */
 public class Dictionary {
 
@@ -51,14 +51,17 @@ public class Dictionary {
  public static final int cancel = 21;
  public static final int accept = 22;
  public static final int create = 31;
- public static final int repeat = 32;
+ public static final int frequency = 38;
+ public static final int repeatWeek = 32;
+ public static final int repeatDays = 39;
+ public static final int notRepeat = 40;
 
  public static final int creator_select = 33;
  public static final int creator_title = 34;
  public static final int creator_time = 35;
  public static final int creator_notif = 36;
 
- //last num = 37
+ //last used num = 40
 
  public static void init() {
 
@@ -95,14 +98,17 @@ public class Dictionary {
   lang.get(spanishLang).put(cancel, "Cancelar");
   lang.get(spanishLang).put(accept, "Aceptar");
   lang.get(spanishLang).put(create, "Crear tarea");
-  lang.get(spanishLang).put(repeat, "Repetir");
+  lang.get(spanishLang).put(frequency, "Frecuencia");
+  lang.get(spanishLang).put(repeatWeek, "Repetir semanalmente");
+  lang.get(spanishLang).put(repeatDays, "Repetir cada X días");
+  lang.get(spanishLang).put(notRepeat, "No repetir");
   lang.get(spanishLang).put(keys_load_title, "VAR Error");
   lang.get(spanishLang).put(keys_load_desc, "Error al cargar variables para mails y whatsapp");
   lang.get(spanishLang).put(mail_changed_title, "Mail actualizado");
   lang.get(spanishLang).put(mail_changed_desc, "Su dirección de correo fue cambiada a:");
   lang.get(spanishLang).put(wsp_changed_title, "Whatsapp actualizado");
   lang.get(spanishLang).put(wsp_changed_desc, "Su número de whatsapp fue cambiado a:");
-  lang.get(spanishLang).put(wsp_changed_desc_2, "Envía \"join nearly-buffalo\" a +14155238886");
+  lang.get(spanishLang).put(wsp_changed_desc_2, "Envía \"join nearly-buffalo\" a +1 415 523 8886");
   lang.get(spanishLang).put(creator_select, "Día seleccionado");
   lang.get(spanishLang).put(creator_title, "Título:");
   lang.get(spanishLang).put(creator_time, "Hora: (HH:MM)");
@@ -136,14 +142,17 @@ public class Dictionary {
   lang.get(englishLang).put(cancel, "Cancel");
   lang.get(englishLang).put(accept, "Accept");
   lang.get(englishLang).put(create, "New task");
-  lang.get(englishLang).put(repeat, "Repeat");
+  lang.get(englishLang).put(frequency, "Frequency");
+  lang.get(englishLang).put(repeatWeek, "Repeat weekly");
+  lang.get(englishLang).put(repeatDays, "Repeat every X days");
+  lang.get(englishLang).put(notRepeat, "Do not repeat");
   lang.get(englishLang).put(keys_load_title, "VAR Error");
   lang.get(englishLang).put(keys_load_desc, "Could not load mail & whatsapp variables");
   lang.get(englishLang).put(mail_changed_title, "Email updated");
   lang.get(englishLang).put(mail_changed_desc, "Your email was changed to:");
   lang.get(englishLang).put(wsp_changed_title, "Whatsapp updated");
   lang.get(englishLang).put(wsp_changed_desc, "Your whatsapp number was changed to:");
-  lang.get(englishLang).put(wsp_changed_desc_2, "Send \"join nearly-buffalo\" to +14155238886");
+  lang.get(englishLang).put(wsp_changed_desc_2, "Send \"join nearly-buffalo\" to +1 415 523 8886");
   lang.get(englishLang).put(creator_select, "Day select");
   lang.get(englishLang).put(creator_title, "Title:");
   lang.get(englishLang).put(creator_time, "Time: (HH:MM)");

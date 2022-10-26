@@ -5,11 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
@@ -29,17 +31,18 @@ public class TaskCreator extends JDialog {
 
  private JPanel panel;
 
- private JLabel windowTitle, dayLabel, titleLabel, timeLabel, timeLabel2, notifLabel;
+ private JLabel windowTitle, dayLabel, titleLabel, timeLabel, timeLabel2, notifLabel, freqLabel;
  private JComboBox<String> days;
- private JComboBox<Integer> hours, minutes;
+ private JComboBox<Integer> hours, minutes, dayAmount;
  private JTextField title;
- private JCheckBox wspCheck, mailCheck, repeatCheck;
+ private JCheckBox wspCheck, mailCheck;
+ private JRadioButton repeatWeek, repeatDays, notRepeat;
 
  private Task modify = null;
 
  public TaskCreator(String day, int order) {
 
-  setSize(300, 420);
+  setSize(300, 505);
   setLocationRelativeTo(null);
   setAlwaysOnTop(true);
   setResizable(false);
@@ -67,10 +70,18 @@ public class TaskCreator extends JDialog {
   title.setText(task.getTitle());
   wspCheck.setSelected(task.notifWsp() ? true : false);
   mailCheck.setSelected(task.notifMail() ? true : false);
-  repeatCheck.setSelected(task.repeat() ? true : false);
+  repeatWeek.setSelected(task.repeat() ? true : false);
 
   hours.setSelectedItem(task.getDate().get(Calendar.HOUR_OF_DAY));
   minutes.setSelectedItem(task.getDate().get(Calendar.MINUTE));
+  
+  if(task.getAmount() == 0)
+   notRepeat.setSelected(true);
+  else if(task.getAmount() < 7) {
+   repeatDays.setSelected(true);
+   dayAmount.setSelectedIndex(task.getAmount()-1);
+  }else
+   repeatWeek.setSelected(true);
 
   modify = task;
 
@@ -204,24 +215,57 @@ public class TaskCreator extends JDialog {
   mailCheck.setForeground(UIConfig.getThemeColor("week-title"));
   mailCheck.setBackground(UIConfig.getThemeColor("table-bg"));
 
-  repeatCheck = new JCheckBox(Dictionary.get(Dictionary.repeat), true);
-  repeatCheck.setFont(Assets.notoFont);
-  repeatCheck.setBounds(x, 290, repeatCheck.getPreferredSize().width, 20);
-  panel.add(repeatCheck);
-  repeatCheck.setForeground(UIConfig.getThemeColor("week-title"));
-  repeatCheck.setBackground(UIConfig.getThemeColor("table-bg"));
+  
+  //Frequency
+
+  freqLabel = new JLabel(Dictionary.get(Dictionary.frequency));
+  freqLabel.setBounds(x, 305, w, 20);
+  panel.add(freqLabel);
+  freqLabel.setFont(Assets.notoFont_Task);
+  freqLabel.setForeground(UIConfig.getThemeColor("week-title"));
+
+  ButtonGroup freqGroup = new ButtonGroup();
+  
+  repeatWeek = new JRadioButton(Dictionary.get(Dictionary.repeatWeek), true);
+  repeatWeek.setFont(Assets.notoFont);
+  repeatWeek.setBounds(x, 325, repeatWeek.getPreferredSize().width, 20);
+  panel.add(repeatWeek);
+  repeatWeek.setForeground(UIConfig.getThemeColor("week-title"));
+  repeatWeek.setBackground(UIConfig.getThemeColor("table-bg"));
+
+  repeatDays = new JRadioButton(Dictionary.get(Dictionary.repeatDays), false);
+  repeatDays.setFont(Assets.notoFont);
+  repeatDays.setBounds(x, 348, repeatDays.getPreferredSize().width, 20);
+  panel.add(repeatDays);
+  repeatDays.setForeground(UIConfig.getThemeColor("week-title"));
+  repeatDays.setBackground(UIConfig.getThemeColor("table-bg"));
+
+  dayAmount = new JComboBox<Integer>(new Integer[] {1,2,3,4,5,6});
+  dayAmount.setBounds(x + w - dayAmount.getPreferredSize().width - 10, 345, dayAmount.getPreferredSize().width + 10, 25);
+  panel.add(dayAmount);
+  dayAmount.setFont(Assets.notoFont);
+  dayAmount.setForeground(UIConfig.getThemeColor("week-title"));
+  dayAmount.setBackground(UIConfig.getThemeColor("comp.bg-in"));
+
+  notRepeat = new JRadioButton(Dictionary.get(Dictionary.notRepeat), false);
+  notRepeat.setFont(Assets.notoFont);
+  notRepeat.setBounds(x, 370, notRepeat.getPreferredSize().width, 20);
+  panel.add(notRepeat);
+  notRepeat.setForeground(UIConfig.getThemeColor("week-title"));
+  notRepeat.setBackground(UIConfig.getThemeColor("table-bg"));
+
+  freqGroup.add(repeatWeek);
+  freqGroup.add(repeatDays);
+  freqGroup.add(notRepeat);
+
+//  dayAmount.setEnabled(false);
+//  repeatWeek.addActionListener(event -> dayAmount.setEnabled(repeatDays.isSelected()));
+//  repeatDays.addActionListener(event -> dayAmount.setEnabled(repeatDays.isSelected()));
 
   // sumbit
-
-//  JButton submit = new JButton("Create");
-//  submit.setBounds(x, 320, w, 30);
-//  submit.setBackground(UIConfig.getThemeColor("comp-bg"));
-//  panel.add(submit);
-//  submit.addActionListener(submitListener());
-//  submit.setFont(Assets.notoFont);
   
   Button submit = new Button(Dictionary.get(Dictionary.create), submitListener());
-  submit.setBounds(x, 320, w, 30);
+  submit.setBounds(x, 415, w, 30);
   panel.add(submit);
   
   //cancel
@@ -229,7 +273,7 @@ public class TaskCreator extends JDialog {
   Button cancel = new Button(Dictionary.get(Dictionary.cancel), event -> {
 	  setVisible(false);
   });
-  cancel.setBounds(x, 360, w, 30);
+  cancel.setBounds(x, 455, w, 30);
   panel.add(cancel);
 
  }
@@ -265,8 +309,8 @@ public class TaskCreator extends JDialog {
     if(calendar.before(Calendar.getInstance()))
     	calendar.add(Calendar.DAY_OF_YEAR, 7);
 
-    Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(),
-      repeatCheck.isSelected());
+    int amount = notRepeat.isSelected() ? 0 : repeatDays.isSelected() ? dayAmount.getSelectedIndex()+1 : 7;
+    Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(), !notRepeat.isSelected(), amount);
     TaskManager.addTask(task, Dictionary.getKey((String) days.getSelectedItem()));
 
     if (modify != null)

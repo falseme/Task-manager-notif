@@ -21,18 +21,19 @@ import ui.layout.TaskLayout;
  * Task
  */
 public class Task extends JComponent {
- private static final long serialVersionUID = 42l;
+ private static final long serialVersionUID = 42L;
 
  private String title;
  private Calendar date;
  private boolean notifWsp;
  private boolean notifMail;
 
- private boolean repeat; // repeats weekly
+ private boolean repeat;
+ private int dayAmount = 0;
 
  private JLabel dateLabel, titleLabel;
 
- public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat) {
+ public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat, int dayAmount) {
 
   this.title = title;
   this.date = date;
@@ -40,6 +41,7 @@ public class Task extends JComponent {
   this.notifMail = notifMail;
 
   this.repeat = repeat;
+  this.dayAmount = dayAmount;
 
   setLayout(new TaskLayout());
 
@@ -74,8 +76,11 @@ public class Task extends JComponent {
 
  public Task(Task otherTask) {
 
-  this(otherTask.title, otherTask.date, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat);
-
+  this(otherTask.title, otherTask.date, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat, otherTask.dayAmount);		 
+  
+  if(otherTask.repeat && otherTask.dayAmount == 0) //then its a task created on an old version
+	  this.dayAmount = 7;
+  
  }
 
  public void paintComponent(Graphics g) {
@@ -108,8 +113,6 @@ public class Task extends JComponent {
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.wsp, x, y, h, h, null);
   }
-  
-  
 
  }
 
@@ -145,9 +148,9 @@ public class Task extends JComponent {
 
  }
 
- public void passWeek() {
+ public void passTime() {
 
-  date.add(Calendar.DAY_OF_MONTH, 7);
+  date.add(Calendar.DAY_OF_MONTH, dayAmount);
 
  }
 
@@ -169,6 +172,10 @@ public class Task extends JComponent {
 
  public boolean repeat() {
   return repeat;
+ }
+ 
+ public int getAmount() {
+	 return dayAmount;
  }
 
  public String toString() {
