@@ -99,9 +99,9 @@ public class Dictionary {
   lang.get(spanishLang).put(keys_load_title, "VAR Error");
   lang.get(spanishLang).put(keys_load_desc, "Error al cargar variables para mails y whatsapp");
   lang.get(spanishLang).put(mail_changed_title, "Mail actualizado");
-  lang.get(spanishLang).put(mail_changed_desc, "Su dirección de correo fue cambiada a: ");
+  lang.get(spanishLang).put(mail_changed_desc, "Su dirección de correo fue cambiada a:");
   lang.get(spanishLang).put(wsp_changed_title, "Whatsapp actualizado");
-  lang.get(spanishLang).put(wsp_changed_desc, "Su número de whatsapp fue cambiado a: ");
+  lang.get(spanishLang).put(wsp_changed_desc, "Su número de whatsapp fue cambiado a:");
   lang.get(spanishLang).put(wsp_changed_desc_2, "Envía \"join nearly-buffalo\" a +14155238886");
   lang.get(spanishLang).put(creator_select, "Día seleccionado");
   lang.get(spanishLang).put(creator_title, "Título:");
@@ -140,9 +140,9 @@ public class Dictionary {
   lang.get(englishLang).put(keys_load_title, "VAR Error");
   lang.get(englishLang).put(keys_load_desc, "Could not load mail & whatsapp variables");
   lang.get(englishLang).put(mail_changed_title, "Email updated");
-  lang.get(englishLang).put(mail_changed_desc, "Your email was changed to: ");
+  lang.get(englishLang).put(mail_changed_desc, "Your email was changed to:");
   lang.get(englishLang).put(wsp_changed_title, "Whatsapp updated");
-  lang.get(englishLang).put(wsp_changed_desc, "Your whatsapp number was changed to: ");
+  lang.get(englishLang).put(wsp_changed_desc, "Your whatsapp number was changed to:");
   lang.get(englishLang).put(wsp_changed_desc_2, "Send \"join nearly-buffalo\" to +14155238886");
   lang.get(englishLang).put(creator_select, "Day select");
   lang.get(englishLang).put(creator_title, "Title:");
