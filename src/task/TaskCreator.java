@@ -267,7 +267,7 @@ public class TaskCreator extends JDialog {
 
     Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(),
       repeatCheck.isSelected());
-    TaskManager.addTask(task, (String) days.getSelectedItem());
+    TaskManager.addTask(task, Dictionary.getKey((String) days.getSelectedItem()));
 
     if (modify != null)
      TaskManager.removeTask(modify, modify.getDate().get(Calendar.DAY_OF_WEEK) - 1);

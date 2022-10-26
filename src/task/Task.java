@@ -30,7 +30,7 @@ public class Task extends JComponent {
  private boolean notifWsp;
  private boolean notifMail;
 
- private boolean repeat;
+ private boolean repeat; // repeats weekly
 
  private JLabel dateLabel, titleLabel;
 

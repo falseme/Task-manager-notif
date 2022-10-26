@@ -1,6 +1,7 @@
 package lang;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * Dictionaty
@@ -40,13 +41,13 @@ public class Dictionary {
  public static final int wsp_settings_desc = 24;
  public static final int keys_load_title= 25;
  public static final int keys_load_desc = 26;
- 
+
  public static final int mail_changed_title = 27;
  public static final int mail_changed_desc = 28;
  public static final int wsp_changed_title = 29;
  public static final int wsp_changed_desc = 30;
  public static final int wsp_changed_desc_2 = 37;
- 
+
  public static final int cancel = 21;
  public static final int accept = 22;
  public static final int create = 31;
@@ -56,7 +57,7 @@ public class Dictionary {
  public static final int creator_title = 34;
  public static final int creator_time = 35;
  public static final int creator_notif = 36;
- 
+
  //last num = 37
 
  public static void init() {
@@ -106,7 +107,7 @@ public class Dictionary {
   lang.get(spanishLang).put(creator_title, "Título:");
   lang.get(spanishLang).put(creator_time, "Hora: (HH:MM)");
   lang.get(spanishLang).put(creator_notif, "Notificaciones");
-  
+
   // English
 
   lang.get(englishLang).put(day1, "Sunday");
@@ -153,6 +154,21 @@ public class Dictionary {
  public static String get(int word) {
 
   return lang.get(selectedLang).get(word);
+
+ }
+
+ public static int getKey(String word) {
+
+  if(lang.get(selectedLang).containsValue(word)) {
+  	for(Entry<Integer, String> entry: lang.get(selectedLang).entrySet()) {
+
+  	  if(entry.getValue() == word)
+  		return entry.getKey();
+
+  	}
+  }
+
+  return -1;
 
  }
 
