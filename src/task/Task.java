@@ -90,19 +90,28 @@ public class Task extends JComponent {
   g.setColor(UIConfig.getThemeColor("task-border"));
   g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
 
+  if(repeat) {
+   int h = dateLabel.getHeight() / 3 * 2;
+   int x = 0;
+   int y = dateLabel.getY() + h / 2;
+   g.drawImage(Assets.repeat, x, y, h, h, null);
+  }
+  
   if (notifMail) {
    int h = dateLabel.getHeight() / 3 * 2;
-   int x = 10;
+   int x = repeat ? h : 6;
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.gmail, x, y, h, h, null);
   }
   
   if(notifWsp) {
    int h = dateLabel.getHeight() / 3 * 2;
-   int x = notifMail ? 12 + h : 10;
+   int x = repeat ? (notifMail ? 2 + h*2 : h) : 6;
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.wsp, x, y, h, h, null);
   }
+  
+  
 
  }
 
