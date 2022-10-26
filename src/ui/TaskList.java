@@ -100,7 +100,7 @@ public class TaskList extends JComponent implements MouseWheelListener {
 
  public void mouseWheelMoved(MouseWheelEvent e) {
 
-  layout.scrollTasks(this, e.getUnitsToScroll() * 2);
+  layout.scrollTasks(this, e.getUnitsToScroll() * -3);
 
  }
 
