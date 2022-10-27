@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import javax.swing.Timer;
 
 import list.TaskComparator;
-import load.LoadWindow;
 import load.TaskReader;
 import notif.Notification;
 import ui.Window;
@@ -37,12 +36,10 @@ public class TaskManager {
   taskList.put(6, new LinkedList<Task>());
 
   // Loading tasks files
-  LoadWindow loadWindow = new LoadWindow("LOADING...");
   for (int i = 0; i <= 6; i++) {
    addTasks(TaskReader.read(i), i);
    // day indexes go from 0 to 6 in the Dictionary Class, so its faster to simply use 'i'
   }
-  loadWindow.dispose();
   window.repaint();
 
   Thread thread = new Thread(new Runnable() {
@@ -148,8 +145,6 @@ public class TaskManager {
  public static void saveTasks() {
 
   // long init = System.nanoTime();
-
-  new LoadWindow("SAVING...");
 
   for (int i = 0; i <= 6; i++)
    TaskReader.save(getTaskList(i), i);
