@@ -32,7 +32,7 @@ public class UIConfig {
   themeColors.get(whiteTheme).put("comp-bg-click", new Color(170, 170, 170));
   themeColors.get(whiteTheme).put("separator", new Color(140, 140, 140));
   themeColors.get(whiteTheme).put("fg-error", Color.RED);
-  themeColors.get(whiteTheme).put("fg-notif", Color.BLACK);
+  themeColors.get(whiteTheme).put("fg-notif", new Color(50, 50, 0));
   themeColors.get(whiteTheme).put("fg-opposite", Color.BLACK);
 
   themeColors.get(darkTheme).put("window-border", new Color(44, 44, 44));
@@ -44,7 +44,7 @@ public class UIConfig {
   themeColors.get(darkTheme).put("comp-bg-click", new Color(30, 30, 30));
   themeColors.get(darkTheme).put("separator", new Color(65, 65, 65));
   themeColors.get(darkTheme).put("fg-error", Color.RED);
-  themeColors.get(darkTheme).put("fg-notif", Color.YELLOW);
+  themeColors.get(darkTheme).put("fg-notif", new Color(200, 200, 150));
   themeColors.get(darkTheme).put("fg-opposite", Color.WHITE);
 
  }

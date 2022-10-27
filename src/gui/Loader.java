@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  * Loader
@@ -42,6 +43,12 @@ public class Loader {
 
   return font.deriveFont(style, size);
 
+ }
+ 
+ public static ImageIcon loadIcon(String path) {
+	 
+	 return new ImageIcon(Loader.class.getResource(path));
+	 
  }
 
 }

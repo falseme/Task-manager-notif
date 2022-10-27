@@ -23,8 +23,8 @@ public class Assets {
  public static Font oswaldFont;
  public static Font oswaldFont_Underlined;
  public static Font notoFont_Task;
- public static Font notoFont_Underlined;
- 
+ public static Font notoFont_Bold;
+
  public static ImageIcon app_icon;
 
  public static void init() {
@@ -41,10 +41,10 @@ public class Assets {
   
   Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
   fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-  notoFont_Underlined = notoFont.deriveFont(fontAttributes);
   oswaldFont_Underlined = oswaldFont.deriveFont(fontAttributes);
+  notoFont_Bold = notoFont.deriveFont(Font.BOLD, 13);
   
-  app_icon = new ImageIcon("icon64.png");
+  app_icon = Loader.loadIcon("/gui/icon/icon.png");
 
  }
 

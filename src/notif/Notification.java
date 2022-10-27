@@ -1,5 +1,6 @@
 package notif;
 
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -39,21 +40,27 @@ public class Notification extends JDialog implements Runnable {
 
 //  setLayout(null);
   
-  panel = new JPanel(null);
+  panel = new JPanel(null) {
+	  private static final long serialVersionUID = 1l;
+	  public void paintComponent(Graphics g) {
+		  super.paintComponent(g);
+		  g.drawImage(Assets.app_icon.getImage(), 10, 10, getHeight()-20, getHeight()-20, null);
+	  }
+  };
   panel.setBackground(UIConfig.getThemeColor("table-bg"));
-  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, true));
+  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, false));
   add(panel);
   
   JLabel notif = new JLabel("Notification:", JLabel.LEFT);
-  notif.setBounds(10, 0, 200, 20);
-  notif.setFont(Assets.notoFont_Underlined);
-  notif.setForeground(UIConfig.getThemeColor("fg-notif"));
+  notif.setBounds(getHeight(), 5, getWidth()-getHeight(), 20);
+  notif.setFont(Assets.notoFont_Bold);
+  notif.setForeground(UIConfig.getThemeColor("fg-opposite"));
   panel.add(notif);
 
-  JLabel title = new JLabel(" " + task.getTitle(), JLabel.CENTER);
-  title.setBounds(0, 25, getWidth(), 20);
+  JLabel title = new JLabel(task.getTitle(), JLabel.LEFT);
+  title.setBounds(getHeight(), 25, getWidth()-getHeight(), 20);
   title.setFont(Assets.notoFont_Task);
-  title.setForeground(UIConfig.getThemeColor("fg-opposite"));
+  title.setForeground(UIConfig.getThemeColor("fg-notif"));
   if(title.getPreferredSize().width > getWidth())
 	  title.setHorizontalAlignment(JLabel.LEFT);
   panel.add(title);
@@ -89,7 +96,7 @@ public class Notification extends JDialog implements Runnable {
   });
 
  }
- 
+
  public void run() {
 
   // moving downwards
