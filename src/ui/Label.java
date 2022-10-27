@@ -27,7 +27,7 @@ public class Label extends JLabel {
 
    public void mouseClicked(MouseEvent e) {
 
-    TaskCreator creator = new TaskCreator(getText(), order);
+    TaskCreator creator = new TaskCreator(getText(), order, false);
     creator.setVisible(true);
 
    }

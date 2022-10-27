@@ -60,8 +60,11 @@ public class Dictionary {
  public static final int creator_title = 34;
  public static final int creator_time = 35;
  public static final int creator_notif = 36;
+ 
+ public static final int fastTask = 41;
+ public static final int tasks = 42;
 
- //last used num = 40
+ //last used num = 42
 
  public static void init() {
 
@@ -113,6 +116,8 @@ public class Dictionary {
   lang.get(spanishLang).put(creator_title, "Título:");
   lang.get(spanishLang).put(creator_time, "Hora: (HH:MM)");
   lang.get(spanishLang).put(creator_notif, "Notificaciones");
+  lang.get(spanishLang).put(fastTask, "Tarea rápida");
+  lang.get(spanishLang).put(tasks, "Tareas");
 
   // English
 
@@ -157,6 +162,8 @@ public class Dictionary {
   lang.get(englishLang).put(creator_title, "Title:");
   lang.get(englishLang).put(creator_time, "Time: (HH:MM)");
   lang.get(englishLang).put(creator_notif, "Notifications");
+  lang.get(englishLang).put(fastTask, "Fast Task");
+  lang.get(englishLang).put(tasks, "Tasks");
 
  }
 

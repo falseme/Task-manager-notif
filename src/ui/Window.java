@@ -15,6 +15,7 @@ import event.UserWindowEvent;
 import gui.Assets;
 import lang.Dictionary;
 import task.Task;
+import task.TaskCreator;
 import ui.layout.WindowLayout;
 import util.MailLoginPane;
 import util.WspLoginPane;
@@ -115,6 +116,10 @@ public class Window extends JFrame {
   JMenu user;
   JMenuItem mail;
   JMenuItem wsp;
+  
+  //fast task creation
+  JMenu tasks;
+  JMenuItem fastTask;
 
   public MenuBar() {
 
@@ -230,6 +235,21 @@ public class Window extends JFrame {
    wsp.setBorder(null);
    user.add(wsp);
    wsp.setEnabled(Keys.loaded);
+   
+   //FAST TASK CREATION
+   
+   tasks = new JMenu(Dictionary.get(Dictionary.tasks));
+   tasks.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+   tasks.setFont(Assets.notoFont);
+   tasks.setBorder(null);
+   add(tasks);
+   
+   fastTask = new JMenuItem(Dictionary.get(Dictionary.fastTask));
+   fastTask.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+   fastTask.addActionListener(event -> new TaskCreator());
+   fastTask.setFont(Assets.notoFont);
+   fastTask.setBorder(null);
+   tasks.add(fastTask);
 
    setBorder(null);
 
@@ -250,6 +270,9 @@ public class Window extends JFrame {
    user.setText(Dictionary.get(Dictionary.user));
    mail.setText(Dictionary.get(Dictionary.mailsettings));
    wsp.setText(Dictionary.get(Dictionary.wspsettings));
+   
+   tasks.setText(Dictionary.get(Dictionary.tasks));
+   fastTask.setText(Dictionary.get(Dictionary.fastTask));
 
   }
 
@@ -277,6 +300,12 @@ public class Window extends JFrame {
    mail.setForeground(UIConfig.getThemeColor("week-title"));
 //   mail.setBackground(UIConfig.getThemeColor("window-border"));
    wsp.setForeground(UIConfig.getThemeColor("week-title"));
+   
+   tasks.setForeground(UIConfig.getThemeColor("week-title"));
+   tasks.setBackground(UIConfig.getThemeColor("window-border"));
+   
+   fastTask.setForeground(UIConfig.getThemeColor("week-title"));
+//   fastTask.setBackground(UIConfig.getThemeColor("window-border"));
 
    setForeground(UIConfig.getThemeColor("week-title"));
    setBackground(UIConfig.getThemeColor("window-border"));
