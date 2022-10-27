@@ -43,7 +43,7 @@ public class Window extends JFrame {
  private void setInitParams() {
 
   setTitle(Dictionary.get(Dictionary.title));
-  setSize(860, 640);
+  setSize(854, 640); // RULE: (x % 7 = 0)
   setPreferredSize(getSize());
   setLocationRelativeTo(null);
   // setResizable(false);
