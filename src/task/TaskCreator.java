@@ -35,7 +35,7 @@ public class TaskCreator extends JDialog {
  private JComboBox<String> days;
  private JComboBox<Integer> hours, minutes, dayAmount;
  private JTextField title;
- private JCheckBox wspCheck, mailCheck;
+ private JCheckBox wspCheck, mailCheck, desktopCheck;
  private JRadioButton repeatWeek, repeatDays, notRepeat;
 
  private Task modify = null;
@@ -261,6 +261,14 @@ public class TaskCreator extends JDialog {
   notifLabel.setFont(Assets.notoFont_Task);
   notifLabel.setForeground(UIConfig.getThemeColor("week-title"));
 
+  desktopCheck = new JCheckBox("Desktop", true);
+  desktopCheck.setFont(Assets.notoFont);
+  desktopCheck.setBounds(x, y,desktopCheck.getPreferredSize().width, 20);
+  y += 20;
+  panel.add(desktopCheck);
+  desktopCheck.setForeground(UIConfig.getThemeColor("week-title"));
+  desktopCheck.setBackground(UIConfig.getThemeColor("table-bg"));
+  
   wspCheck = new JCheckBox("Whats App", false);
   wspCheck.setFont(Assets.notoFont);
   wspCheck.setBounds(x, y, wspCheck.getPreferredSize().width, 20);
@@ -376,7 +384,7 @@ public class TaskCreator extends JDialog {
    	 amount = notRepeat.isSelected() ? 0 : repeatDays.isSelected() ? dayAmount.getSelectedIndex()+1 : 7;
    	 repeat = !notRepeat.isSelected();
     }
-    Task task = new Task(title.getText(), calendar, wspCheck.isSelected(), mailCheck.isSelected(), repeat, amount);
+    Task task = new Task(title.getText(), calendar, desktopCheck.isSelected(), wspCheck.isSelected(), mailCheck.isSelected(), repeat, amount);
     TaskManager.addTask(task, Dictionary.getKey((String) days.getSelectedItem()));
 
     if (modify != null)

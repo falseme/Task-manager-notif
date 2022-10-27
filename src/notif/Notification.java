@@ -1,5 +1,7 @@
 package notif;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -19,6 +21,9 @@ import ui.UIConfig;
 public class Notification extends JDialog implements Runnable {
  private static final long serialVersionUID = 42l;
 
+ private JPanel panel;
+ private Thread UIThread = null;
+ 
  private static int YPOS = 0;
 
  private static ArrayList<Notification> notifList = new ArrayList<Notification>();
@@ -34,7 +39,7 @@ public class Notification extends JDialog implements Runnable {
 
 //  setLayout(null);
   
-  JPanel panel = new JPanel(null);
+  panel = new JPanel(null);
   panel.setBackground(UIConfig.getThemeColor("table-bg"));
   panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, true));
   add(panel);
@@ -55,9 +60,6 @@ public class Notification extends JDialog implements Runnable {
 
   setVisible(true);
 
-  Thread thread = new Thread(this, "Notification UI");
-  thread.start();
-
   if (task.notifMail() && Keys.loaded) {
 
    MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle), task.getTitle());
@@ -71,6 +73,20 @@ public class Notification extends JDialog implements Runnable {
 	  wsp.send();
 	  
   }
+  
+  if(task.notifDesktop()) {
+   UIThread = new Thread(this, "Notification UI");
+   UIThread.start();
+  }else {
+   dispose();
+  }
+  
+  panel.addMouseListener(new MouseAdapter() {
+	  public void mouseReleased(MouseEvent e) {
+		  dispose();
+//		  UIThread.interrupt();
+	  }
+  });
 
  }
  
@@ -83,7 +99,7 @@ public class Notification extends JDialog implements Runnable {
    setLocation(0, getLocation().y + 1);
 
    try {
-    Thread.sleep(10);
+    Thread.sleep(5);
    } catch (Exception ex) {
     ex.printStackTrace();
    }
@@ -94,11 +110,11 @@ public class Notification extends JDialog implements Runnable {
   notifList.add(this);
 
   // waiting and letting the user read
-
+  
   try {
    Thread.sleep(7000);
   } catch (Exception ex) {
-   ex.printStackTrace();
+   System.out.println(ex.getMessage());
   }
 
   // moving upwards
@@ -114,7 +130,7 @@ public class Notification extends JDialog implements Runnable {
    YPOS--;
 
    try {
-    Thread.sleep(10);
+    Thread.sleep(5);
    } catch (Exception ex) {
     ex.printStackTrace();
    }

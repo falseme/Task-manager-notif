@@ -25,6 +25,7 @@ public class Task extends JComponent {
 
  private String title;
  private Calendar date;
+ private boolean desktop = false;
  private boolean notifWsp;
  private boolean notifMail;
 
@@ -33,10 +34,11 @@ public class Task extends JComponent {
 
  private JLabel dateLabel, titleLabel;
 
- public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat, int dayAmount) {
+ public Task(String title, Calendar date, boolean desktop, boolean notifWsp, boolean notifMail, boolean repeat, int dayAmount) {
 
   this.title = title;
   this.date = date;
+  this.desktop = desktop;
   this.notifWsp = notifWsp;
   this.notifMail = notifMail;
 
@@ -76,10 +78,15 @@ public class Task extends JComponent {
 
  public Task(Task otherTask) {
 
-  this(otherTask.title, otherTask.date, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat, otherTask.dayAmount);		 
+  this(otherTask.title, otherTask.date, otherTask.desktop, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat, otherTask.dayAmount);		 
   
-  if(otherTask.repeat && otherTask.dayAmount == 0) //then its a task created on an old version
-	  this.dayAmount = 7;
+  //COMPATIBILITY CHECK
+  
+  //v2.1
+  if(otherTask.repeat && otherTask.dayAmount == 0) {
+   this.dayAmount = 7;
+   this.desktop = true;
+  }
   
  }
 
@@ -172,6 +179,10 @@ public class Task extends JComponent {
 
  public boolean repeat() {
   return repeat;
+ }
+ 
+ public boolean notifDesktop() {
+  return desktop;
  }
  
  public int getAmount() {
