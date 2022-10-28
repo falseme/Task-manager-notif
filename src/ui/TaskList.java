@@ -59,6 +59,8 @@ public class TaskList extends JComponent implements MouseWheelListener {
 
   if (task != null)
    task.getLayout().layoutContainer(task);
+  
+  repaint();
 
   // long end = System.nanoTime();
   // double delta = end - init;

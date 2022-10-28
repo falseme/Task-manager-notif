@@ -61,14 +61,25 @@ public class TaskManager {
 
        if (task.repeat()) {
 
-        taskList.get(today).peek().passTime();
+//        taskList.get(today).peek().passTime
+        task.passTime();
+        if(task.getAmount() > 0 && task.getAmount() < 7) {
+
+        	int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
+        	taskList.get(moveDay).add(task);
+
+        	sort(moveDay);
+        	userWindow.updateTasks(moveDay);
+
+        	userWindow.updateTasks(today, taskList.get(today).poll());
+
+        }
         sort(today);
-        userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1);
+        userWindow.updateTasks(today);
 
        } else {
 
-        taskList.get(today).poll();
-        userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1, task);
+        userWindow.updateTasks(today, taskList.get(today).poll());
 
        }
 
