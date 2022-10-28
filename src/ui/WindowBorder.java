@@ -17,7 +17,7 @@ import gui.Assets;
 public class WindowBorder extends JComponent {
  private static final long serialVersionUID = 42l;
 
- private static final Color exitColor = new Color(1f, 0f, 0f, 0.5f);
+ private static final Color exitColor = new Color(1f, 0f, 0f, 0.7f);
  private static final Color minColor = new Color(0f, 0.5f, 1f, 0.5f);
 
  private JLabel title;
@@ -31,7 +31,7 @@ public class WindowBorder extends JComponent {
 
   parent = window;
 
-  title = new JLabel(window.getTitle(), JLabel.LEFT);
+  title = new JLabel(window.getTitle(), Assets.app_icon16, JLabel.LEFT);
   title.setFont(Assets.oswaldFont);
 
   exitBtn = new Button(Button.EXIT);
@@ -52,7 +52,7 @@ public class WindowBorder extends JComponent {
  public void setBounds(int x, int y, int w, int h) {
   super.setBounds(x, y, w, h);
 
-  title.setLocation(10, 0);
+  title.setLocation(5, 0);
   title.setSize(title.getPreferredSize().width, h);
   exitBtn.setBounds(w - h, 0, h, h);
   minBtn.setBounds(w - h * 2, 0, h, h);

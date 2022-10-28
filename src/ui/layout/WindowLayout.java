@@ -9,7 +9,7 @@ public class WindowLayout extends LayoutAdapter {
 
  public void layoutContainer(Container c) {
 
-  int borderH = 35;
+  int borderH = 32;
   int barH = 25;
 
   c.getComponent(0).setBounds(0, 0, c.getWidth(), borderH);

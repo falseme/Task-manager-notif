@@ -51,7 +51,7 @@ public class Notification extends JDialog implements Runnable {
   panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, false));
   add(panel);
   
-  JLabel notif = new JLabel("Notification:", JLabel.LEFT);
+  JLabel notif = new JLabel(Dictionary.get(Dictionary.notiftitle), JLabel.LEFT);
   notif.setBounds(getHeight(), 5, getWidth()-getHeight(), 20);
   notif.setFont(Assets.notoFont_Bold);
   notif.setForeground(UIConfig.getThemeColor("fg-opposite"));
@@ -69,7 +69,7 @@ public class Notification extends JDialog implements Runnable {
 
   if (task.notifMail() && Keys.loaded) {
 
-   MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle), task.getTitle());
+   MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle) + task.getTitle(), task.getTitle());
    mail.send();
 
   }

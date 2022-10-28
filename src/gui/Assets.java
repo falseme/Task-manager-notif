@@ -26,6 +26,7 @@ public class Assets {
  public static Font notoFont_Bold;
 
  public static ImageIcon app_icon;
+ public static ImageIcon app_icon16;
 
  public static void init() {
 
@@ -36,7 +37,7 @@ public class Assets {
   repeat = Loader.loadPng("/gui/repeat.png");
 
   notoFont = Loader.loadFont("/fonts/NotoSans-Regular.ttf", Font.PLAIN, 13);
-  oswaldFont = Loader.loadFont("/fonts/Oswald-Regular.ttf", Font.PLAIN, 20);
+  oswaldFont = Loader.loadFont("/fonts/Oswald-Regular.ttf", Font.PLAIN, 22);
   notoFont_Task = Loader.loadFont("/fonts/NotoSans-Regular.ttf", Font.BOLD, 12);
   
   Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
@@ -45,6 +46,7 @@ public class Assets {
   notoFont_Bold = notoFont.deriveFont(Font.BOLD, 13);
   
   app_icon = Loader.loadIcon("/gui/icon/icon.png");
+  app_icon16 = Loader.loadIcon("/gui/icon/icon16.png");
 
  }
 
