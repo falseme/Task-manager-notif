@@ -25,7 +25,12 @@ public class Label extends JLabel {
 
   addMouseListener(new MouseAdapter() {
 
-   public void mouseClicked(MouseEvent e) {
+   public void mouseReleased(MouseEvent e) {
+
+	if(e.getX() < 0 || e.getX() > getWidth())
+	 return;
+	if(e.getY() < 0 || e.getY() > getHeight())
+	 return;
 
     TaskCreator creator = new TaskCreator(getText(), order, false);
     creator.setVisible(true);
