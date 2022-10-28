@@ -1,5 +1,8 @@
 package notif;
 
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -19,6 +22,9 @@ import ui.UIConfig;
 public class Notification extends JDialog implements Runnable {
  private static final long serialVersionUID = 42l;
 
+ private JPanel panel;
+ private Thread UIThread = null;
+ 
  private static int YPOS = 0;
 
  private static ArrayList<Notification> notifList = new ArrayList<Notification>();
@@ -34,33 +40,36 @@ public class Notification extends JDialog implements Runnable {
 
 //  setLayout(null);
   
-  JPanel panel = new JPanel(null);
+  panel = new JPanel(null) {
+	  private static final long serialVersionUID = 1l;
+	  public void paintComponent(Graphics g) {
+		  super.paintComponent(g);
+		  g.drawImage(Assets.app_icon.getImage(), 10, 10, getHeight()-20, getHeight()-20, null);
+	  }
+  };
   panel.setBackground(UIConfig.getThemeColor("table-bg"));
-  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, true));
+  panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, false));
   add(panel);
   
-  JLabel notif = new JLabel("Notification:", JLabel.LEFT);
-  notif.setBounds(10, 0, 200, 20);
-  notif.setFont(Assets.notoFont_Underlined);
-  notif.setForeground(UIConfig.getThemeColor("fg-notif"));
+  JLabel notif = new JLabel(Dictionary.get(Dictionary.notiftitle), JLabel.LEFT);
+  notif.setBounds(getHeight(), 5, getWidth()-getHeight(), 20);
+  notif.setFont(Assets.notoFont_Bold);
+  notif.setForeground(UIConfig.getThemeColor("fg-opposite"));
   panel.add(notif);
 
-  JLabel title = new JLabel(" " + task.getTitle(), JLabel.CENTER);
-  title.setBounds(0, 25, getWidth(), 20);
+  JLabel title = new JLabel(task.getTitle(), JLabel.LEFT);
+  title.setBounds(getHeight(), 25, getWidth()-getHeight(), 20);
   title.setFont(Assets.notoFont_Task);
-  title.setForeground(UIConfig.getThemeColor("fg-opposite"));
+  title.setForeground(UIConfig.getThemeColor("fg-notif"));
   if(title.getPreferredSize().width > getWidth())
 	  title.setHorizontalAlignment(JLabel.LEFT);
   panel.add(title);
 
   setVisible(true);
 
-  Thread thread = new Thread(this, "Notification UI");
-  thread.start();
-
   if (task.notifMail() && Keys.loaded) {
 
-   MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle), task.getTitle());
+   MailNotification mail = new MailNotification(Dictionary.get(Dictionary.notiftitle) + task.getTitle(), task.getTitle());
    mail.send();
 
   }
@@ -71,9 +80,23 @@ public class Notification extends JDialog implements Runnable {
 	  wsp.send();
 	  
   }
+  
+  if(task.notifDesktop()) {
+   UIThread = new Thread(this, "Notification UI");
+   UIThread.start();
+  }else {
+   dispose();
+  }
+  
+  panel.addMouseListener(new MouseAdapter() {
+	  public void mouseReleased(MouseEvent e) {
+		  dispose();
+//		  UIThread.interrupt();
+	  }
+  });
 
  }
- 
+
  public void run() {
 
   // moving downwards
@@ -83,7 +106,7 @@ public class Notification extends JDialog implements Runnable {
    setLocation(0, getLocation().y + 1);
 
    try {
-    Thread.sleep(10);
+    Thread.sleep(5);
    } catch (Exception ex) {
     ex.printStackTrace();
    }
@@ -94,11 +117,11 @@ public class Notification extends JDialog implements Runnable {
   notifList.add(this);
 
   // waiting and letting the user read
-
+  
   try {
    Thread.sleep(7000);
   } catch (Exception ex) {
-   ex.printStackTrace();
+   System.out.println(ex.getMessage());
   }
 
   // moving upwards
@@ -114,7 +137,7 @@ public class Notification extends JDialog implements Runnable {
    YPOS--;
 
    try {
-    Thread.sleep(10);
+    Thread.sleep(5);
    } catch (Exception ex) {
     ex.printStackTrace();
    }

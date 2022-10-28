@@ -1,10 +1,5 @@
 package task;
 
-import event.ComponentBackgroundMouseEvent;
-import event.TaskPopupTextEvent;
-
-import gui.Assets;
-
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -16,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import event.ComponentBackgroundMouseEvent;
+import event.TaskPopupTextEvent;
+import gui.Assets;
 import ui.UIConfig;
 import ui.layout.TaskLayout;
 
@@ -23,25 +21,29 @@ import ui.layout.TaskLayout;
  * Task
  */
 public class Task extends JComponent {
- private static final long serialVersionUID = 42l;
+ private static final long serialVersionUID = 42L;
 
  private String title;
  private Calendar date;
+ private boolean desktop = false;
  private boolean notifWsp;
  private boolean notifMail;
 
  private boolean repeat;
+ private int dayAmount = 0;
 
  private JLabel dateLabel, titleLabel;
 
- public Task(String title, Calendar date, boolean notifWsp, boolean notifMail, boolean repeat) {
+ public Task(String title, Calendar date, boolean desktop, boolean notifWsp, boolean notifMail, boolean repeat, int dayAmount) {
 
   this.title = title;
   this.date = date;
+  this.desktop = desktop;
   this.notifWsp = notifWsp;
   this.notifMail = notifMail;
 
   this.repeat = repeat;
+  this.dayAmount = dayAmount;
 
   setLayout(new TaskLayout());
 
@@ -76,8 +78,16 @@ public class Task extends JComponent {
 
  public Task(Task otherTask) {
 
-  this(otherTask.title, otherTask.date, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat);
-
+  this(otherTask.title, otherTask.date, otherTask.desktop, otherTask.notifWsp, otherTask.notifMail, otherTask.repeat, otherTask.dayAmount);		 
+  
+  //COMPATIBILITY CHECK
+  
+  //v2.1
+  if(otherTask.repeat && otherTask.dayAmount == 0) {
+   this.dayAmount = 7;
+   this.desktop = true;
+  }
+  
  }
 
  public void paintComponent(Graphics g) {
@@ -90,16 +100,23 @@ public class Task extends JComponent {
   g.setColor(UIConfig.getThemeColor("task-border"));
   g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arc, arc);
 
+  if(repeat) {
+   int h = dateLabel.getHeight() / 3 * 2;
+   int x = 0;
+   int y = dateLabel.getY() + h / 2;
+   g.drawImage(Assets.repeat, x, y, h, h, null);
+  }
+  
   if (notifMail) {
    int h = dateLabel.getHeight() / 3 * 2;
-   int x = 10;
+   int x = repeat ? h : 6;
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.gmail, x, y, h, h, null);
   }
   
   if(notifWsp) {
    int h = dateLabel.getHeight() / 3 * 2;
-   int x = notifMail ? 12 + h : 10;
+   int x = repeat ? (notifMail ? 2 + h*2 : h) : 6;
    int y = dateLabel.getY() + h / 2;
    g.drawImage(Assets.wsp, x, y, h, h, null);
   }
@@ -138,9 +155,9 @@ public class Task extends JComponent {
 
  }
 
- public void passWeek() {
+ public void passTime() {
 
-  date.add(Calendar.DAY_OF_MONTH, 7);
+  date.add(Calendar.DAY_OF_MONTH, dayAmount);
 
  }
 
@@ -162,6 +179,14 @@ public class Task extends JComponent {
 
  public boolean repeat() {
   return repeat;
+ }
+ 
+ public boolean notifDesktop() {
+  return desktop;
+ }
+ 
+ public int getAmount() {
+	 return dayAmount;
  }
 
  public String toString() {

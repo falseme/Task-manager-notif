@@ -1,14 +1,12 @@
 package event;
 
-import gui.Assets;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPopupMenu;
 
+import gui.Assets;
 import task.Task;
-
 import ui.UIConfig;
 
 /**
@@ -26,7 +24,10 @@ public class TaskPopupTextEvent extends MouseAdapter implements Runnable {
  public TaskPopupTextEvent(Task task) {
 
   pop = new JPopupMenu();
-  pop.add(task.getTitle());
+  if(task.getAmount() > 0 && task.getAmount() < 7)
+   pop.add(task.getTitle() + " (" + task.getAmount() + ")");
+  else
+   pop.add(task.getTitle());
   pop.getComponent(0).setFont(Assets.notoFont_Task);
 //  pop.getComponent(0).setEnabled(false);
   pop.setBorder(null);

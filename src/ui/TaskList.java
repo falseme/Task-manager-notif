@@ -7,7 +7,6 @@ import java.awt.event.MouseWheelListener;
 import javax.swing.JComponent;
 
 import task.Task;
-
 import ui.layout.TaskListLayout;
 
 public class TaskList extends JComponent implements MouseWheelListener {
@@ -100,7 +99,7 @@ public class TaskList extends JComponent implements MouseWheelListener {
 
  public void mouseWheelMoved(MouseWheelEvent e) {
 
-  layout.scrollTasks(this, e.getUnitsToScroll() * 2);
+  layout.scrollTasks(this, e.getUnitsToScroll() * -3);
 
  }
 

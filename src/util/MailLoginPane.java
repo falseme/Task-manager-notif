@@ -104,7 +104,7 @@ public class MailLoginPane extends JDialog {
 				} else {
 					App.getConfig().setUserMail(user);
 					setVisible(false);
-					new MessagePane(Dictionary.get(Dictionary.mail_changed_title), Dictionary.get(Dictionary.mail_changed_desc) + user);
+					new MessagePane(Dictionary.get(Dictionary.mail_changed_title), Dictionary.get(Dictionary.mail_changed_desc), "> " + user);
 				}
 
 			} else {

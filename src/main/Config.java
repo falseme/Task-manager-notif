@@ -8,7 +8,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import lang.Dictionary;
-
 import ui.UIConfig;
 
 /**

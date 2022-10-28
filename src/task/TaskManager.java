@@ -8,15 +8,9 @@ import java.util.LinkedList;
 
 import javax.swing.Timer;
 
-import lang.Dictionary;
-
 import list.TaskComparator;
-
-import load.LoadWindow;
 import load.TaskReader;
-
 import notif.Notification;
-
 import ui.Window;
 
 /**
@@ -24,10 +18,7 @@ import ui.Window;
  */
 public class TaskManager {
 
- private static HashMap<String, LinkedList<Task>> taskList;
- public static String[] dayList;
-
- private static HashMap<String, Integer> dayToInt; // used to get the order of the day in the table by the name.
+ private static HashMap<Integer, LinkedList<Task>> taskList;
 
  private static Window window;
 
@@ -35,34 +26,20 @@ public class TaskManager {
 
   window = userWindow;
 
-  dayList = new String[] { Dictionary.get(Dictionary.day1), Dictionary.get(Dictionary.day2),
-    Dictionary.get(Dictionary.day3), Dictionary.get(Dictionary.day4), Dictionary.get(Dictionary.day5),
-    Dictionary.get(Dictionary.day6), Dictionary.get(Dictionary.day7) };
-
-  dayToInt = new HashMap<String, Integer>();
-  dayToInt.put(dayList[0], 0);
-  dayToInt.put(dayList[1], 1);
-  dayToInt.put(dayList[2], 2);
-  dayToInt.put(dayList[3], 3);
-  dayToInt.put(dayList[4], 4);
-  dayToInt.put(dayList[5], 5);
-  dayToInt.put(dayList[6], 6);
-
-  taskList = new HashMap<String, LinkedList<Task>>();
-  taskList.put(dayList[0], new LinkedList<Task>());
-  taskList.put(dayList[1], new LinkedList<Task>());
-  taskList.put(dayList[2], new LinkedList<Task>());
-  taskList.put(dayList[3], new LinkedList<Task>());
-  taskList.put(dayList[4], new LinkedList<Task>());
-  taskList.put(dayList[5], new LinkedList<Task>());
-  taskList.put(dayList[6], new LinkedList<Task>());
+  taskList = new HashMap<Integer, LinkedList<Task>>();
+  taskList.put(0, new LinkedList<Task>());
+  taskList.put(1, new LinkedList<Task>());
+  taskList.put(2, new LinkedList<Task>());
+  taskList.put(3, new LinkedList<Task>());
+  taskList.put(4, new LinkedList<Task>());
+  taskList.put(5, new LinkedList<Task>());
+  taskList.put(6, new LinkedList<Task>());
 
   // Loading tasks files
-  LoadWindow loadWindow = new LoadWindow("LOADING...");
   for (int i = 0; i <= 6; i++) {
-   addTasks(TaskReader.read(i), dayList[i]);
+   addTasks(TaskReader.read(i), i);
+   // day indexes go from 0 to 6 in the Dictionary Class, so its faster to simply use 'i'
   }
-  loadWindow.dispose();
   window.repaint();
 
   Thread thread = new Thread(new Runnable() {
@@ -74,7 +51,7 @@ public class TaskManager {
      public void actionPerformed(ActionEvent e) {
 
       Calendar calendar = Calendar.getInstance();
-      String today = dayList[calendar.get(Calendar.DAY_OF_WEEK) - 1];
+      int today = calendar.get(Calendar.DAY_OF_WEEK) - 1;
 
       if (taskList.get(today).isEmpty())
        return;
@@ -84,7 +61,7 @@ public class TaskManager {
 
        if (task.repeat()) {
 
-        taskList.get(today).peek().passWeek();
+        taskList.get(today).peek().passTime();
         sort(today);
         userWindow.updateTasks(calendar.get(Calendar.DAY_OF_WEEK) - 1);
 
@@ -113,15 +90,15 @@ public class TaskManager {
 
  }
 
- public static void addTask(Task task, String dayName) {
+ public static void addTask(Task task, int dayIndex) {
 
   // long init = System.nanoTime();
 
-  taskList.get(dayName).add(task);
+  taskList.get(dayIndex).add(task);
 
-  window.updateTasks(dayToInt.get(dayName));
+  window.updateTasks(dayIndex);
 
-  sort(dayName);
+  sort(dayIndex);
 
   // long end = System.nanoTime();
   // double delta = end - init;
@@ -130,7 +107,7 @@ public class TaskManager {
 
  }
 
- public static void addTasks(Task[] list, String dayName) {
+ public static void addTasks(Task[] list, int dayIndex) {
 
   if (list == null)
    return;
@@ -139,11 +116,11 @@ public class TaskManager {
 
   for (int i = 0; i < list.length; i++) {
    Task t = new Task(list[i]);
-   taskList.get(dayName).add(t);
+   taskList.get(dayIndex).add(t);
   }
 
-  sort(dayName);
-  window.updateTasks(dayToInt.get(dayName));
+  sort(dayIndex);
+  window.updateTasks(dayIndex);
 
   // long end2 = System.nanoTime();
   // double delta = end2 - init;
@@ -161,15 +138,13 @@ public class TaskManager {
 
  public static LinkedList<Task> getTaskList(int dayOfWeek) {
 
-  return taskList.get(dayList[dayOfWeek]);
+  return taskList.get(dayOfWeek);
 
  }
 
  public static void saveTasks() {
 
   // long init = System.nanoTime();
-
-  new LoadWindow("SAVING...");
 
   for (int i = 0; i <= 6; i++)
    TaskReader.save(getTaskList(i), i);
@@ -183,12 +158,12 @@ public class TaskManager {
 
  }
 
- private static void sort(String dayName) {
+ private static void sort(int dayIndex) {
 
-  if (taskList.get(dayName).isEmpty())
+  if (taskList.get(dayIndex).isEmpty())
    return;
 
-  taskList.get(dayName).sort(new TaskComparator<Task>());
+  taskList.get(dayIndex).sort(new TaskComparator<Task>());
 
  }
 
