@@ -193,7 +193,8 @@ public class Task extends JComponent {
 
   return "Title: " + title + " | Day: " + date.get(Calendar.DAY_OF_MONTH) + " | Month: " + date.get(Calendar.MONTH)
     + " | Year: " + date.get(Calendar.YEAR) + " | Time: " + date.get(Calendar.HOUR_OF_DAY) + ":"
-    + date.get(Calendar.MINUTE) + " | WSP: " + notifWsp + " | Mail: " + notifMail;
+    + date.get(Calendar.MINUTE) + " | Frequency: " + repeat + " | Day frequency: " + dayAmount
+    + " | Desktop: " + desktop + " | WSP: " + notifWsp + " | Mail: " + notifMail;
 
  }
 

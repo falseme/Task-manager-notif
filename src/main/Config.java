@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,7 +17,8 @@ import ui.UIConfig;
 public class Config implements Serializable {
  private static final long serialVersionUID = 42l;
 
- private static final String path = "config.dat";
+ public static final String PATH = System.getProperty("user.home") + File.separator + ".Tasky";
+ private static final String path = PATH + File.separator + "config.dat";
 
  private String usermail;
  private String userwspnumber;
@@ -43,7 +45,7 @@ public class Config implements Serializable {
 
  public void serialize() {
 
-  System.out.println("SERIALIZE Config.java");
+  System.out.println("SERIALIZE Config.java -> " + PATH);
 
   themeSelected = UIConfig.getTheme();
   langSelected = Dictionary.getLangSelected();

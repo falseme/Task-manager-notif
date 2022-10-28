@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+import main.Config;
 import task.Task;
 
 /**
@@ -17,7 +18,7 @@ import task.Task;
  */
 public class TaskReader {
 
- private static File folder = new File("tasks");
+ private static File folder = new File(Config.PATH + File.separator + "tasks");
  private static File file = null;
 
  /**

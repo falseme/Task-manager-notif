@@ -52,6 +52,7 @@ public class WeekPanel extends JPanel {
 
    weekList[dayOfWeek].addTask(tasks.get(i));
    System.out.println("Task: " + tasks.get(i).getTitle() + " into Col->" + dayOfWeek);
+   System.out.println("<Task> " + tasks.get(i));
 
   }
 
