@@ -1,39 +1,57 @@
-# Week Task Manager
+<a href="https://github.com/falseme/Tasky/blob/main/README.md">
+	<img src="https://img.shields.io/badge/Español-English-inactive?style=flat-square&labelColor=informational" alt="Languaje choose">
+</a>
+<div align=center>
+	<img src="icon.svg" width="150" height="150" alt="Tasky logo">
+	<br>
+	<h1 style="font-size:30px">Tasky</h1>
+	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
+		<img src="https://img.shields.io/badge/tasky3-descarga-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
+	</a>
+	<br>
+	<img src="https://img.shields.io/github/issues/falseme/Tasky?style=for-the-badge&label=issues" alt="Tasky issues">
+	<img src="https://img.shields.io/github/license/falseme/Tasky?style=for-the-badge&label=license" alt="Tasky license">
+	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky issues">
+</div>
 
-![](https://img.shields.io/github/tag/falseme/Task-manager-notif.svg)
-![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
-![](https://img.shields.io/github/issues/falseme/Task-manager-notif.svg)
+#### Tasky
 
-*Week Task Manager* es un software que te permite organizar tus tareas semanales en una simple tabla. Además de recibir notificaciones en el escritorio, también puede notificarte por mail o whatsapp si así lo deseas.
+*Tasky* es un software que te permite organizar tus tareas semanales y diarias en una simple tabla. Además de recibir notificaciones en el escritorio, también puede notificarte por mail o whatsapp si así lo deseas.
 
 Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que todas tus tareas han sido completadas.
 
 ------------
 
-### Características
-- Organiza tu semana en una tabla de siete columnas
-- Diferentes temas y lenguajes:
-	- Tema claro y oscuro.
-	- Idioma español e inglés.
-- Recibe notificaciones en el escritorio
-- Notificaciones por mail introduciendo tu dirección de correo.
-- Notificaciones por Whatsapp introduciendo tu número.
-- Orden automático para mostrar la tarea próxima arriba de las demás.
-- Almacena la configuración del usuario en un archivo `config.dat`.
-- Almacena las tareas en una carpeta `tasks` separada en 7 archivos.
-- Quizas haya actualizaciones en el futuro.
+### Funciones
+- Organiza tus tareas diarias y semanales.
+- Recibe notificaciones en el escritorio.
+- Notificaciones por mail ingresando tu correo.
+- Notificaciones por whatsapp ingresando tu número.
+- ordena automaticamente las tareas para mostrar la próxima arriba de las demás.
+- Archivos de usuario guardados en `user.home/.Tasky`. En Windows esta carpeta se encuentra en `C:/User/Username`.
+- Distintos temas y lenguajes
+     - Tema claro & oscuro.
+     - Lenguaje español e inglés.
+- Más funciones en un futuro.
 
 ------------
 
 ### Descarga
-![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
 
-- La descarga de la última versión se puede encontrar [aquí](https://github.com/falseme/Task-manager-notif/releases/tag/v2.1)
-- También puedes revisar el [historial de versiones](https://github.com/falseme/Task-manager-notif/releases)
+- La descarga de la version más reciente puede ser descargada en el botón debajo.
+- También puedes ver el historial de versiones [aquí](https://github.com/falseme/Tasky/releases)
+
+<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
+	<img src="https://img.shields.io/badge/descarga-tasky3-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
+</a>
 
 ------------
 
 ### FAQS
+
+- *Cómo activar las notificaciones de whatsapp?*
+
+**Primero ingresa tu número en las opciones de `Usario` y luego envía `join nearly-buffalo` a +1 415 523 8886. No envies SMS.**
 
 - *Tienes problemas para registrar tu número?*
 
@@ -46,6 +64,8 @@ Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que
 -----------
 
 ### Licencias
+
+<img src="https://img.shields.io/github/license/falseme/Tasky?style=flat-square&label=LICENSE" alt="MIT LICENSE">
 
 Este software está bajo la licencia `MIT` que puede ser encontrada en este repositorio.
 
