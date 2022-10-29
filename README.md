@@ -5,7 +5,7 @@
 	<img src="icon.svg" width="150" height="150" alt="Tasky logo">
 	<br>
 	<h1 style="font-size:30px">Tasky</h1>
-	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasksy3.exe">
+	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
 		<img src="https://img.shields.io/badge/tasky3-download-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
 	</a>
 	<br>
@@ -39,9 +39,9 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 ### Download
 
 - The download of the lastest release can be found by clicking the button bellow.
-- Can also check the release history [here](https://github.com/falseme/Task-manager-notif/releases)
+- Can also check the release history [here](https://github.com/falseme/Tasky/releases)
 
-<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasksy3.exe">
+<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
 	<img src="https://img.shields.io/badge/download-tasky3-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
 </a>
 
