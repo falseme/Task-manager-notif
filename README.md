@@ -1,41 +1,57 @@
-# Week Task Manager
+<a href="https://github.com/falseme/Tasky/blob/main/README-ES.MD">
+	<img src="https://img.shields.io/badge/Español-English-informational?style=flat-square&labelColor=inactive" alt="Languaje choose">
+</a>
+<div align=center>
+	<img src="icon.svg" width="150" height="150" alt="Tasky logo">
+	<br>
+	<h1 style="font-size:30px">Tasky</h1>
+	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasksy3.exe">
+		<img src="https://img.shields.io/badge/tasky3-download-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
+	</a>
+	<br>
+	<img src="https://img.shields.io/github/issues/falseme/Tasky?style=for-the-badge&label=issues" alt="Tasky issues">
+	<img src="https://img.shields.io/github/license/falseme/Tasky?style=for-the-badge&label=license" alt="Tasky license">
+	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky issues">
+</div>
 
-![](https://img.shields.io/github/tag/falseme/Task-manager-notif.svg)
-![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
-![](https://img.shields.io/github/issues/falseme/Task-manager-notif.svg)
+#### Tasky
 
-[[Español]](https://github.com/falseme/Task-manager-notif/blob/main/README-ES.MD)
-
-*Week Task Manager* is a software that lets you organize every task in a simple and comfortable table. It also sends notifications at time on desktop or via email or even whatsapp if the options are chosen.
+*Tasky* is a software that lets you organize your weekly and daily tasks in a simple and comfortable table. It also sends notifications on desktop, via email or even whatsapp, if the options are chosen.
 
 Remember to organize your time and have a relaxed weekend, knowing that every task was completed.
 
 ------------
 
 ### Features
-- Organize your week in a seven-column table.
-- Diferent themes and languajes.
-     - White & Dark Theme.
-     - English & Spanish.
+- Organize your weekly or daily tasks.
 - Receive notifications in desktop.
 - Notifications via email by entering an address.
 - Notifications via whatsapp by entering a cellphone number.
-- Automaticaly sort tasks to show the most recent on top.
-- Store user's configurations in the `config.dat` file.
-- Store daily tasks in the `tasks` folder with seven files.
+- Automaticaly sort tasks to show the next but one on top.
+- User files stored at `user.home/.Tasky`. On Windows this folder is at `C:/User/Username`.
+- Diferent themes and languajes.
+     - White & Dark Theme.
+     - English & Spanish.
 - May be more features in the future
 
 ------------
 
 ### Download
-![](https://img.shields.io/github/release/falseme/Task-manager-notif.svg)
 
-- The download of the most recent release can be found [here](https://github.com/falseme/Task-manager-notif/releases/tag/v2.1)
-- Can also check the release [history](https://github.com/falseme/Task-manager-notif/releases)
+- The download of the lastest release can be found by clicking the button bellow.
+- Can also check the release history [here](https://github.com/falseme/Task-manager-notif/releases)
+
+<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasksy3.exe">
+	<img src="https://img.shields.io/badge/download-tasky3-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
+</a>
 
 ------------
 
 ### FAQS
+
+- *How to setup the whatsapp notifications?*
+
+**First sign up your number in the `User` options and then send `join nearly-buffalo` to +1 415 523 8886. Do not send SMS.**
 
 - *Having problems with the whatsapp registration?*
 
@@ -47,9 +63,11 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 
 -----------
 
-### Licences
+### Licenses
 
-This software is under `MIT LICENCE` which can be found in this repository.
+<img src="https://img.shields.io/github/license/falseme/Tasky?style=flat-square&label=LICENSE" alt="MIT LICENSE">
+
+This software is under `MIT LICENSE` which can be found in this repository.
 
 Some icons and fonts are not owned by me (@falseme). Links, names and licencies are stored in this repository and writed bellow.
 
@@ -69,6 +87,6 @@ Some icons and fonts are not owned by me (@falseme). Links, names and licencies 
 
 - javax.activation.jar
 	- Owned by Oracle
-	
+
 - twilio.jar
 	- [Official site](https://www.twilio.com/)
