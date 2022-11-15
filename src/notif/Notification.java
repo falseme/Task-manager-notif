@@ -1,8 +1,6 @@
 package notif;
 
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -14,6 +12,7 @@ import api.Keys;
 import gui.Assets;
 import lang.Dictionary;
 import task.Task;
+import ui.Button;
 import ui.UIConfig;
 
 /**
@@ -51,20 +50,19 @@ public class Notification extends JDialog implements Runnable {
   panel.setBorder(BorderFactory.createLineBorder(UIConfig.getThemeColor("window-border"), 2, false));
   add(panel);
   
-  JLabel notif = new JLabel(Dictionary.get(Dictionary.notiftitle), JLabel.LEFT);
-  notif.setBounds(getHeight(), 5, getWidth()-getHeight(), 20);
+  JLabel notif = new JLabel(task.getTitle(), JLabel.LEFT);
+  notif.setBounds(getHeight(), 10, getWidth()-getHeight(), 20);
   notif.setFont(Assets.notoFont_Bold);
   notif.setForeground(UIConfig.getThemeColor("fg-opposite"));
   panel.add(notif);
 
-  JLabel title = new JLabel(task.getTitle(), JLabel.LEFT);
-  title.setBounds(getHeight(), 25, getWidth()-getHeight(), 20);
-  title.setFont(Assets.notoFont_Task);
-  title.setForeground(UIConfig.getThemeColor("fg-notif"));
-  if(title.getPreferredSize().width > getWidth())
-	  title.setHorizontalAlignment(JLabel.LEFT);
-  panel.add(title);
-
+  Button closebtn = new Button("Close", event -> {
+	  dispose();
+//	  UIThread.interrupt();
+  });
+  closebtn.setBounds(getWidth()-60, getHeight()/2+5, 55, getHeight()/2-10);
+  panel.add(closebtn);
+  
   setVisible(true);
 
   if (task.notifMail() && Keys.loaded) {
@@ -87,13 +85,6 @@ public class Notification extends JDialog implements Runnable {
   }else {
    dispose();
   }
-  
-  panel.addMouseListener(new MouseAdapter() {
-	  public void mouseReleased(MouseEvent e) {
-		  dispose();
-//		  UIThread.interrupt();
-	  }
-  });
 
  }
 
@@ -106,7 +97,7 @@ public class Notification extends JDialog implements Runnable {
    setLocation(0, getLocation().y + 1);
 
    try {
-    Thread.sleep(5);
+    Thread.sleep(1);
    } catch (Exception ex) {
     ex.printStackTrace();
    }
@@ -119,7 +110,7 @@ public class Notification extends JDialog implements Runnable {
   // waiting and letting the user read
   
   try {
-   Thread.sleep(7000);
+   Thread.sleep(12000);
   } catch (Exception ex) {
    System.out.println(ex.getMessage());
   }
@@ -137,7 +128,7 @@ public class Notification extends JDialog implements Runnable {
    YPOS--;
 
    try {
-    Thread.sleep(5);
+    Thread.sleep(1);
    } catch (Exception ex) {
     ex.printStackTrace();
    }
