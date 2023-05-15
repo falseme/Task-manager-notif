@@ -59,29 +59,17 @@ public class TaskManager {
       Task task = taskList.get(today).peek();
       if (task.getDate().before(calendar)) {
 
-       if (task.repeat()) {
+    	 //remove task from manager-list and visual-window-list.
+      	 userWindow.updateTasks(today, taskList.get(today).poll());
 
-//        taskList.get(today).peek().passTime
-        task.passTime();
-        if(task.getAmount() > 0 && task.getAmount() < 7) {
+    	 if(task.repeat()) {
 
-        	int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
-        	taskList.get(moveDay).add(task);
+    	  task.passTime();
 
-        	sort(moveDay);
-        	userWindow.updateTasks(moveDay);
+      	  int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
+      	  addTask(task, moveDay);
 
-        	userWindow.updateTasks(today, taskList.get(today).poll());
-
-        }
-        sort(today);
-        userWindow.updateTasks(today);
-
-       } else {
-
-        userWindow.updateTasks(today, taskList.get(today).poll());
-
-       }
+    	 }
 
        new Notification(task);
 
@@ -110,6 +98,9 @@ public class TaskManager {
   window.updateTasks(dayIndex);
 
   sort(dayIndex);
+  
+  //save
+  TaskReader.save(getTaskList(dayIndex), dayIndex);
 
   // long end = System.nanoTime();
   // double delta = end - init;
