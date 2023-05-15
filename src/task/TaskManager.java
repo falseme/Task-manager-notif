@@ -57,21 +57,37 @@ public class TaskManager {
        return;
 
       Task task = taskList.get(today).peek();
+      boolean ignoreNotif = false;
       if (task.getDate().before(calendar)) {
 
     	 //remove task from manager-list and visual-window-list.
-      	 userWindow.updateTasks(today, taskList.get(today).poll());
+       userWindow.updateTasks(today, taskList.get(today).poll());
+
+       int todaycode = getDayCalendarCode(calendar);
 
     	 if(task.repeat()) {
 
     	  task.passTime();
 
-      	  int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
-      	  addTask(task, moveDay);
+    	  //check if dates (task & today) are weeks apart, change to current week & notify
+   		  int taskdaycode = getDayCalendarCode(task.getDate());
+   		  while(todaycode - taskdaycode >= 7) {
+   		   task.passTime();
+   		   taskdaycode = getDayCalendarCode(task.getDate());
+   		   System.out.println(taskdaycode);
+   		   ignoreNotif = true;
+   		  }
+
+    	  int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
+      	addTask(task, moveDay);
 
     	 }
 
-       new Notification(task);
+       if(ignoreNotif)
+    	  //TODO add a desktop notification
+    	  System.out.println("Notif date is weeks apart");
+       else
+        new Notification(task);
 
       }
 
@@ -98,7 +114,7 @@ public class TaskManager {
   window.updateTasks(dayIndex);
 
   sort(dayIndex);
-  
+
   //save
   TaskReader.save(getTaskList(dayIndex), dayIndex);
 
@@ -167,6 +183,21 @@ public class TaskManager {
 
   taskList.get(dayIndex).sort(new TaskComparator<Task>());
 
+ }
+
+ /*
+  * Returns an Integer code as [year-month-day] eg. 20000116 (2000-01-16)
+  */
+ private static int getDayCalendarCode(Calendar calendar) {
+  return Integer.valueOf(calendar.get(Calendar.YEAR) + ""
+  + ((calendar.get(Calendar.MONTH)+1)<10?"0"+(calendar.get(Calendar.MONTH)+1):(calendar.get(Calendar.MONTH)+1)) + ""
+  + (calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH)));
+
+//  return Integer.valueOf(calendar.get(Calendar.YEAR) + ""
+//  + ((calendar.get(Calendar.MONTH)+1)<10?"0"+(calendar.get(Calendar.MONTH)+1):(calendar.get(Calendar.MONTH)+1)) + ""
+//  + (calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH)) + ""
+//  + (calendar.get(Calendar.HOUR_OF_DAY)<10?"0"+calendar.get(Calendar.HOUR_OF_DAY):calendar.get(Calendar.HOUR_OF_DAY)) + ""
+//  + (calendar.get(Calendar.MINUTE)<10?"0"+calendar.get(Calendar.MINUTE):calendar.get(Calendar.MINUTE)));
  }
 
 }
