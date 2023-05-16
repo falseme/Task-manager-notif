@@ -57,7 +57,7 @@ public class TaskManager {
        return;
 
       Task task = taskList.get(today).peek();
-      boolean ignoreNotif = false;
+      boolean expired = false;
       if (task.getDate().before(calendar)) {
 
     	 //remove task from manager-list and visual-window-list.
@@ -75,19 +75,15 @@ public class TaskManager {
    		   task.passTime();
    		   taskdaycode = getDayCalendarCode(task.getDate());
    		   System.out.println(taskdaycode);
-   		   ignoreNotif = true;
+   		   expired = true;
    		  }
 
     	  int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
-      	addTask(task, moveDay);
+    	  addTask(task, moveDay);
 
     	 }
 
-       if(ignoreNotif)
-    	  //TODO add a desktop notification
-    	  System.out.println("Notif date is weeks apart");
-       else
-        new Notification(task);
+    	new Notification(task, expired);
 
       }
 

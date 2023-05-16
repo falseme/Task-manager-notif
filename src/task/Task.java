@@ -198,4 +198,10 @@ public class Task extends JComponent {
 
  }
 
+public String getTime() {
+	return (date.get(Calendar.HOUR_OF_DAY)<10?"0"+date.get(Calendar.HOUR_OF_DAY):""+date.get(Calendar.HOUR_OF_DAY))
+	+ ":"
+	+ (date.get(Calendar.MINUTE)<10?"0"+date.get(Calendar.MINUTE):""+date.get(Calendar.MINUTE));
+}
+
 }
