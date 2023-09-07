@@ -57,33 +57,33 @@ public class TaskManager {
        return;
 
       Task task = taskList.get(today).peek();
+      boolean expired = false;
       if (task.getDate().before(calendar)) {
 
-       if (task.repeat()) {
+    	 //remove task from manager-list and visual-window-list.
+       userWindow.updateTasks(today, taskList.get(today).poll());
 
-//        taskList.get(today).peek().passTime
-        task.passTime();
-        if(task.getAmount() > 0 && task.getAmount() < 7) {
+       int todaycode = getDayCalendarCode(calendar);
 
-        	int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
-        	taskList.get(moveDay).add(task);
+    	 if(task.repeat()) {
 
-        	sort(moveDay);
-        	userWindow.updateTasks(moveDay);
+    	  task.passTime();
 
-        	userWindow.updateTasks(today, taskList.get(today).poll());
+    	  //check if dates (task & today) are weeks apart, change to current week & notify
+   		  int taskdaycode = getDayCalendarCode(task.getDate());
+   		  while(todaycode - taskdaycode >= 7) {
+   		   task.passTime();
+   		   taskdaycode = getDayCalendarCode(task.getDate());
+   		   System.out.println(taskdaycode);
+   		   expired = true;
+   		  }
 
-        }
-        sort(today);
-        userWindow.updateTasks(today);
+    	  int moveDay = task.getDate().get(Calendar.DAY_OF_WEEK) - 1;
+    	  addTask(task, moveDay);
 
-       } else {
+    	 }
 
-        userWindow.updateTasks(today, taskList.get(today).poll());
-
-       }
-
-       new Notification(task);
+    	new Notification(task, expired);
 
       }
 
@@ -110,6 +110,9 @@ public class TaskManager {
   window.updateTasks(dayIndex);
 
   sort(dayIndex);
+
+  //save
+  TaskReader.save(getTaskList(dayIndex), dayIndex);
 
   // long end = System.nanoTime();
   // double delta = end - init;
@@ -176,6 +179,21 @@ public class TaskManager {
 
   taskList.get(dayIndex).sort(new TaskComparator<Task>());
 
+ }
+
+ /*
+  * Returns an Integer code as [year-month-day] eg. 20000116 (2000-01-16)
+  */
+ private static int getDayCalendarCode(Calendar calendar) {
+  return Integer.valueOf(calendar.get(Calendar.YEAR) + ""
+  + ((calendar.get(Calendar.MONTH)+1)<10?"0"+(calendar.get(Calendar.MONTH)+1):(calendar.get(Calendar.MONTH)+1)) + ""
+  + (calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH)));
+
+//  return Integer.valueOf(calendar.get(Calendar.YEAR) + ""
+//  + ((calendar.get(Calendar.MONTH)+1)<10?"0"+(calendar.get(Calendar.MONTH)+1):(calendar.get(Calendar.MONTH)+1)) + ""
+//  + (calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH)) + ""
+//  + (calendar.get(Calendar.HOUR_OF_DAY)<10?"0"+calendar.get(Calendar.HOUR_OF_DAY):calendar.get(Calendar.HOUR_OF_DAY)) + ""
+//  + (calendar.get(Calendar.MINUTE)<10?"0"+calendar.get(Calendar.MINUTE):calendar.get(Calendar.MINUTE)));
  }
 
 }

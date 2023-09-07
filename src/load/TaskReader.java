@@ -46,7 +46,7 @@ public class TaskReader {
 
    file.createNewFile();
 
-   System.out.println(file.getPath());
+   System.out.println("[Loader] SAVED: " + file.getPath());
    TaskList taskList = new TaskList(tasks);
    taskList.serialize(file);
 

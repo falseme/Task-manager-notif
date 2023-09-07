@@ -28,7 +28,7 @@ public class Notification extends JDialog implements Runnable {
 
  private static ArrayList<Notification> notifList = new ArrayList<Notification>();
 
- public Notification(Task task) {
+ public Notification(Task task, boolean expired) {
 
   setSize(250, 60);
   setLocationRelativeTo(null);
@@ -53,8 +53,14 @@ public class Notification extends JDialog implements Runnable {
   JLabel notif = new JLabel(task.getTitle(), JLabel.LEFT);
   notif.setBounds(getHeight(), 10, getWidth()-getHeight(), 20);
   notif.setFont(Assets.notoFont_Bold);
-  notif.setForeground(UIConfig.getThemeColor("fg-opposite"));
+  notif.setForeground(expired?UIConfig.getThemeColor("fg-error"):UIConfig.getThemeColor("fg-opposite"));
   panel.add(notif);
+  
+  JLabel description = new JLabel(expired?"[Date expired]":task.getTime(), JLabel.LEFT);
+  description.setBounds(getHeight(), notif.getY()+notif.getHeight(), getWidth()-getHeight(), 20);
+  description.setFont(Assets.notoFont);
+  description.setForeground(UIConfig.getThemeColor("fg-opposite"));
+  panel.add(description);
 
   Button closebtn = new Button("Close", event -> {
 	  dispose();
