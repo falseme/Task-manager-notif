@@ -39,7 +39,7 @@ public class App {
  }
  
  private static void init() {
-
+	 
   Assets.init();
   Dictionary.init();
 

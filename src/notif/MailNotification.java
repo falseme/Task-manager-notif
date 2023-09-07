@@ -27,7 +27,7 @@ public class MailNotification implements Runnable {
   props.setProperty("mail.smtp.starttls.enable", "true");
   props.put("mail.smtp.ssl.trust", "smtp.office365.com");
   props.setProperty("mail.smtp.port", "587");
-  props.setProperty("mail.smtp.user", api.Keys.keys.get("NO_REPLY_USER"));
+  props.setProperty("mail.smtp.user", api.Keys.get("NO_REPLY_USER"));
   props.setProperty("mail.smtp.auth", "true");
 
   session = Session.getDefaultInstance(props);
@@ -58,13 +58,13 @@ public class MailNotification implements Runnable {
   try {
 
    MimeMessage message = new MimeMessage(session);
-   message.setFrom(new InternetAddress(api.Keys.keys.get("NO_REPLY_USER")));
+   message.setFrom(new InternetAddress(api.Keys.get("NO_REPLY_USER")));
    message.addRecipient(Message.RecipientType.TO, new InternetAddress(user));
    message.setSubject(subject + msg);
    message.setText(msg);
 
    Transport t = session.getTransport("smtp");
-   t.connect(api.Keys.keys.get("NO_REPLY_USER"), api.Keys.keys.get("NO_REPLY_PASS"));
+   t.connect(api.Keys.get("NO_REPLY_USER"), api.Keys.get("NO_REPLY_PASS"));
    t.sendMessage(message, message.getAllRecipients());
    t.close();
 

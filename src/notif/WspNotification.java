@@ -32,10 +32,10 @@ public class WspNotification implements Runnable {
 	@Override
 	public void run() {
 		
-		Twilio.init(api.Keys.keys.get("TWILIO_ACCOUNT_SID"), api.Keys.keys.get("TWILIO_AUTH_TOKEN"));
+		Twilio.init(api.Keys.get("TWILIO_ACCOUNT_SID"), api.Keys.get("TWILIO_AUTH_TOKEN"));
 		
 		Message message = Message.creator(new PhoneNumber(phoneNumber),
-				new PhoneNumber(api.Keys.keys.get("MESSAGE_NUMBER")), msg).create();
+				new PhoneNumber(api.Keys.get("MESSAGE_NUMBER")), msg).create();
 		
 		System.out.println(message.getStatus());
 		
