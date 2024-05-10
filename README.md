@@ -47,6 +47,19 @@ Remember to organize your time and have a relaxed weekend, knowing that every ta
 
 ------------
 
+### Build
+
+- If you want to build it yourself keep in mind the following environment variables list:
+```
+MESSAGE_NUMBER = TWILIO_MESSAGE_SENDER
+NO_REPLY_PASS = EMAIL_SENDER_PASS
+NO_REPLY_USER = EMAIL_SENDER_USER
+TWILIO_AUTH = TWILIO_AUTH_CODE
+TWILIO_SID = TWILIO_SID_CODE
+```
+
+------------
+
 ### FAQS
 
 - *How to setup the whatsapp notifications?*
@@ -80,13 +93,3 @@ Some icons and fonts are not owned by me (@falseme). Links, names and licencies 
 	- [Download](https://www.fontsquirrel.com/fonts/oswald)
 
 - Icons designed by <a href="https://www.flaticon.es/autores/najmunnahar" title="NajmunNahar">NajmunNahar</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
-
-- javax.mail.jar
-	- Owned by Oracle
-	- [Download](https://www.oracle.com/java/technologies/javamail-api.html)
-
-- javax.activation.jar
-	- Owned by Oracle
-
-- twilio.jar
-	- [Official site](https://www.twilio.com/)
