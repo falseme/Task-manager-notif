@@ -5,13 +5,13 @@
 	<img src="icon.svg" width="150" height="150" alt="Tasky logo">
 	<br>
 	<h1 style="font-size:30px">Tasky</h1>
-	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
+	<a href="https://github.com/falseme/Tasky/releases/v3.1">
 		<img src="https://img.shields.io/badge/tasky3-descarga-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
 	</a>
 	<br>
 	<img src="https://img.shields.io/github/issues/falseme/Tasky?style=for-the-badge&label=issues" alt="Tasky issues">
 	<img src="https://img.shields.io/github/license/falseme/Tasky?style=for-the-badge&label=license" alt="Tasky license">
-	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky issues">
+	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky version">
 </div>
 
 #### Tasky
@@ -41,7 +41,7 @@ Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que
 - La descarga de la version más reciente puede ser descargada en el botón debajo.
 - También puedes ver el historial de versiones [aquí](https://github.com/falseme/Tasky/releases)
 
-<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
+<a href="https://github.com/falseme/Tasky/releases/v3.1">
 	<img src="https://img.shields.io/badge/descarga-tasky3-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
 </a>
 
@@ -64,7 +64,7 @@ TWILIO_SID = TWILIO_SID_CODE
 
 - *Cómo activar las notificaciones de whatsapp?*
 
-**Primero ingresa tu número en las opciones de `Usario` y luego envía `join nearly-buffalo` a +1 415 523 8886. No envies SMS.**
+**Primero ingresa tu número en las opciones de `Usario` y luego envía `join nearly-buffalo` al número otorgado por TWILIO. No envies SMS.**
 
 - *Tienes problemas para registrar tu número?*
 
