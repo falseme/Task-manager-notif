@@ -5,13 +5,13 @@
 	<img src="icon.svg" width="150" height="150" alt="Tasky logo">
 	<br>
 	<h1 style="font-size:30px">Tasky</h1>
-	<a href="https://github.com/falseme/Tasky/releases/download/v3.1/Tasky3.exe">
+	<a href="https://github.com/falseme/Tasky/releases/v3.1">
 		<img src="https://img.shields.io/badge/tasky3-download-informational?style=for-the-badge&logo=DocuSign&logoColor=fff" alt="Tasky download">
 	</a>
 	<br>
 	<img src="https://img.shields.io/github/issues/falseme/Tasky?style=for-the-badge&label=issues" alt="Tasky issues">
 	<img src="https://img.shields.io/github/license/falseme/Tasky?style=for-the-badge&label=license" alt="Tasky license">
-	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky issues">
+	<img src="https://img.shields.io/github/release/falseme/Tasky?style=for-the-badge&label=version" alt="Tasky version">
 </div>
 
 #### Tasky
@@ -64,7 +64,7 @@ TWILIO_SID = TWILIO_SID_CODE
 
 - *How to setup the whatsapp notifications?*
 
-**First sign up your number in the `User` options and then send `join nearly-buffalo` to +1 415 523 8886. Do not send SMS.**
+**First sign up your number in the `User` options and then send `join nearly-buffalo` to your TWILIO_NUMBER. Do not send SMS.**
 
 - *Having problems with the whatsapp registration?*
 
