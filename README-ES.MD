@@ -47,6 +47,19 @@ Recuerda organizar tus tiempos para tener un fin de semana relajado sabiendo que
 
 ------------
 
+### Build
+
+- En caso de querer compilarlo por tu cuenta, no olvides la siguiente lista de variables de entorno:
+```
+MESSAGE_NUMBER = TWILIO_MESSAGE_SENDER
+NO_REPLY_PASS = EMAIL_SENDER_PASS
+NO_REPLY_USER = EMAIL_SENDER_USER
+TWILIO_AUTH = TWILIO_AUTH_CODE
+TWILIO_SID = TWILIO_SID_CODE
+```
+
+------------
+
 ### FAQS
 
 - *Cómo activar las notificaciones de whatsapp?*
@@ -80,14 +93,3 @@ Algunos iconos y fuentes no son de mi propiedad (@falseme). Los links, nombres y
 	- [Descarga](https://www.fontsquirrel.com/fonts/oswald)
 
 - Iconos diseñados por <a href="https://www.flaticon.es/autores/najmunnahar" title="NajmunNahar">NajmunNahar</a> en <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
-
-- javax.mail.jar
-	- Perteneciente a Oracle
-	- [Descarga](https://www.oracle.com/java/technologies/javamail-api.html)
-
-- javax.activation.jar
-	- Perteneciente a Oracle
-	[Descarga](https://www.oracle.com/java/technologies/downloads.html)
-
-- twilio.jar
-	- [Web oficial](https://www.twilio.com/)
